@@ -14,8 +14,8 @@ const plantSchema = new Schema({
   },
 
   sowinstructions: {
-     type: Schema.Types.ObjectId,
-     ref: "Sowinstructions", 
+     type: String,
+     trim: true,
 
   },
   spaceinstructions: {
