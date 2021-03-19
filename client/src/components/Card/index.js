@@ -6,6 +6,7 @@ import "./style.css";
 //button can be removed - need some click handler functionality to associate selected plants with selected garden square
 function Card(props) {
 
+    //useState here for updating the plant image
     const plant= this.props.plants.map(plant => {
         
         return (
