@@ -1,8 +1,8 @@
 import React from "react";
-import Container from "./components/Container";
-import Header from "./components/Header";
-import Row from "./components/Row";
-import Col from "./components/Col";
+import Container from "./components/Container/index.js";
+import Header from "./components/Header/index.js";
+import Row from "./components/Row/index.js";
+import Col from "./components/Col/index.js";
 
 function MyGarden() {
   return (

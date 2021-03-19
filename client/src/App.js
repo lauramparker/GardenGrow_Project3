@@ -11,8 +11,8 @@ import ExternalApi from "../src/views/ExternalApi";
 import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
 
-import Landing from "./pages/Landing Page";
-import MyGarden from "./pages/My Gardens";
+import Landing from "./pages/Landing Page/Landing.js";
+import MyGarden from "./pages/My Gardens/MyGarden.js";
 
 // styles
 import "./App.css";
