@@ -4,7 +4,7 @@ import Header from "./components/Header/index.js";
 import Row from "./components/Row/index.js";
 import Col from "./components/Col/index.js";
 
-function Landing() {
+function MyGarden() {
   return (
     <div>
       <Header />
@@ -16,7 +16,6 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default MyGarden;
 
-// Input group: 
-    // -Fields : Name / L x W / Date range 
+// new garden should append here in list format. 
