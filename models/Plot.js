@@ -2,6 +2,8 @@
 const { Schema } = require('mongoose');
 const Plant = require('./plants');
 
+const PLOT_SIZE_SQFT = 4;
+
 const plotSchema = new Schema({
     plant: {
         type: Plant,
@@ -9,9 +11,19 @@ const plotSchema = new Schema({
     },
     spaceMinimum: Number,
     spaceMaximum: Number,
-    numPlants: Number,
+    maxNumPlants: Number,
+    minNumPlants: Number,
 });
 
+// function to find the minimum number of plants 
+plotSchema.methods.findMinPlants = function (cb) {
+
+}
+
+// function to find the maximum number of plants
+plotSchema.methods.findMaxPlants = function (cb) {
+
+}
 // id (plant id from Plants Table)
 // name / altername
 // sow instructions
