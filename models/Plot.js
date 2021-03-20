@@ -1,18 +1,18 @@
 // This file contains the schema for a single 2x2 plot 
-const { Schema } = require('mongoose');
-const Plant = require('./plants');
+const { Schema } = require("mongoose");
+const Plant = require("./plants");
 
 const PLOT_SIZE_SQFT = 4;
 
 const plotSchema = new Schema({
-    plant: {
-        type: Plant,
-        required: false,
-    },
-    spaceMinimum: Number,
-    spaceMaximum: Number,
-    maxPlants: Number,
-    minPlants: Number,
+	plant: {
+		type: Plant,
+		required: false,
+	},
+	spaceMinimum: Number,
+	spaceMaximum: Number,
+	maxPlants: Number,
+	minPlants: Number,
 });
 
 // need to find the number of plants per square foot based on recommended spacing
@@ -20,12 +20,12 @@ const plotSchema = new Schema({
 // function to find the minimum number of plants 
 plotSchema.methods.findMinPlants = function (cb) {
     
-}
+};
 
 // function to find the maximum number of plants
 plotSchema.methods.findMaxPlants = function (cb) {
 
-}
+};
 // id (plant id from Plants Table)
 // name / altername
 // sow instructions
