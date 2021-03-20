@@ -11,7 +11,7 @@ function CardContainer(props) {
         return (
             <div>
                 <Grid>
-                    
+
                     <Row className="garden-row">
                         <Col xs={1}> <Card /> </Col>
                         <Col xs={1}> <Card /> </Col>
@@ -38,6 +38,7 @@ function CardContainer(props) {
                     </Row>
     
                 </Grid>
+                <Button>Save Garden</Button>
             </div>
          
         )

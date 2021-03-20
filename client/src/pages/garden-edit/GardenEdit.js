@@ -1,13 +1,10 @@
 import React from "react";
+import axios from "axios";
 import Container from "../../components/Container";
 import Header from "../../components/Header";
-import Row from "../../components/Row/index";
+import Row from "../../components/Row";
 import Col from "../../components/Col";
-import PlantData from "../../data/"; //need plant db
 
-
-//set array to equal all plants data for specific garden
-const plants = [];
 
 
 //create a new array of the selected plants from the (all) plants list.

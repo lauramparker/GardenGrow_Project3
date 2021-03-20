@@ -5,7 +5,7 @@ function List(props) {
 
     return(
         <ul className="list-group">
-            {plants.map(plant=>(
+            {props.plants.map(plant=>(
                 <li className="list-group-item" key={plant.id}>
                     {plant.name}
                 </li>
