@@ -11,13 +11,15 @@ const plotSchema = new Schema({
     },
     spaceMinimum: Number,
     spaceMaximum: Number,
-    maxNumPlants: Number,
-    minNumPlants: Number,
+    maxPlants: Number,
+    minPlants: Number,
 });
+
+// need to find the number of plants per square foot based on recommended spacing
 
 // function to find the minimum number of plants 
 plotSchema.methods.findMinPlants = function (cb) {
-
+    
 }
 
 // function to find the maximum number of plants
