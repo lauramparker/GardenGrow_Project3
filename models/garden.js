@@ -1,32 +1,43 @@
 const mongoose = require("mongoose");
+const Plot = require("./plot");
+
 
 const Schema = mongoose.Schema;
 
 const gardenSchema = new Schema({
-  userinfo: {
-    type: String,
+  userInfo: {
+    type: Plot,
     trim: true,
     required: "Enter a userid/email for transaction"
   },
-  gardenname: {
-    type: String,
+  gardenName: {
+    type: Plot,
     trim: true,
   },
 
   dimensions: {
-     type: String,
+     type: Plot,
      trim: true,
 
   },
-  dimensionswidth: {
-    type: String,
+  dimensionsWidth: {
+    type: Plot,
     trim: true,
   },
-  daterange: {
-  type: Date,
-  trim: true,
-  default: Date.now
-  }
+
+  dateRangeMinimum: Number,
+  dateRangeMaximum: Number,
+// function to find the minimum date range
+findMinDateRange = function (cb) {
+
+},
+
+// function to find the maximum date range
+findMinDateRange = function (cb) {
+
+},
+  
+
   
 });
 
