@@ -5,6 +5,11 @@ const Plot = require("./plot");
 const Schema = mongoose.Schema;
 
 const gardenSchema = new Schema({
+  plot: {
+	type: Plot,
+	required: false,
+    },
+    
   userInfo: {
     type: Plot,
     trim: true,
@@ -21,7 +26,7 @@ const gardenSchema = new Schema({
 
   },
   dimensionsWidth: {
-    type: Plot,
+    type: Number,
     trim: true,
   },
 
