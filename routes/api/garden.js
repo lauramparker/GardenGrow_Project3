@@ -1,28 +1,15 @@
-const db = require("../../models");
-const router = require("express").Router(); 
+const gardens = require("../../controllers/gardenController");
+const router = require("express").Router();
 
-module.exports = app => {
-	// get the user's gardens
-	app.get("/api/gardens", (req, res) => {
+router
+	.route("/")
+	.get(gardens.findAll)
+	.post(gardens.create);
 
-	});
+router
+	.route("/:id")
+	.get(gardens.findById)
+	.put(gardens.update)
+	.delete(gardens.remove);
 
-	// get a single garden by id
-	app.get("/api/gardens/:id", (req, res) => {
-
-	});
-	// post a new garden
-	app.post("/api/gardens", (req, res) => {
-
-	});
-
-	// update an existing garden
-	app.update("/api.gardens/:id", (req, res) => {
-
-	});
-
-	// delete a garden
-	app.delete("/api/gardens/:id", (req, res) => {
-        
-	});
-};
+module.exports = router;
