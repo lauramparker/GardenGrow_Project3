@@ -1,10 +1,14 @@
 const plants = require("../../controllers/plantsController");
 const router = require("express").Router();
 
-router.route("/")
+// route is /api/plants/
+router
+	.route("/")
 	.get(plants.findAll);
 
-router.route("/:id")
+// route is /api/plants/:id
+router
+	.route("/:id")
 	.get(plants.findById);
 
 module.exports = router;
