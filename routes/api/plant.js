@@ -1,4 +1,4 @@
-const plants = require("../../controllers/plantsController");
+const plants = require("../../controllers/plantController");
 const router = require("express").Router();
 
 // route is /api/plants/
