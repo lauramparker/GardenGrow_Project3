@@ -10,7 +10,7 @@ import SearchForm from "../../components/SearchForm";
 
 
 
-function Garden() {
+function Garden({plants}) {
 //setting state for plants table and card object (2x2 plot Card component)
     const[plants, setPlants] = useState([])
     const[garden, setGarden] = useState([])
@@ -77,11 +77,10 @@ function Garden() {
                 <Col>
                     <CardContainer 
                         onClick={handleGardenSubmit}
+                        handleCardSubmit={handleCardSubmit}
                     />
                 </Col>
-
             </Row>
-
             <Row>
                 <SearchForm>
                     search={this.state.search}
