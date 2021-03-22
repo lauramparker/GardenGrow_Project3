@@ -5,28 +5,17 @@ import { Grid, Row, Col } from "react-bootstrap";
 
 //grid is made up of individual plant cards with plant images
 //props.length and props.width to define number of rows and cols for Grid?
-function CardContainer({plants, handleCardSubmit}) {
+function CardContainer({plants, handleSelectedPlant, loadGarden, handleGardenUpdate, handleGardenSubmit}) {
         
         return (
             <div>
+                {/* {card state or garden state maped to load cards?} */}
                 <Grid>
                     <Row className="garden-row">
                       <Col>
                         <Card 
                         plants={plants}
-                        handleCardSubmit={handleCardSubmit}
-                        />
-                        <Card 
-                        plants={plants}
-                        handleCardSubmit={handleCardSubmit}
-                        />
-                        <Card 
-                        plants={plants}
-                        handleCardSubmit={handleCardSubmit}
-                        />
-                        <Card 
-                        plants={plants}
-                        handleCardSubmit={handleCardSubmit}
+                        handleSelectedPlant={handleSelectedPlant}
                         />
                       </Col>
                     </Row>

@@ -1,16 +1,27 @@
 import React from "react";
 import "./style.css";
 
-function List(props) {
+function List( {plants}, {handleSelectedPlant}) {
 
     return(
         <ul className="list-group">
-            {props.plants.map(plant=>(
+            {plants.map(plant=>(
                 <li className="list-group-item" key={plant.id}>
-                    {plant.name}
+                    
+                    <div class="form-check">
+                        <input 
+                            className="form-check-input"
+                            type="checkbox" 
+                            value="" 
+                            id="flexCheckDefault"
+                            onChange={event=> handleSelectedPlant(event.target)}>
+                            {/* // using Context  onClick={() => alert.onClick("selected", true)} className="form-check-input"> */}
+                        </input>      
+                        <label className="form-check-label" for="flexCheckDefault">{plant.name}</label>
+                    </div>
+    
                 </li>
-            )    
-            )}
+            ))}
         </ul>
     )
 }
