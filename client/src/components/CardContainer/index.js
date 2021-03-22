@@ -3,42 +3,33 @@ import Card from "./Card";
 import "./style.css";
 import { Grid, Row, Col } from "react-bootstrap";
 
-//grid is  made up of individual plant cards with plant images
+//grid is made up of individual plant cards with plant images
 //props.length and props.width to define number of rows and cols for Grid?
-//need to consider maximum size - 6 x 6 plots? what about mobile? maybe 4 x 8? each plot is 2 x 2 sq ft?
-function CardContainer(props) {
+function CardContainer({plants, handleSelectedPlant, loadGarden, handleGardenUpdate, handleGardenSubmit}) {
         
         return (
             <div>
+                {/* {card state or garden state maped to load cards?} */}
                 <Grid>
-
                     <Row className="garden-row">
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
+                      <Col>
+                        <Card 
+                        plants={plants}
+                        handleSelectedPlant={handleSelectedPlant}
+                        />
+                      </Col>
+                    </Row>
+                    {/* <Row className="garden-row">
+                    
                     </Row>
                     <Row className="garden-row">
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
+                   
                     </Row>
                     <Row className="garden-row">
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                    </Row>
-                    <Row className="garden-row">
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                        <Col xs={1}> <Card /> </Col>
-                    </Row>
-    
+              
+                    </Row> */}
                 </Grid>
-                <Button>Save Garden</Button>
+                <Button onClick={handleGardenSubmit}>Save Garden</Button>
             </div>
          
         )
