@@ -22,7 +22,7 @@ function Garden() {
         length: "",
         width: "",
         total_plots: 16,
-        garden_data: [] //array of cardState objects
+        garden_data: {} //array of cardState objects //try JSON object
     })
   
 
