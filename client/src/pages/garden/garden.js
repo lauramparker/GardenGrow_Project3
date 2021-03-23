@@ -108,7 +108,7 @@ function Garden({plants}) {
                 </Col>
                 <Col>
                     <CardContainer 
-                        loadGarden={loadGarden}
+                        garden_data={garden.garden_data}
                         total_plots={garden.total_plots}
                         handleGardenUpdate={handleGardenUpdate}
                         onClick={handleGardenSave}
