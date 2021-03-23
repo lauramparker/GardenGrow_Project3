@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-// import Container from "../../components/Container";
-// import Col from "../../components/Col";
-// import Row from "../../components/Row";
+import {Col, Row, Container} from "react-bootstrap";
 
 function GardenForm() {
     const [state, setState] = useState({

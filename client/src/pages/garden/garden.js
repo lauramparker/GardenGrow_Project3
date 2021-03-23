@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
+import {Col, Row, Container} from "react-bootstrap";
 import axios from "axios";
-import Container from "../../components/Container";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Row from "../../components/Row/index";
-import Col from "../../components/Col";
 import CardContainer from "../../components/CardContainer";
 import SearchForm from "../../components/SearchForm";
 

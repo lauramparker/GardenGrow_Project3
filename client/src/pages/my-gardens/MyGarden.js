@@ -1,8 +1,6 @@
 import React from "react";
-import Container from "../../components/Container";
+import {Col, Row, Container} from "react-bootstrap";
 import Header from "../../components/Header";
-import Row from "../../components/Row/index";
-import Col from "../../components/Col";
 
 function MyGarden() {
   return (

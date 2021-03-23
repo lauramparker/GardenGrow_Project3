@@ -1,9 +1,7 @@
 import React from "react";
+import {Col, Row, Container} from "react-bootstrap";
 import axios from "axios";
-import Container from "../../components/Container";
 import Header from "../../components/Header";
-import Row from "../../components/Row";
-import Col from "../../components/Col";
 
 
 
