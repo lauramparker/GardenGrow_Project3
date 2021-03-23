@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {Col, Row, Container} from "react-bootstrap";
-import axios from "axios";
+// import axios from "axios";
+import API from "../utils/API";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
 import ListGroup from "../../components/ListGroup";
 import SearchForm from "../../components/SearchForm";
 // import GardenForm from "../../components/Form";
-// import routes from "../../../../routes";
+
 
 
 
@@ -46,7 +47,7 @@ function Garden() {
     }, []);
 
     function loadPlants() {
-        axios.get(" ")
+        API.getPlants()
           .then(res => setPlants(res.data)) 
           .catch(err => console.log(err));
     };
@@ -60,7 +61,7 @@ function Garden() {
     }, []);
 
     function loadGarden() {
-        axios.get(" ") //route of new garden id
+        API.getPlots() //load plots of Garden using Garden id
         .then(res => setGarden(res.data)) 
         .catch(err => console.log(err));
     };
@@ -82,8 +83,8 @@ function Garden() {
 
 //add new cardState info to garden_data array // should loadGarden? to reload the Garden
     function handleGardenUpdate(cardState) {
-        // axios.put("") //route to update garden id
         setGarden(garden.garden_data=(garden.garden_data.push(cardState)))
+        .then(loadGarden())
         .catch(err => console.log(err));
     };
 
@@ -92,7 +93,7 @@ function Garden() {
 //when the user SAVES their garden, update saved garden
     function handleGardenSave(event) {
         event.preventDefault;
-        axios.put("") //route to update new garden
+        API.updateGarden() //route to update new garden (save happens on loading page)
           .then(req=> setGarden(req.data)) //update state with new garden
           .catch(err => console.log(err));
     };

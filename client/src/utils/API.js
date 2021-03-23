@@ -16,13 +16,18 @@ export default {
     return axios.post("/api/gardens/" + id, garden_data);
   },
 
-  // Gets Plot Cards for a specific garden
-  getPlots: function(id) {
-    return axios.get("/api/gardens/plots" + id);
+   // Updates a NEW Garden as plot cards are filled in
+   updateGarden: function(id, garden_data) {
+    return axios.post("/api/gardens/data" + id, garden_data);
   },
 
-  // Updates Plot Cards with selected plant data
-  updatePlot: function(id) {
-    return axios.put("/api/gardens/plots" + id);
-  },
-};
+//   // Gets Plot Cards for a specific garden
+//   getPlots: function(id) {
+//     return axios.get("/api/gardens/plots" + id);
+//   },
+
+//   // Updates Plot Cards with selected plant data
+//   updatePlot: function(id) {
+//     return axios.put("/api/gardens/plots" + id);
+//   },
+// };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {Col, Row, Container} from "react-bootstrap";
+import API from "../utils/API";
 
 function GardenForm() {
   //[garden, setGarden] in garden.js
@@ -18,6 +19,7 @@ function GardenForm() {
 
   const handleGardenSubmit = (e) => {
     e.preventDefault();
+    API.saveGarden();  //saving new Garden to db
     console.log(onsubmit)
 
   };
