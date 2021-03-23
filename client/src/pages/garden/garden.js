@@ -5,24 +5,27 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
 import SearchForm from "../../components/SearchForm";
+import GardenForm from "../../components/Form";
+import routes from "../../../../routes";
 
 
 
 function Garden({plants}) {
-//setting state for plants table to load plants in List
+//setting state for plants table to load plants in List table
     const[plants, setPlants] = useState([])
 
-//garden is an object of Card objects
-//default 16 plots - 4 rows, 4 columns (this gets updated in Landing Page)   
+//garden , set Garden updated in Form
     const[garden, setGarden] = useState({
-        row: 4,
-        col: 4,
+        gardenName: " ",
+        length: "",
+        width: "",
         total_plots: 16,
-        garden_data: [] //array of cardState objects (garden.garden_data).push(cardState)
+        garden_data: [] //array of cardState objects
     })
+  
 
 // setting Card state context. 
-//List can update cardstate with selected Plant (theme Selected or notSelected changes color/image)
+//List can update cardstate with selected plant
 //CardContainer can update cardstate with display depending on how many cards are displayed
     const[cardState, setCardState] = useState({ 
         card_id: "", //how do we set card_id?  related to total_plots?
@@ -62,9 +65,7 @@ function Garden({plants}) {
     };
 
 
-//update CardState with selected plant from List checkbox
-//send updated card object to handleCardSubmit
-//HOW to set card id? of use total plots?
+//update CardState with selected plant from List checkbox //Add updated cardstate to garden.garden_data
 
     function handleSelectedPlant(event)  {
         event.setCardState(plant_id= this.plant_id, plantImg=this.plantImg, selected=true)
@@ -73,9 +74,8 @@ function Garden({plants}) {
     };   
 
 
-//add new cardState to garden_data array & re-load the cards in Garden 
+//add new cardState info to garden_data array // should loadGarden? to reload the Garden
     function handleGardenUpdate(cardState) {
-        // event.preventDefault;
         // axios.put("") //route to update garden id
         setGarden(garden_data=(garden_data.push(cardState)))
         .catch(err => console.log(err));
@@ -83,10 +83,10 @@ function Garden({plants}) {
 
 
 
-//when the user saves their garden, post saved garden
-    function handleGardenSubmit(event) {
+//when the user SAVES their garden, update saved garden
+    function handleGardenSave(event) {
         event.preventDefault;
-        axios.post("") //route to post new garden
+        axios.put("") //route to update new garden
           .then(req=> setGarden(req.data)) //update state with new garden
           .catch(err => console.log(err));
     };
@@ -111,7 +111,7 @@ function Garden({plants}) {
                         loadGarden={loadGarden}
                         total_plots={garden.total_plots}
                         handleGardenUpdate={handleGardenUpdate}
-                        onClick={handleGardenSubmit}
+                        onClick={handleGardenSave}
                     />
                 </Col>
             </Row>

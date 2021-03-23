@@ -16,7 +16,7 @@ function GardenForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleGardenSubmit = (e) => {
     e.preventDefault();
     console.log(onsubmit)
 
@@ -28,7 +28,7 @@ function GardenForm() {
           <div className="mt-4">
             <h2>Sign Up</h2>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleGardenSubmit}>
             <Container className="mt-3 px-5">
               <Row className="form-group">
                 <Col size="12">
