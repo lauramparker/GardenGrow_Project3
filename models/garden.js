@@ -6,23 +6,23 @@ const Schema = mongoose.Schema;
 
 const gardenSchema = new Schema({
   plot: {
-	type: Plot,
-	required: false,
-    },
-    
+    type: Object,
+    required: false,
+  },
+
   userInfo: {
-    type: Plot,
+    type: String,
     trim: true,
     required: "Enter a userid/email for transaction"
   },
   gardenName: {
-    type: Plot,
+    type: String,
     trim: true,
   },
 
   dimensions: {
-     type: Plot,
-     trim: true,
+    type: Number,
+    trim: true,
 
   },
   dimensionsWidth: {
@@ -32,18 +32,19 @@ const gardenSchema = new Schema({
 
   dateRangeMinimum: Number,
   dateRangeMaximum: Number,
-// function to find the minimum date range
-findMinDateRange = function (cb) {
 
-},
+  // // function to find the minimum date range
+  // findMinDateRange: function (cb) {
 
-// function to find the maximum date range
-findMinDateRange = function (cb) {
+  // },
 
-},
-  
+  // // function to find the maximum date range
+  // findMinDateRange: function (cb) {
 
-  
+  // },
+
+
+
 });
 
 const Garden = mongoose.model("Garden", gardenSchema);
