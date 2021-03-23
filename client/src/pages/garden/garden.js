@@ -4,13 +4,14 @@ import axios from "axios";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
+import ListGroup from "../../components/ListGroup";
 import SearchForm from "../../components/SearchForm";
 import GardenForm from "../../components/Form";
-import routes from "../../../../routes";
+// import routes from "../../../../routes";
 
 
 
-function Garden({plants}) {
+function Garden() {
 //setting state for plants table to load plants in List table
     const[plants, setPlants] = useState([])
 
@@ -66,9 +67,14 @@ function Garden({plants}) {
 
 
 //update CardState with selected plant from List checkbox //Add updated cardstate to garden.garden_data
+//need to connect plants and cards in DB
 
     function handleSelectedPlant(event)  {
-        event.setCardState(plant_id= this.plant_id, plantImg=this.plantImg, selected=true)
+        event.setCardState(
+            cardState.plant_id= plants.plant_id, 
+            cardState.plantImg=plants.plantImg, 
+            cardState.selected=true
+            )
         .then(cardState => handleGardenUpdate(cardState))
         .catch(err => console.log(err));
     };   
@@ -77,7 +83,7 @@ function Garden({plants}) {
 //add new cardState info to garden_data array // should loadGarden? to reload the Garden
     function handleGardenUpdate(cardState) {
         // axios.put("") //route to update garden id
-        setGarden(garden_data=(garden_data.push(cardState)))
+        setGarden(garden.garden_data=(garden.garden_data.push(cardState)))
         .catch(err => console.log(err));
     };
 
@@ -100,7 +106,7 @@ function Garden({plants}) {
       <Container />
             <Row>
                 <Col>
-                    <List 
+                    <ListGroup 
                         loadPlants={loadPlants}
                         plants={plants} 
                         onChange={handleSelectedPlant}

@@ -19,7 +19,6 @@ function Card({garden_data}) {
             </div>
 
         )
-    });
 }
 
 export default Card;

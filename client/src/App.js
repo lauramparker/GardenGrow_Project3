@@ -14,7 +14,7 @@ import history from "./utils/history";
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
 import GardenEdit from "./pages/garden-edit/GardenEdit";
-import Garden from "./pages/Garden/garden";
+import Garden from "./pages/garden/garden";
 
 // styles
 import "./App.css";
