@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Col, Row, Container} from "react-bootstrap";
 // import axios from "axios";
-import API from "../utils/API";
+import API from "../../utils/API";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
@@ -92,7 +92,7 @@ function Garden() {
 
 //when the user SAVES their garden, update saved garden
     function handleGardenSave(event) {
-        event.preventDefault;
+        event.preventDefault()
         API.updateGarden() //route to update new garden (save happens on loading page)
           .then(req=> setGarden(req.data)) //update state with new garden
           .catch(err => console.log(err));

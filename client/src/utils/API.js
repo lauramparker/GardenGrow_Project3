@@ -12,8 +12,8 @@ export default {
   },
 
   // Saves a NEW Garden to the database with a specific id
-  saveGarden: function(garden_data) {
-    return axios.post("/api/gardens/" + id, garden_data);
+  saveGarden: function(id) {
+    return axios.post("/api/gardens/" + id);
   },
 
    // Updates a NEW Garden as plot cards are filled in
@@ -30,4 +30,4 @@ export default {
 //   updatePlot: function(id) {
 //     return axios.put("/api/gardens/plots" + id);
 //   },
-// };
+};
