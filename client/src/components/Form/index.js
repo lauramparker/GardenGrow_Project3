@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import {Col, Row, Container} from "react-bootstrap";
 
 function GardenForm() {
-    const [state, setState] = useState({
+  //[garden, setGarden] in garden.js
+    const [garden, setGarden] = useState({
       gardenName: " ",
       length: " ",
       width: " "
@@ -11,7 +12,7 @@ function GardenForm() {
   const handleChange = (e) => {
 
     const value = e.target.type === e.target.value
-    setState({ state, [e.target.name]: value,
+    setGarden({ garden, [e.target.name]: value,
     });
   };
 
@@ -44,7 +45,22 @@ function GardenForm() {
                 <Col size="12">
                   <select
                     name="length"
-                    value={state.length}
+                    value={garden.length} //changed from state.length
+                    onChange={handleChange}
+                  >
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                  </select>
+                </Col>
+              </Row>
+              <Row className="form-group">
+                <Col size="12">
+                  <select
+                    name="width"
+                    value={garden.width}
                     onChange={handleChange}
                   >
                     <option value="2">2</option>
