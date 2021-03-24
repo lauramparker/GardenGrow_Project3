@@ -6,7 +6,7 @@ function GardenForm() {
   //[garden, setGarden] in garden.js
     const [garden, setGarden] = useState({
       gardenName: " ",
-      length: " ",
+      length: "2",
       width: " "
   });
 
@@ -14,6 +14,7 @@ function GardenForm() {
 
     const value = e.target.type === e.target.value
     setGarden({ garden, [e.target.name]: value,
+    
     });
   };
 

@@ -8,6 +8,8 @@ import history from "./utils/history";
 import { getConfig } from "./authentication/config";
 
 
+
+
 const onRedirectCallback = (appState) => {
   history.push(
     appState && appState.returnTo ? appState.returnTo : window.location.pathname

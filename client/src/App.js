@@ -14,7 +14,7 @@ import history from "./utils/history";
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
 import GardenEdit from "./pages/garden-edit/GardenEdit";
-import Garden from "./pages/garden/garden";
+import Garden from "./pages/Garden/garden";
 
 // styles
 import "./App.css";
@@ -42,8 +42,8 @@ const App = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/profile" component={Profile} />
-            <Route path="/external-api" component={ExternalApi} />
-            <Route path="/LandingPage" component={Landing} />
+            <Route path="/external-api" component={ExternalApi} /> */}
+            <Route path="/landing-page" component={Landing} />
             <Route path="/MyGardens" component={MyGarden} />
             <Route path="/GardenEdit" component={GardenEdit} />
             <Route path="/Garden" component={Garden} />
