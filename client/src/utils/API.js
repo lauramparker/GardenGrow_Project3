@@ -17,11 +17,11 @@ export default {
   },
 
    // Updates a NEW Garden as plot cards are filled in
-   updateGarden: function(id, garden_data) {
-    return axios.post("/api/gardens/data" + id, garden_data);
+   updateGarden: function(id) {
+    return axios.put("/api/gardens/" + id);
   },
 
-//   // Gets Plot Cards for a specific garden
+  // Gets Plot Cards for a specific garden
 //   getPlots: function(id) {
 //     return axios.get("/api/gardens/plots" + id);
 //   },

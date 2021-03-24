@@ -3,7 +3,7 @@ import {Col, Row, Container} from "react-bootstrap";
 import Header from "../../components/Header";
 
 
-function MyGarden() {
+function Landing() {
   return (
     <div>
       <Header />
@@ -15,6 +15,6 @@ function MyGarden() {
   );
 }
 
-export default MyGarden;
+export default Landing;
 
 // new garden should append here in list format. 
