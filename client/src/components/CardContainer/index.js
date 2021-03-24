@@ -5,21 +5,21 @@ import "./style.css";
 
 
 //grid is made up of individual plant cards with plant images
-function CardContainer({props}) {
+function CardContainer({handleGardenSave}) {
         
         return (
                 <Container>
                     <Row className="garden-row">
                       <Col>
-
-                      {props.data.map(cardState => (
+                        <Card></Card>
+                      {/* {props.data.map(cardState => (
                         <Card key={cardState._id}>
                         </Card>
-                        ))}
+                        ))} */}
 
                       </Col>
                     </Row>
-                <button onClick={props.handleGardenSave}>Save Garden</button>
+                <button onClick={handleGardenSave}>Save Garden</button>
                 </Container>         
          
         )

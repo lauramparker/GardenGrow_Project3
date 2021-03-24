@@ -11,6 +11,12 @@ export default {
     return axios.get("/api/gardens/" + user_id);
   },
 
+
+// Get a Garden in the database with a specific id
+    getOneGarden: function(id) {
+        return axios.get("/api/gardens/" + id);
+      },
+
   // Saves a NEW Garden to the database with a specific id
   saveGarden: function(id) {
     return axios.post("/api/gardens/" + id);
