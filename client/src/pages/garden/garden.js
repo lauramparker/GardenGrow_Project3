@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Col, Row, Container} from "react-bootstrap";
+import { useParams } from "react-router-dom";
 // import axios from "axios";
 import API from "../../utils/API";
 import Header from "../../components/Header";
@@ -22,7 +23,7 @@ function Garden() {
         length: "",
         width: "",
         total_plots: 16,
-        garden_data: {} //array of cardState objects //try JSON object
+        garden_data: {} //try JSON object //previously array// garden._plot
     })
   
 
@@ -30,7 +31,7 @@ function Garden() {
 //List can update cardstate with selected plant
 //CardContainer can update cardstate with display depending on how many cards are displayed
     const[cardState, setCardState] = useState({ 
-        card_id: "", //how do we set card_id?  related to total_plots?
+        plot_id: "", //how do we set card_id?  related to total_plots? //plot._id
         display: true,
         selected: false,
         plant_id: "",
@@ -54,17 +55,13 @@ function Garden() {
 
 
 
-//Load empty Cards when CardContainer Garden page renders
-//This has to come from user initiating creation of new Garden on Landing Page
-    useEffect(() => {
-        loadGarden()
-    }, []);
-
-    function loadGarden() {
-        API.getPlots() //load plots of Garden using Garden id
-        .then(res => setGarden(res.data)) 
-        .catch(err => console.log(err));
-    };
+//Load specific Garden (new Garden) when pages loads
+        const {id} = useParams()
+        useEffect(() => {
+        API.getOneGarden(id)
+            .then(res => setGarden(res.data))
+            .catch(err => console.log(err));
+        }, [])
 
 
 //update CardState with selected plant from List checkbox //Add updated cardstate to garden.garden_data
@@ -73,7 +70,8 @@ function Garden() {
     function handleSelectedPlant(event)  {
         event.setCardState(
             cardState.plant_id= plants.plant_id, 
-            cardState.plantImg=plants.plantImg, 
+            cardState.plantImg= plants.plantImg, 
+            cardState.plot_id= plants.plot._id, //what is this?
             cardState.selected=true
             )
         .then(cardState => handleGardenUpdate(cardState))
@@ -84,7 +82,6 @@ function Garden() {
 //add new cardState info to garden_data array // should loadGarden? to reload the Garden
     function handleGardenUpdate(cardState) {
         setGarden(garden.garden_data=(garden.garden_data.push(cardState)))
-        .then(loadGarden())
         .catch(err => console.log(err));
     };
 
@@ -108,14 +105,13 @@ function Garden() {
             <Row>
                 <Col>
                     <ListGroup 
-                        loadPlants={loadPlants}
                         plants={plants} 
                         onChange={handleSelectedPlant}
                     />
                 </Col>
                 <Col>
                     <CardContainer 
-                        garden_data={garden.garden_data}
+                        // data={garden.garden_data}
                         total_plots={garden.total_plots}
                         handleGardenUpdate={handleGardenUpdate}
                         onClick={handleGardenSave}
@@ -124,7 +120,7 @@ function Garden() {
             </Row>
             <Row>
                 <SearchForm>
-                    search={this.state.search}
+                    {/* search={this.state.search} */}
                 </SearchForm>
             </Row>        
       <Footer />
