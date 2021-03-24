@@ -22,7 +22,7 @@ function Garden() {
         length: "",
         width: "",
         total_plots: 16,
-        garden_data: {} //array of cardState objects //try JSON object
+        garden_data: {} //try JSON object //previously array// garden._plot
     })
   
 
@@ -30,7 +30,7 @@ function Garden() {
 //List can update cardstate with selected plant
 //CardContainer can update cardstate with display depending on how many cards are displayed
     const[cardState, setCardState] = useState({ 
-        card_id: "", //how do we set card_id?  related to total_plots?
+        plot_id: "", //how do we set card_id?  related to total_plots? //plot._id
         display: true,
         selected: false,
         plant_id: "",
@@ -72,8 +72,9 @@ function Garden() {
 
     function handleSelectedPlant(event)  {
         event.setCardState(
-            cardState.plant_id= plants.plant_id, 
-            cardState.plantImg=plants.plantImg, 
+            cardState.plant_id= setPlants.plant_id, 
+            cardState.plantImg= setPlants.plantImg, 
+            cardState.plot_id= setPlants.plot._id, //what is this?
             cardState.selected=true
             )
         .then(cardState => handleGardenUpdate(cardState))
@@ -115,7 +116,7 @@ function Garden() {
                 </Col>
                 <Col>
                     <CardContainer 
-                        garden_data={garden.garden_data}
+                        data={garden.garden_data}
                         total_plots={garden.total_plots}
                         handleGardenUpdate={handleGardenUpdate}
                         onClick={handleGardenSave}
@@ -124,7 +125,7 @@ function Garden() {
             </Row>
             <Row>
                 <SearchForm>
-                    search={this.state.search}
+                    {/* search={this.state.search} */}
                 </SearchForm>
             </Row>        
       <Footer />
