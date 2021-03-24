@@ -1,12 +1,23 @@
 import React from "react";
+// import {Container} from "react-bootstrap";
+// import Table from 'react-bootstrap/Table';
 import "./style.css";
 
-function List(props) {
+export function ListGroup({children}) {
 
     return(
-        <ul className="list-group">
-            {props.plants.map(plant=>(
-                <li className="list-group-item" key={plant.id}>
+        <div className="list-overflow-container" id="plantList">
+        <ul className="list-group">{children} </ul>
+        </div>
+        );
+    }
+
+
+export function Item({props}, {children}) {
+
+            return(
+
+                <li className="list-group-item" > {children}
                     
                     <div class="form-check">
                         <input 
@@ -15,15 +26,13 @@ function List(props) {
                             value="" 
                             id="flexCheckDefault"
                             onChange={event=> props.handleSelectedPlant(event.target)}>
-                            {/* // using Context  onClick={() => alert.onClick("selected", true)} className="form-check-input"> */}
                         </input>      
-                        <label className="form-check-label" for="flexCheckDefault">{plant.name}</label>
+                        <label className="form-check-label" for="flexCheckDefault">{props.plant.name}</label>
                     </div>
     
                 </li>
-            ))}
-        </ul>
-    )
-}
+            )
+        }
+        
 
-export default List;
+
