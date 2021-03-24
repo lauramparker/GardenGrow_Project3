@@ -6,7 +6,7 @@ import API from "../../utils/API";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
-import ListGroup from "../../components/ListGroup";
+import { ListGroup, Item } from "../../components/ListGroup";
 import SearchForm from "../../components/SearchForm";
 // import GardenForm from "../../components/Form";
 
@@ -23,7 +23,15 @@ function Garden() {
         length: "",
         width: "",
         total_plots: 16,
-        garden_data: {} //try JSON object //previously array// garden._plot
+        garden_data: [ //try JSON object //has to be array for .map to work
+            "plant a", 
+            "plant b",
+            "plant c",
+            "plant d",
+            "plant e",
+            "plant f", 
+        ],
+             
     })
   
 
@@ -42,7 +50,7 @@ function Garden() {
     }) 
 
 
-//Load all plants into plants list when List on Garden page renders
+//Load all plants and set to plants when Garden page renders
     useEffect(() => {
         loadPlants()
     }, []);
@@ -55,7 +63,7 @@ function Garden() {
 
 
 
-//Load specific Garden (new Garden) when pages loads
+//Load specific Garden (new Garden) when pages loads (will use - need to define id)
         const {id} = useParams()
         useEffect(() => {
         API.getOneGarden(id)
@@ -101,28 +109,41 @@ function Garden() {
   return (
     <div>
       <Header />
-      <Container />
+      <Container fluid>
             <Row>
+
                 <Col>
-                    <ListGroup 
-                        plants={plants} 
-                        onChange={handleSelectedPlant}
-                    />
-                </Col>
-                <Col>
+                    <h3>Plot Garden</h3>
+
                     <CardContainer 
-                        // data={garden.garden_data}
-                        total_plots={garden.total_plots}
+                        data={garden.garden_data}
+                        // total_plots={garden.total_plots}
                         handleGardenUpdate={handleGardenUpdate}
                         onClick={handleGardenSave}
                     />
                 </Col>
+
+                <Col>
+                    <h3>Select Plants</h3>
+                    <ListGroup>
+                        {plants.map(plant => (
+                            <Item 
+                            key={plant._id}
+                            >                              
+                        </Item>
+                        ))}
+                    </ListGroup>
+                </Col>
+            
             </Row>
+         
+
             <Row>
                 <SearchForm>
                     {/* search={this.state.search} */}
                 </SearchForm>
-            </Row>        
+            </Row>  
+        </Container>      
       <Footer />
 
     </div>
