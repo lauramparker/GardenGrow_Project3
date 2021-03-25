@@ -3,7 +3,6 @@ import {Col, Row, Container} from "react-bootstrap";
 import { useParams } from "react-router-dom";
 // import axios from "axios";
 import API from "../../utils/API";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
 import { ListGroup, Item } from "../../components/ListGroup";
@@ -108,7 +107,6 @@ function Garden() {
 
   return (
     <div>
-      <Header />
       <Container fluid>
             <Row>
 
