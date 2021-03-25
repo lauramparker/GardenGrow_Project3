@@ -2,7 +2,7 @@ import React from "react";
 
 
 //set up table that lists plants
-function PlantList(props) {
+function Table(props) {
     return (
     <div>
         <table className="table" id="plants">
@@ -18,6 +18,8 @@ function PlantList(props) {
                 return (
                 <tr>
                     <td>{plant.name}</td> 
+                    <td>{plant.url}</td> 
+                    <td>{plant.harvest}</td> 
                 </tr>
                 )
             })
@@ -28,4 +30,4 @@ function PlantList(props) {
     );
 }
 
-export default PlantList;
+export default Table;
