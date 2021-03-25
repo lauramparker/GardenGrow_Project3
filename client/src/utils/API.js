@@ -4,7 +4,7 @@ import axios from "axios";
 export default {
   // Gets all plants in db
   getPlants: function() {
-    return axios.get("/api/plants");
+    return axios.get("http://localhost:3001/api/plants");
   },
 
   // Get all gardens for specific user id ?????

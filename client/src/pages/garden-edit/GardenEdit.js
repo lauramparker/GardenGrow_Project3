@@ -1,28 +1,55 @@
-import React from "react";
-import {Col, Row, Container} from "react-bootstrap";
+import React, {Component} from "react";
+import {Row, Container} from "react-bootstrap";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import PlantList from "../../components/PlantList";
+import API from "../../utils/API";
 
 
+class GardenEdit extends Component {
 
-//create a new array of the selected plants from the (all) plants list.
-//<List> component sends only the selected plants as plants to create the list/table component
-//in Garden component, plants is equal to all plants on the planning garden page
-// const selectedPlants = props.plants.filter(plant => plant.selected);
+state = {  
+  plants: [],
+};
 
-function GardenEdit() {
-  return (
-    <div>
-      <Header />
-        <Container />
-            <Row />
-            <Col />
-                {/* <List plants={selectedPlants} /> */}
-      <Footer />
 
-    </div>
-  );
-}
+//When the component mounts, request the data from Random User in Utils/API, 
+componentDidMount() {
+  this.getPlantsList()
+};
+
+
+getPlantsList = () => {
+  API.getPlants()
+  .then(({ data }) => {
+      const plants = data.results.map(plant => {
+          return {
+              name: plant.name
+          }
+      });
+      //sets both state arrays (employees & filterResults equal to same original API call)
+      this.setState({plants: [...plants]})
+  }).catch(err => console.error(err));
+};
+
+
+        render() {
+          return (
+            <div>
+              <Header />
+                <Container />
+                    <Row>
+                      <h3>PLANT TABLE</h3>
+                      <PlantList 
+                        plants={this.state.plants}
+                      />
+                    </Row>  
+              <Footer />
+
+            </div>
+          )
+        }
+};
 
 export default GardenEdit;
 
