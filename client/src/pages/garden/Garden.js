@@ -37,15 +37,13 @@ function Garden() {
 
 // setting Card state context. 
 //List can update cardstate with selected plant
-//CardContainer can update cardstate with display depending on how many cards are displayed
     const[cardState, setCardState] = useState({ 
-        plot_id: "", //how do we set card_id?  related to total_plots? //plot._id
-        display: true,
-        selected: false,
+        plot_id: "", //how do we set plot?
         plant_id: "",
+        plant_name: "",
         plantImg:"",
-        onClick: (plant_id, plantImg, selected, display) => {
-            setCardState({ ...cardState, plant_id, plantImg, selected, display });
+        onClick: (plant_id, plant_name, plantImg) => {
+            setCardState({ ...cardState, plant_id, plant_name, plantImg });
             }
     }) 
 
@@ -126,6 +124,7 @@ function Garden() {
                             <Item 
                             key={plant._id}
                             plant={plant}
+                            handleSelectedPlant={handleSelectedPlant}  
                             >                              
                         </Item>
                         ))}
