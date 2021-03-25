@@ -1,0 +1,22 @@
+table {
+    border: 1px solid black;
+    overflow-x: scroll;
+    max-height: 350px;
+  }
+  
+  td,
+  th {
+    border: 1px solid black;
+    width: 50px;
+    overflow-wrap: normal;
+  }
+  
+  /* .table-fixed thead {
+    width: 97%;
+  }
+  
+  .table-fixed tbody {
+    height: 150px;
+    overflow-y: scroll;
+    width: 100%;
+  } */
