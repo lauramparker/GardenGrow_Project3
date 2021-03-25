@@ -5,9 +5,9 @@ import API from "../../utils/API";
 function GardenForm() {
   //[garden, setGarden] in garden.js
     const [garden, setGarden] = useState({
-      gardenName: " ",
-      length: "2",
-      width: " "
+      gardenName: "",
+      length: "",
+      width: ""
   });
 
   const handleChange = (e) => {
@@ -29,7 +29,7 @@ function GardenForm() {
     return (
         <div>
           <div className="mt-4">
-            <h2>Sign Up</h2>
+            <h2>Garden Parameters</h2>
           </div>
           <form onSubmit={handleGardenSubmit}>
             <Container className="mt-3 px-5">
@@ -46,7 +46,9 @@ function GardenForm() {
               </Row>
               <Row className="form-group">
                 <Col size="12">
-                  <select
+                  <label>
+                    Length
+                    <select
                     name="length"
                     value={garden.length} //changed from state.length
                     onChange={handleChange}
@@ -57,10 +59,9 @@ function GardenForm() {
                     <option value="8">8</option>
                     <option value="10">10</option>
                   </select>
+                  </label>
                 </Col>
-              </Row>
-              <Row className="form-group">
-                <Col size="12">
+                {/* <Col size="12">
                   <select
                     name="width"
                     value={garden.width}
@@ -72,9 +73,12 @@ function GardenForm() {
                     <option value="8">8</option>
                     <option value="10">10</option>
                   </select>
-                </Col>
+                </Col> */}
               </Row>
-              <button className="btn btn-success" type="submit">
+              <Row className="form-group">
+
+              </Row>
+              <button className="btn btn-success" type="submit"onSubmit={handleChange}>
                 Submit
               </button>
             </Container>
