@@ -8,7 +8,7 @@ import "./style.css";
 function Cards({handleCardSubmit}) {
         
         return (
-
+            
             <Card className="plot-card">
             <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/basic-cmyk-202827463.jpg" />
                 <Card.Body>

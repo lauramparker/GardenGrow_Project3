@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {Col, Row, Container} from "react-bootstrap";
 import { useParams } from "react-router-dom";
-// import axios from "axios";
 import API from "../../utils/API";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
 import { ListGroup, Item } from "../../components/ListGroup";
+import Table from "../../components/Table";
 import SearchForm from "../../components/SearchForm";
-// import GardenForm from "../../components/Form";
+import "./garden.css";
 
 
 
@@ -37,29 +37,24 @@ function Garden() {
 
 // setting Card state context. 
 //List can update cardstate with selected plant
-//CardContainer can update cardstate with display depending on how many cards are displayed
     const[cardState, setCardState] = useState({ 
-        plot_id: "", //how do we set card_id?  related to total_plots? //plot._id
-        display: true,
-        selected: false,
+        plant_name: "",
+        plot_id: "", //how do we set plot_id?
         plant_id: "",
         plantImg:"",
-        onClick: (plant_id, plantImg, selected, display) => {
-            setCardState({ ...cardState, plant_id, plantImg, selected, display });
+        onClick: (plant_name, plantImg) => {
+            setCardState({ ...cardState, plant_name, plantImg });
             }
     }) 
 
 
 //Load all plants and set to plants when Garden page renders
     useEffect(() => {
-        loadPlants()
-    }, []);
-
-    function loadPlants() {
         API.getPlants()
-          .then(res => setPlants(res.data)) 
-          .catch(err => console.log(err));
-    };
+        .then(res => setPlants(res.data))
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }, [])
 
 
 
@@ -75,11 +70,11 @@ function Garden() {
 //update CardState with selected plant from List checkbox //Add updated cardstate to garden.garden_data
 //need to connect plants and cards in DB
 
-    function handleSelectedPlant(event)  {
+    function handleSelectedPlant(event, plant)  {
         event.setCardState(
-            cardState.plant_id= plants.plant_id, 
-            cardState.plantImg= plants.plantImg, 
-            cardState.plot_id= plants.plot._id, //what is this?
+            cardState.plant_name= plant.name, 
+            cardState.plantImg= plant.plantImg, 
+            cardState.plot_id= plant.plot._id,
             cardState.selected=true
             )
         .then(cardState => handleGardenUpdate(cardState))
@@ -109,7 +104,7 @@ function Garden() {
   return (
     <div>
       <Header />
-      <Container fluid>
+      <Container id="main">
             <Row>
 
                 <Col>
@@ -129,13 +124,23 @@ function Garden() {
                         {plants.map(plant => (
                             <Item 
                             key={plant._id}
-                            >                              
+                            plant={plant}
+                            handleSelectedPlant={handleSelectedPlant}   
+                            >                           
                         </Item>
                         ))}
                     </ListGroup>
                 </Col>
             
             </Row>
+
+                    <Row>
+                      <h3>PLANT TABLE</h3>  
+                      <Table
+                        plants={plants}  
+                        >
+                        </Table> 
+                    </Row> 
          
 
             <Row>

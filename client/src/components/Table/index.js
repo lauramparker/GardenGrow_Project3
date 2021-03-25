@@ -19,7 +19,7 @@ function Table(props) {
                 <tr>
                     <td>{plant.name}</td> 
                     <td>{plant.url}</td> 
-                    <td>{plant.harvest}</td> 
+                    <td>{plant.harvestInstructions}</td> 
                 </tr>
                 )
             })
