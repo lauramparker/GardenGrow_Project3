@@ -52,15 +52,11 @@ function Garden() {
 
 //Load all plants and set to plants when Garden page renders
     useEffect(() => {
-        loadPlants()
-    }, []);
-
-    function loadPlants() {
         API.getPlants()
-          .then(res => setPlants(res.data)) 
-          .catch(err => console.log(err));
-    };
-
+        .then(res => setPlants(res.data))
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }, [])
 
 
 //Load specific Garden (new Garden) when pages loads (will use - need to define id)
@@ -77,9 +73,9 @@ function Garden() {
 
     function handleSelectedPlant(event)  {
         event.setCardState(
-            cardState.plant_id= plants.plant_id, 
-            cardState.plantImg= plants.plantImg, 
-            cardState.plot_id= plants.plot._id, //what is this?
+            cardState.plant_id= plant._id, 
+            cardState.plantImg= plant.plantImg, 
+            cardState.plot_id= plant.plot._id, //what is this?
             cardState.selected=true
             )
         .then(cardState => handleGardenUpdate(cardState))
@@ -129,6 +125,7 @@ function Garden() {
                         {plants.map(plant => (
                             <Item 
                             key={plant._id}
+                            plant={plant}
                             >                              
                         </Item>
                         ))}
