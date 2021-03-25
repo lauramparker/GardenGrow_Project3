@@ -1,29 +1,27 @@
 import React from "react";
-import { Container, Row, Col  } from "react-bootstrap";  //{Grid?}
-import Card from "../Card";
+// import { Col, Row  } from "react-bootstrap";  //{Grid?}
+import CardColumns from "react-bootstrap/CardColumns"; 
+import Cards from "../Card";
 import "./style.css";
 
 
-//grid is made up of individual plant cards with plant images
-function CardContainer({garden_data, handleGardenSave}) {
-        
-        return (
-                <Container>
-                    <Row className="garden-row">
-                      <Col>
+//for the number of total_plots, create a card
+function CardContainer(props) {
+    
+    return (
+        <div> 
+            <CardColumns>
+            
+                {props.data.map(data=> (
+                    <Cards key={data._id}></Cards>
+                    
+                ))}
+                
+            </CardColumns>
+            <button onClick={props.handleGardenSave}>Save Garden</button>
+        </div>
+    )
 
-                      {garden_data.map(cardState => (
-                        <Card key={cardState._id}>
-                        </Card>
-                        ))}
-
-                      </Col>
-                    </Row>
-                <button onClick={handleGardenSave}>Save Garden</button>
-                </Container>         
-         
-        )
-
-}
+};
 
 export default CardContainer;
