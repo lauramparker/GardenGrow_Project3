@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
-const Plot = require("./plot");
+const { plotSchema } = require("./plot");
 
 
 const Schema = mongoose.Schema;
 
 const gardenSchema = new Schema({
-  plot: {
-    type: Object,
+  plots: {
+    type: Array,
+    of: plotSchema,
     required: false,
   },
 
@@ -20,12 +21,12 @@ const gardenSchema = new Schema({
     trim: true,
   },
 
-  dimensions: {
+  length: {
     type: Number,
     trim: true,
 
   },
-  dimensionsWidth: {
+  width: {
     type: Number,
     trim: true,
   },
@@ -50,3 +51,4 @@ const gardenSchema = new Schema({
 const Garden = mongoose.model("Garden", gardenSchema);
 
 module.exports = Garden;
+
