@@ -5,7 +5,7 @@ import Form from "../../components/Form";
 
 
 
-function MyGarden() {
+function Landing() {
   return (
     <div>
       <Header />
@@ -18,6 +18,6 @@ function MyGarden() {
   );
 }
 
-export default MyGarden;
+export default Landing;
 
 // new garden should append here in list format. 
