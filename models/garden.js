@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Plot = require("./plot");
+const { plotSchema } = require("./plot");
 
 
 const Schema = mongoose.Schema;
@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const gardenSchema = new Schema({
   plots: {
     type: Array,
+    of: plotSchema,
     required: false,
   },
 
