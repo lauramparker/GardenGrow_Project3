@@ -27,7 +27,7 @@ export function Item(props) {
                             id="flexCheckDefault"
                             onChange={event=> props.handleSelectChange(event.target)}>
                         </input>      
-                        <label className="form-check-label" for="flexCheckDefault">{props.plant.name}</label>
+                        <label className="form-check-label" for="flexCheckDefault">{props.plant.Name}</label>
                     </div>
     
                 </li>

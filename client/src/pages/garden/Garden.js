@@ -77,7 +77,7 @@ function Garden() {
     };
 
 //runs when garden container renders (like component did mount)
-    useEffect(() => {
+    useEffect((garden) => {
        API.updateGarden({
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
