@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Col, Row, Container} from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Col, Row, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
@@ -76,6 +76,7 @@ function Garden() {
         }));
     };
 
+    
 //when the user saves their garden, an update/put request is made 
 //(initial post on create garden)
     function handleGardenSubmit(event) {
@@ -123,14 +124,14 @@ function Garden() {
                 {/* <SearchForm>
                   
                 </SearchForm> */}
-            </Row>  
-        </Container>      
-      <Footer />
+					</Row>
+				</Container>
+				<Footer />
 
-    </div>
-  );
+			</div>
+		);
+	
 }
-
 
 
 export default Garden;
