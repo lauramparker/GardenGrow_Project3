@@ -13,11 +13,11 @@ export function ListGroup({children}) {
     }
 
 
-export function Item({props}, {children}) {
+export function Item(props) {
 
             return(
 
-                <li className="list-group-item" > {children}
+                <li className="list-group-item" >
                     
                     <div class="form-check">
                         <input 
