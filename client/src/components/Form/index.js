@@ -12,7 +12,7 @@ function GardenForm() {
     length: "",
     width: "",
   });
-
+// state for date range picker
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -90,7 +90,6 @@ function GardenForm() {
             moveRangeOnFirstSelection={false}
             ranges={state}
           />
-
           </Row>
           <Row className="form-group">
             <button
