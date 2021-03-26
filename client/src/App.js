@@ -40,7 +40,7 @@ const App = () => {
       <div id="app" className="d-flex flex-column h-100">
         <NavBar />
         <Container className="flex-grow-1 mt-5">
-            <Route exact path="/" exact component={Home} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
             {/* <Route exact path="/external-api" component={ExternalApi} /> */}
             <Route exact path="/landing-page" component={Landing} />
