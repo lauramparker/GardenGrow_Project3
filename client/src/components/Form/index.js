@@ -30,25 +30,41 @@ function GardenForm() {
     };
     
 
+  //VERSION TWO
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      //saving new Garden to db
+        API.saveGarden({
+          gardenName: garden.name,
+          length: garden.length,
+          width: garden.width
+        }).then(res => setGarden({
+          gardenName: res.data.gardenName,
+          length: res.data.length,
+          width: res.data.length
+        }))
+        .catch((err) => console.log(err));
+    };
 
-  //
-  const handleSubmit = (e) => {
-    alert(this.state.value);
-    e.preventDefault();
+
+  // VERSION ONE TO TEST
+  // const handleSubmit = (e) => {
+  //   alert(this.state.value);
+  //   e.preventDefault();
     
-      API.saveGarden({
-        gardenName: garden.name,
-        length: garden.length,
-        width: garden.width
-      }).then (() => setGarden({
-        gardenName:"",
-        length:"",
-        width:""
-      }))
-      .catch((err) => console.log(err));
-     //saving new Garden to db
-    console.log(onsubmit);
-  };
+  //     API.saveGarden({
+  //       gardenName: garden.name,
+  //       length: garden.length,
+  //       width: garden.width
+  //     }).then (() => setGarden({
+  //       gardenName:"",
+  //       length:"",
+  //       width:""
+  //     }))
+  //     .catch((err) => console.log(err));
+  //    //saving new Garden to db
+  //   console.log(onsubmit);
+  // };
 
   return (
     <div>

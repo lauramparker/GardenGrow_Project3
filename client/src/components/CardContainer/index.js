@@ -16,7 +16,7 @@ function CardContainer(props) {
                     <Cards key={data._id}
                         name={data.name}
                         spacing={data.spacing}
-                        harvest={data.harvet}
+                        harvest={data.harvest}
                         image={data.image}
                     >
                     </Cards>

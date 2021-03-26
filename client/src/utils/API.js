@@ -18,14 +18,14 @@ export default {
       return axios.get("/api/gardens/" + id);
     },
 
-    // Get a plant with a specific id
-    getOnePlant: function(id) {
+  // Get a plant with a specific id
+  getOnePlant: function(id) {
       return axios.get("api/plants/" + id)
     },
 
-  // Create (Saves) a NEW Garden to the database with a specific id
-  saveGarden: function(garden) {
-    return axios.post("/api/gardens", garden );
+  // Create (Saves) a NEW Garden to the database
+  saveGarden: function() {
+    return axios.post("/api/gardens", {gardenName, length, width} );
   },
 
    // Updates a Garden with array of plots as plants are added
@@ -37,13 +37,4 @@ export default {
     return axios.delete("/api/gardens/" + id);
   },
 
-  // Gets Plot Cards for a specific garden
-//   getPlots: function(id) {
-//     return axios.get("/api/gardens/plots" + id);
-//   },
-
-//   // Updates Plot Cards with selected plant data
-//   updatePlot: function(id) {
-//     return axios.put("/api/gardens/plots" + id);
-//   },
 };

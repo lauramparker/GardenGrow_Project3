@@ -76,16 +76,26 @@ function Garden() {
         }));
     };
 
-    
-//when the user saves their garden, an update/put request is made 
-//(initial post on create garden)
-    function handleGardenSubmit(event) {
-        event.preventDefault()
-        API.updateGarden(listObject)   /// !!! does the route take the listObject or the id?
-        .catch(err => console.log(err));
-    };
+//runs when garden container renders (like component did mount)
+    useEffect(() => {
+       API.updateGarden({
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({garden})
+        })
+            .then(res => res.json())
+            .then(data =>setGarden(data));
+    }, []);
 
 
+
+//when the user saves their garden, need to reroute to MyGardens or LandingPage
+//don't need to post as Garden is consistantly updated above
+function handleGardenSubmit(event) {
+    event.preventDefault()
+    alert("You planned your Garden! Want to start another?")
+    .catch(err => console.log(err));
+};
 
 
   return (

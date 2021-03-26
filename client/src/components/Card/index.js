@@ -13,10 +13,12 @@ function Cards(props) {
             <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/basic-cmyk-202827463.jpg" alt="plant graphic"/>
                 <Card.Body>
                 <small>Plant Plot!</small>
-                    {props.name}
-                    {props.spacing}
-                    {props.harvest}
-                    {props.image}
+                <ul>
+                    <li>{props.name}</li>
+                    <li>{props.spacing}</li>
+                    <li>{props.harvest}</li>
+                    <li>{props.image}</li>
+                </ul>
                 {/* <button type="button" class="btn btn-success" onClick={props.handleCardSubmit}></button> */}
                 </Card.Body>
             </Card>
