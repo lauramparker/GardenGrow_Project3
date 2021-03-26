@@ -16,12 +16,14 @@ function Garden() {
 //setting state for plants table to load plants in List table
     const[plants, setPlants] = useState([])
 
+    const[listObject, setListObject] = useState([])
+
 //garden , set Garden updated in Form
     const[garden, setGarden] = useState({
         gardenName: " ",
         length: "",
         width: "",
-        total_plots: 16,
+        total_plots: "", //use for length and width of garden
         garden_data: [ //try JSON object //has to be array for .map to work
             "plant a", 
             "plant b",
@@ -34,19 +36,6 @@ function Garden() {
     })
   
 
-// setting Card state context. 
-//List can update cardstate with selected plant
-    const[cardState, setCardState] = useState({ 
-        selected: false,
-        plot_id: "", //how do we set plot?
-        plant_id: "",
-        plant_name: "",
-        plantImg:"",
-        onClick: (plant_id, plant_name, plantImg) => {
-            setCardState({ ...cardState, plant_id, plant_name, plantImg });
-            }
-    }) 
-
 
 //Load all plants and set to plants when Garden page renders
     useEffect(() => {
@@ -57,7 +46,7 @@ function Garden() {
     }, [])
 
 
-//Load specific Garden (new Garden) when pages loads (will use - need to define id)
+//Load specific Garden one time (NEW Garden) when pages loads !!!!!! NEED to attach id!
         const {id} = useParams()
         useEffect(() => {
         API.getOneGarden(id)
@@ -66,32 +55,29 @@ function Garden() {
         }, [])
 
 
-//update CardState with selected plant from List checkbox //Add updated cardstate to garden.garden_data
-//need to connect plants and cards in DB
 
-    function handleSelectedPlant(event)  {
-        event.setCardState(
+//When user selects plant from plant list, update component state
 
-            cardState.selected=true
-            )
-        .then(cardState => handleGardenUpdate(cardState))
-        .catch(err => console.log(err));
-    };   
-
-
-//add new cardState info to garden_data array // should loadGarden? to reload the Garden
-    function handleGardenUpdate(cardState) {
-        setGarden(garden.garden_data=(garden.garden_data.push(cardState)))
-        .catch(err => console.log(err));
+    function handleSelectChange(event)  {
+        const { name, value } = event.target; //name = plant.name of params.id
+        setListObject({...listObject, [name]: value});
+        addGardenData(listObject);
     };
 
 
+//Adds selected plant data to garden_data and reloads garden list
+    function addGardenData() {
+        setGarden({...garden, garden_data: garden_data.push(listObject)}); //!!!!!!!!
+        loadGarden(); ///!!!!!!!!!
+    }    
+        
 
-//when the user SAVES their garden, update saved garden
-    function handleGardenSave(event) {
+
+//when the user saves their garden, an update/put request is made 
+//(initial post on create garden)
+    function handleGardenSubmit(event) {
         event.preventDefault()
-        API.updateGarden() //route to update new garden (save happens on loading page)
-          .then(req=> setGarden(req.data)) //update state with new garden
+        API.updateGarden(id) 
           .catch(err => console.log(err));
     };
 
@@ -110,7 +96,7 @@ function Garden() {
                         data={garden.garden_data}
                         // total_plots={garden.total_plots}
                         handleGardenUpdate={handleGardenUpdate}
-                        onClick={handleGardenSave}
+                        onClick={handleGardenSubmit}
                     />
                 </Col>
 
@@ -121,7 +107,7 @@ function Garden() {
                             <Item 
                             key={plant._id}
                             plant={plant}
-                            handleSelectedPlant={handleSelectedPlant}  
+                            handleSelectChange={handleSelectChange}  
                             >                              
                         </Item>
                         ))}

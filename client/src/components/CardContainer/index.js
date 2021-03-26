@@ -18,7 +18,7 @@ function CardContainer(props) {
                 ))}
                 
             </CardColumns>
-            <button onClick={props.handleGardenSave}>Save Garden</button>
+            <button onClick={props.handleGardenSubmit}>Save Garden</button>
         </div>
     )
 
