@@ -2,7 +2,7 @@
 const { Schema, model } = require("mongoose");
 const { plantSchema } = require("./plants");
 
-const PLOT_SIZE_SQFT = 4;
+const PLOT_SIZE_SQFT = 4; 
 
 const plotSchema = new Schema({
 	plant: {
@@ -31,5 +31,5 @@ const Plot = model("Plot", plotSchema);
 
 module.exports = {
 	plotSchema,
-	Plot,
+	Plot
 };

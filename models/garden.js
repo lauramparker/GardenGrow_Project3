@@ -10,12 +10,7 @@ const gardenSchema = new Schema({
     of: plotSchema,
     required: false,
   },
-
-  userInfo: {
-    type: String,
-    trim: true,
-    required: "Enter a userid/email for transaction"
-  },
+  
   gardenName: {
     type: String,
     trim: true,
@@ -50,5 +45,8 @@ const gardenSchema = new Schema({
 
 const Garden = mongoose.model("Garden", gardenSchema);
 
-module.exports = Garden;
+module.exports = {
+  gardenSchema,
+  Garden,
+};
 
