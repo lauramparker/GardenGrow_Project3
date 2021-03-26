@@ -12,7 +12,7 @@ function GardenForm() {
     length: "",
     width: "",
   });
-
+// state for date range picker
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -31,9 +31,16 @@ function GardenForm() {
     console.log(value);
   };
 
+  // 
   const handleGardenSubmit = (e) => {
     e.preventDefault();
-    API.saveGarden(); //saving new Garden to db
+    if (garden.gardenName && garden.length && garden.width) {
+      API.saveGarden({
+        gardenName: garden.gardenName,
+        length: garden.length,
+        width: garden.width
+      }).catch(err => console.log(err))
+    } //saving new Garden to db
     console.log(onsubmit);
   };
 
@@ -47,11 +54,12 @@ function GardenForm() {
           <Row className="form-group">
             <Col size="12">
               <input
+                onChange={handleChange}
                 className="form-control"
                 type="text"
                 placeholder="Add garden name..."
                 name="gardenName"
-                onChange={handleChange}
+                value={garden.gardenName}
               />
             </Col>
           </Row>
@@ -60,9 +68,10 @@ function GardenForm() {
               <label>
                 Length
                 <select
+
+                  onChange={handleChange}
                   name="length"
                   value={garden.length} //changed from state.length
-                  onChange={handleChange}
                 >
                   <option value="2">2</option>
                   <option value="4">4</option>
@@ -73,7 +82,7 @@ function GardenForm() {
               </label>
             </Col>
             <Col size="12">
-              <select name="width" value={garden.width} onChange={handleChange}>
+              <select onChange={handleChange} name="width" value={garden.width}>
                 <option value="2">2</option>
                 <option value="4">4</option>
                 <option value="6">6</option>
@@ -90,13 +99,13 @@ function GardenForm() {
             moveRangeOnFirstSelection={false}
             ranges={state}
           />
-
           </Row>
           <Row className="form-group">
             <button
               className="btn btn-success"
               type="submit"
-              onSubmit={handleChange}
+              disabled={!(garden.gardenName && garden.length && garden.width)}
+              onSubmit={handleGardenSubmit}
             >
               Submit
             </button>

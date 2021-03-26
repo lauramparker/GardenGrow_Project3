@@ -10,7 +10,6 @@ import Home from "./views/Home";
 import Profile from "./views/Profile";
 // import ExternalApi from "../src/views/ExternalApi";
 import { useAuth0 } from "@auth0/auth0-react";
-import history from "./utils/history";
 
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
@@ -37,7 +36,7 @@ const App = () => {
   }
 
   return (
-    <HashRouter history={history}>
+    <HashRouter>
       <div id="app" className="d-flex flex-column h-100">
         <NavBar />
         <Container className="flex-grow-1 mt-5">
