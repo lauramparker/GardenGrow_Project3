@@ -31,5 +31,5 @@ const Plot = model("Plot", plotSchema);
 
 module.exports = {
 	plotSchema,
-	default: Plot,
+	Plot,
 };

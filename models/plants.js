@@ -52,5 +52,5 @@ const Plant = mongoose.model("Plant", plantSchema);
 
 module.exports = {
   plantSchema,
-  default: Plant
+  Plant
 };
