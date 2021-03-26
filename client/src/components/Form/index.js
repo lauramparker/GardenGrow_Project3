@@ -1,18 +1,34 @@
 import React, { useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
+import { DateRange } from "react-date-range";
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 import API from "../../utils/API";
 
 function GardenForm() {
   //[garden, setGarden] in garden.js
   const [garden, setGarden] = useState({
     gardenName: "",
-    length: "2",
+    length: "",
     width: "",
   });
 
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    },
+  ]);
+
   const handleChange = (e) => {
     const value = e.target.value;
-    setGarden({ [e.target.length]: value, [e.target.width]: value });
+    setGarden({
+      [e.target.length]: value,
+      [e.target.width]: value,
+      [e.target.gardenName]: value,
+    });
+    console.log(value);
   };
 
   const handleGardenSubmit = (e) => {
@@ -46,7 +62,7 @@ function GardenForm() {
                 <select
                   name="length"
                   value={garden.length} //changed from state.length
-                  onClick={handleChange}
+                  onChange={handleChange}
                 >
                   <option value="2">2</option>
                   <option value="4">4</option>
@@ -57,27 +73,35 @@ function GardenForm() {
               </label>
             </Col>
             <Col size="12">
-                  <select
-                    name="width"
-                    value={garden.width}
-                    onChange={handleChange}
-                  >
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                    <option value="10">10</option>
-                  </select>
-                </Col>
+              <select name="width" value={garden.width} onChange={handleChange}>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                width
+              </select>
+            </Col>
           </Row>
-          <Row className="form-group"></Row>
-          <button
-            className="btn btn-success"
-            type="submit"
-            onSubmit={handleChange}
-          >
-            Submit
-          </button>
+          <Row>
+          <DateRange
+            editableDateInputs={true}
+            onChange={(item) => setState([item.selection])}
+            moveRangeOnFirstSelection={false}
+            ranges={state}
+          />
+
+          </Row>
+          <Row className="form-group">
+            <button
+              className="btn btn-success"
+              type="submit"
+              onSubmit={handleChange}
+            >
+              Submit
+            </button>
+          </Row>
+          
         </Container>
       </form>
     </div>
