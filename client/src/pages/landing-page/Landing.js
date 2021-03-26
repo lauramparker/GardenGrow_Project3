@@ -1,13 +1,14 @@
 import React from "react";
 import {Col, Row, Container} from "react-bootstrap";
-import Header from "../../components/Header";
+import Form from "../../components/Form";
 
 
-function MyGarden() {
+
+function Landing() {
   return (
     <div>
-      <Header />
       <Container />
+      <Form/>
       <Row />
       <Col />
 
@@ -15,6 +16,6 @@ function MyGarden() {
   );
 }
 
-export default MyGarden;
+export default Landing;
 
 // new garden should append here in list format. 

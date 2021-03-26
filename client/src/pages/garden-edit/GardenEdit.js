@@ -1,6 +1,5 @@
 import React from "react";
 import {Col, Row, Container} from "react-bootstrap";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 
@@ -13,7 +12,6 @@ import Footer from "../../components/Footer";
 function GardenEdit() {
   return (
     <div>
-      <Header />
         <Container />
             <Row />
             <Col />

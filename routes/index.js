@@ -1,21 +1,8 @@
-// Dependencies
-// ============================================================================
+const path = require("path");
 const router = require("express").Router();
-const usersController = require("../../controllers/usersController");
+const apiRoutes = require("./api");
 
-// Matches with "/api/users"
-// ============================================================================
-router
-  .route("/")
-  .get(usersController.findAll)
-  .post(usersController.create);
-
-// Matches with "/api/users/:id"
-// ============================================================================
-router
-  .route("/:email")
-  .get(usersController.findByEmail)
-  .put(usersController.update)
-  .delete(usersController.remove);
+router.use("/api", apiRoutes);
 
 module.exports = router;
+
