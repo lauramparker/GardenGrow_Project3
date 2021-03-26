@@ -13,7 +13,13 @@ function CardContainer(props) {
             <CardColumns>
             
                 {props.data.map(data=> (
-                    <Cards key={data._id}></Cards>
+                    <Cards key={data._id}
+                        name={data.name}
+                        spacing={data.spacing}
+                        harvest={data.harvet}
+                        image={data.image}
+                    >
+                    </Cards>
                     
                 ))}
                 

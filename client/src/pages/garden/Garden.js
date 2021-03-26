@@ -10,7 +10,6 @@ import { ListGroup, Item } from "../../components/ListGroup";
 
 
 
-
 function Garden() {
 //setting state for plants table to load plants in List table
     const[plants, setPlants] = useState([]) //must be array for map to work (array of objects)
@@ -75,7 +74,7 @@ function Garden() {
         setGarden(prevGarden => ({
             garden_data: [...prevGarden.garden_data, {listObject}]  //!!! check "prevState" use
         }));
-       
+    };
 
 //when the user saves their garden, an update/put request is made 
 //(initial post on create garden)
@@ -99,7 +98,6 @@ function Garden() {
                     <CardContainer 
                         data={garden.garden_data}
                         // total_plots={garden.total_plots}
-                        handleGardenUpdate={handleGardenUpdate}
                         onClick={handleGardenSubmit}
                     />
                 </Col>
@@ -134,6 +132,5 @@ function Garden() {
 }
 
 
-export default Garden;
 
-// new garden should append here in list format. 
+export default Garden;
