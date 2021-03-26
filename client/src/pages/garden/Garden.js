@@ -38,6 +38,7 @@ function Garden() {
 // setting Card state context. 
 //List can update cardstate with selected plant
     const[cardState, setCardState] = useState({ 
+        selected: false,
         plot_id: "", //how do we set plot?
         plant_id: "",
         plant_name: "",
@@ -71,9 +72,7 @@ function Garden() {
 
     function handleSelectedPlant(event)  {
         event.setCardState(
-            cardState.plant_id= plant._id, 
-            cardState.plantImg= plant.plantImg, 
-            cardState.plot_id= plant.plot._id, //what is this?
+
             cardState.selected=true
             )
         .then(cardState => handleGardenUpdate(cardState))
