@@ -5,7 +5,6 @@ import { Container } from "reactstrap";
 
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
-// import Header from "./components/Header"
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
@@ -15,8 +14,8 @@ import history from "./utils/history";
 
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
-// import GardenEdit from "./pages/garden-edit/GardenEdit";
-// import Garden from "./pages/Garden/garden";
+import GardenEdit from "./pages/garden-edit/GardenEdit";
+import Garden from "./pages/garden/Garden";
 
 
 // styles
@@ -41,15 +40,14 @@ const App = () => {
     <HashRouter history={history}>
       <div id="app" className="d-flex flex-column h-100">
         <NavBar />
-        {/* <Header /> */}
         <Container className="flex-grow-1 mt-5">
             <Route exact path="/" exact component={Home} />
             <Route exact path="/profile" component={Profile} />
             {/* <Route exact path="/external-api" component={ExternalApi} /> */}
             <Route exact path="/landing-page" component={Landing} />
-            <Route exact path="/MyGardens" component={MyGarden} />
-            {/* <Route exact path="/GardenEdit" component={GardenEdit} />
-            <Route exact path="/Garden" component={Garden} /> */}
+            <Route exact path="/my-gardens" component={MyGarden} />
+            <Route exact path="/garden-edit" component={GardenEdit} />
+            <Route exact path="/garden" component={Garden} />
         </Container>
         <Footer />
       </div>
