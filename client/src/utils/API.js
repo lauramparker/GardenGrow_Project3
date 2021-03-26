@@ -24,7 +24,7 @@ export default {
     },
 
   // Create (Saves) a NEW Garden to the database
-  saveGarden: function() {
+  saveGarden: function({gardenName, length, width}) {
     return axios.post("/api/gardens", {gardenName, length, width} );
   },
 
