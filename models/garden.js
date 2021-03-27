@@ -1,39 +1,40 @@
 const mongoose = require("mongoose");
-
+const { plotSchema } = require("./plot");
 
 
 const Schema = mongoose.Schema;
 
 const gardenSchema = new Schema({
-	plot: {
-		type: Schema.Types.ObjectId,
-		ref: "Plot",
+	plots: {
+		type: Array,
+		of: plotSchema,
 		required: false,
-
 	},
-
-	userInfo: {
-		type: String,
-		trim: true,
-		required: "Enter a userid/email for transaction"
-	},
+  
 	gardenName: {
 		type: String,
 		trim: true,
 	},
 
-	dimensions: {
+	length: {
 		type: Number,
 		trim: true,
 
 	},
-	dimensionsWidth: {
+	width: {
 		type: Number,
 		trim: true,
 	},
 
 	dateRangeMinimum: Number,
 	dateRangeMaximum: Number,
+
+	// plot: {
+	//     type: Schema.Types.ObjectId,
+	//     ref: "Plot",
+	//     required: false,
+
+	// },
 
 	// // function to find the minimum date range
 	// findMinDateRange: function (cb) {
@@ -51,4 +52,7 @@ const gardenSchema = new Schema({
 
 const Garden = mongoose.model("Garden", gardenSchema);
 
-module.exports = Garden;
+module.exports = {
+	gardenSchema,
+	Garden,
+};

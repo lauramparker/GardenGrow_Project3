@@ -1,5 +1,7 @@
 module.exports = {
-	Plant: require("./plants"),
-	Garden: require("./garden"),
-	Plot: require("./plot")
+	Plant: require("./plants").Plant,
+	Garden: require("./garden").Garden,
+	Plot: require("./plot").Plot,
+	User: require("./user")
 };
+

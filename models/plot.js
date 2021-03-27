@@ -1,15 +1,20 @@
 // This file contains the schema for a single 2x2 plot 
 const { Schema, model } = require("mongoose");
-// const Plant = require("./plants");
+const { plantSchema } = require("./plants");
 
-// const PLOT_SIZE_SQFT = 4;
+// const PLOT_SIZE_SQFT = 4; 
 
 const plotSchema = new Schema({
 	plant: {
-		type: Schema.Types.ObjectId ,
+		type: plantSchema,
 		required: false,
 		ref: "Plant",
 	},
+	// plant: {
+	//     type: Schema.Types.ObjectId ,
+	//     required: false,
+	//     ref: "Plant",
+	// },
 	spaceMinimum: Number,
 	spaceMaximum: Number,
 	maxPlants: Number,
@@ -30,4 +35,7 @@ plotSchema.methods.findMaxPlants = function (cb) {
 
 const Plot = model("Plot", plotSchema);
 
-module.exports = Plot;
+module.exports = {
+	plotSchema,
+	Plot
+};

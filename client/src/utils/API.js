@@ -1,34 +1,42 @@
 import axios from "axios";
+// import Routes from "../../../../routes";
 
 const API = {
-	// Gets all plants in db
-	getPlants: function() {
-		return axios.get("/api/plants");
-	},
+  // Gets all plants in db
+  getPlants: function() {
+    return axios.get("/api/plants"); //added to fix CORS access error //remove when deploying
+  },
 
 	// Get all gardens for specific user id ?????
 	getGardens: function(user_id) {
 		return axios.get("/api/gardens/" + user_id);
 	},
 
-	// Saves a NEW Garden to the database with a specific id
-	saveGarden: function(id) {
-		return axios.post("/api/gardens/" + id);
-	},
 
-	// Updates a NEW Garden as plot cards are filled in
-	updateGarden: function(id, garden_data) {
-		return axios.post("/api/gardens/data" + id, garden_data);
-	},
-	// Gets Plot Cards for a specific garden
-	getPlots: function(id) {
-	return axios.get("/api/gardens/plots" + id);
-	},
+// Get a Garden in the database with a specific id
+  getOneGarden: function(id) {
+      return axios.get("/api/gardens/" + id);
+    },
 
-//   // Updates Plot Cards with selected plant data
-//   updatePlot: function(id) {
-//     return axios.put("/api/gardens/plots" + id);
-//   },
-};
+  // Get a plant with a specific id
+  getOnePlant: function(id) {
+      return axios.get("api/plants/" + id)
+    },
+
+  // Create (Saves) a NEW Garden to the database
+  saveGarden: function({gardenName, length, width}) {
+    return axios.post("/api/gardens", {gardenName, length, width} );
+  },
+
+   // Updates a Garden with array of plots as plants are added
+   updateGarden: function(id, data) {
+    return axios.put("/api/gardens/" + id, data);
+  },
+
+  deleteGarden: function(id) {
+    return axios.delete("/api/gardens/" + id);
+  },
+
+}
 
 export default API;

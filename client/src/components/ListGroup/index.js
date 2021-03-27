@@ -1,29 +1,38 @@
 import React from "react";
+// import {Container} from "react-bootstrap";
+// import Table from 'react-bootstrap/Table';
 import "./style.css";
 
-function List( {plants}, {handleSelectedPlant}) {
+export function ListGroup({children}) {
 
     return(
-        <ul className="list-group">
-            {plants.map(plant=>(
-                <li className="list-group-item" key={plant.id}>
+        <div className="list-overflow-container" id="plantList">
+        <ul className="list-group">{children} </ul>
+        </div>
+        );
+    }
+
+
+export function Item(props) {
+
+            return(
+
+                <li className="list-group-item" >
                     
                     <div class="form-check">
                         <input 
                             className="form-check-input"
                             type="checkbox" 
-                            value="" 
-                            id="flexCheckDefault"
-                            onChange={event=> handleSelectedPlant(event.target)}>
-                            {/* // using Context  onClick={() => alert.onClick("selected", true)} className="form-check-input"> */}
+                            value={props.plant.Name} //not working
+                            id="broccoli"
+                            onChange={event=> props.handleSelectChange(event.target)}> 
                         </input>      
-                        <label className="form-check-label" for="flexCheckDefault">{plant.name}</label>
+                        <label className="form-check-label" for="flexCheckDefault">{props.plant.Name}</label>
                     </div>
     
                 </li>
-            ))}
-        </ul>
-    )
-}
+            )
+        }
+        
 
-export default List;
+

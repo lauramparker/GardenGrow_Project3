@@ -22,12 +22,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const toggle = () => setIsOpen(!isOpen);
 
   const logoutWithRedirect = () =>
@@ -43,10 +38,19 @@ const NavBar = () => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
+              <NavItem
+                className="navbar-brand"
+                style={{
+                  fontFamily: "'Concert One', cursive",
+                  fontWeight: "400",
+                }}
+              >
+                Garden Grow
+              </NavItem>
               <NavItem>
                 <NavLink
                   tag={RouterNavLink}
-                  to="/"
+                  to="/landing-page"
                   exact
                   activeClassName="router-link-exact-active"
                 >
@@ -57,11 +61,11 @@ const NavBar = () => {
                 <NavItem>
                   <NavLink
                     tag={RouterNavLink}
-                    to="/Garden"
+                    to="/MyGardens"
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    Garden
+                    My Gardens
                   </NavLink>
                 </NavItem>
               )}

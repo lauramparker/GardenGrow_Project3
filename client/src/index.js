@@ -9,6 +9,8 @@ import { getConfig } from "./authentication/config";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+
+
 const onRedirectCallback = (appState) => {
 	history.push(
 		appState && appState.returnTo ? appState.returnTo : window.location.pathname
