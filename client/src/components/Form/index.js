@@ -33,21 +33,19 @@ function GardenForm() {
 
   //
   const handleSubmit = (e) => {
-    alert(this.state.value);
     e.preventDefault();
-    
       API.saveGarden({
         gardenName: garden.name,
         length: garden.length,
         width: garden.width
-      }).then (() => setGarden({
-        gardenName:"",
-        length:"",
-        width:""
+      }).then (res => setGarden({
+        gardenName: res.data.gardenName,
+        length: res.data.legth,
+        width: res.data.width
       }))
       .catch((err) => console.log(err));
      //saving new Garden to db
-    console.log(onsubmit);
+   
   };
 
   return (
