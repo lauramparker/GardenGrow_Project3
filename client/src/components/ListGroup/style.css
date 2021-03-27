@@ -1,0 +1,10 @@
+#plantList {
+    box-sizing: border-box;
+    max-width: 300px;
+    max-height: 500px;
+    border-style: solid;
+    border-color: green;
+    padding: 20px;
+    margin: 20px;
+    overflow-y: scroll;
+}

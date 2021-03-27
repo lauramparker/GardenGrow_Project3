@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   Collapse,
@@ -22,12 +22,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const toggle = () => setIsOpen(!isOpen);
 
   const logoutWithRedirect = () =>
@@ -43,6 +38,15 @@ const NavBar = () => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
+              <NavItem
+                className="navbar-brand"
+                style={{
+                  fontFamily: "'Concert One', cursive",
+                  fontWeight: "400",
+                }}
+              >
+                Garden Grow
+              </NavItem>
               <NavItem>
                 <NavLink
                   tag={RouterNavLink}
@@ -57,13 +61,25 @@ const NavBar = () => {
                 <NavItem>
                   <NavLink
                     tag={RouterNavLink}
-                    to="/external-api"
+                    to="/landing-page"
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    External API
+                  Design
                   </NavLink>
-                </NavItem>
+              </NavItem>
+              )}
+              {isAuthenticated && (
+                  <NavItem>
+                      <NavLink
+                        tag={RouterNavLink}
+                        to="/MyGardens"
+                        exact
+                        activeClassName="router-link-exact-active"
+                      >
+                        My Gardens
+                      </NavLink>
+                  </NavItem>
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
@@ -97,15 +113,14 @@ const NavBar = () => {
                       className="dropdown-profile"
                       activeClassName="router-link-exact-active"
                     >
-                      {/* <FontAwesomeIcon icon="user" className="mr-3" />  */}
-                      Profile
+                      <FontAwesomeIcon icon="user" className="mr-3" /> Profile
                     </DropdownItem>
                     <DropdownItem
                       id="qsLogoutBtn"
                       onClick={() => logoutWithRedirect()}
                     >
-                      {/* <FontAwesomeIcon icon="power-off" className="mr-3" />  */}
-                      Log out
+                      <FontAwesomeIcon icon="power-off" className="mr-3" /> Log
+                      out
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
@@ -143,7 +158,7 @@ const NavBar = () => {
                   </span>
                 </NavItem>
                 <NavItem>
-                  {/* <FontAwesomeIcon icon="user" className="mr-3" /> */}
+                  <FontAwesomeIcon icon="user" className="mr-3" />
                   <RouterNavLink
                     to="/profile"
                     activeClassName="router-link-exact-active"
@@ -152,7 +167,7 @@ const NavBar = () => {
                   </RouterNavLink>
                 </NavItem>
                 <NavItem>
-                  {/* <FontAwesomeIcon icon="power-off" className="mr-3" /> */}
+                  <FontAwesomeIcon icon="power-off" className="mr-3" />
                   <RouterNavLink
                     to="#"
                     id="qsLogoutBtn"

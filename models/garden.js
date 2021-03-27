@@ -1,47 +1,50 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const mongoose = require("mongoose");
-const Plot = require("./plot");
+const { plotSchema } = require("./plot");
 
 
 const Schema = mongoose.Schema;
 
 const gardenSchema = new Schema({
-  plot: {
-    type: Object,
-    required: false,
-  },
+	plots: {
+		type: Array,
+		of: plotSchema,
+		required: false,
+	},
+  
+	gardenName: {
+		type: String,
+		trim: true,
+	},
 
-  userInfo: {
-    type: String,
-    trim: true,
-    required: "Enter a userid/email for transaction"
-  },
-  gardenName: {
-    type: String,
-    trim: true,
-  },
+	length: {
+		type: Number,
+		trim: true,
 
-  dimensions: {
-    type: Number,
-    trim: true,
+	},
+	width: {
+		type: Number,
+		trim: true,
+	},
+	dateRangeMinimum: Number,
+	dateRangeMaximum: Number,
 
-  },
-  dimensionsWidth: {
-    type: Number,
-    trim: true,
-  },
+	// plot: {
+	//     type: Schema.Types.ObjectId,
+	//     ref: "Plot",
+	//     required: false,
 
-  dateRangeMinimum: Number,
-  dateRangeMaximum: Number,
+	// },
 
-  // // function to find the minimum date range
-  // findMinDateRange: function (cb) {
+	// // function to find the minimum date range
+	// findMinDateRange: function (cb) {
 
-  // },
+	// },
 
-  // // function to find the maximum date range
-  // findMinDateRange: function (cb) {
+	// // function to find the maximum date range
+	// findMinDateRange: function (cb) {
 
-  // },
+	// },
 
 
 
@@ -49,4 +52,7 @@ const gardenSchema = new Schema({
 
 const Garden = mongoose.model("Garden", gardenSchema);
 
-module.exports = Garden;
+module.exports = {
+	gardenSchema,
+	Garden,
+};

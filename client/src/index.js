@@ -8,10 +8,12 @@ import history from "./utils/history";
 import { getConfig } from "./authentication/config";
 
 
+
+
 const onRedirectCallback = (appState) => {
-  history.push(
-    appState && appState.returnTo ? appState.returnTo : window.location.pathname
-  );
+	history.push(
+		appState && appState.returnTo ? appState.returnTo : window.location.pathname
+	);
 };
 
 // Please see https://auth0.github.io/auth0-react/interfaces/auth0provideroptions.html
@@ -19,18 +21,18 @@ const onRedirectCallback = (appState) => {
 const config = getConfig();
 
 const providerConfig = {
-  domain: config.domain,
-  clientId: config.clientId,
-  ...(config.audience ? { audience: config.audience } : null),
-  redirectUri: window.location.origin,
-  onRedirectCallback,
+	domain: config.domain,
+	clientId: config.clientId,
+	...(config.audience ? { audience: config.audience } : null),
+	redirectUri: window.location.origin,
+	onRedirectCallback,
 };
 
 ReactDOM.render(
-  <Auth0Provider {...providerConfig}>
-    <App />
-  </Auth0Provider>,
-  document.getElementById("root")
+	<Auth0Provider {...providerConfig}>
+		<App />
+	</Auth0Provider>,
+	document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
