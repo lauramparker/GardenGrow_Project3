@@ -8,7 +8,6 @@ const plotSchema = new Schema({
 	plant: {
 		type: plantSchema,
 		required: false,
-		ref: "Plant",
 	},
 	// plant: {
 	//     type: Schema.Types.ObjectId ,
