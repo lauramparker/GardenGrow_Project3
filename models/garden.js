@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const mongoose = require("mongoose");
 const { plotSchema } = require("./plot");
 
@@ -25,7 +26,6 @@ const gardenSchema = new Schema({
 		type: Number,
 		trim: true,
 	},
-
 	dateRangeMinimum: Number,
 	dateRangeMaximum: Number,
 

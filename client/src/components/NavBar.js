@@ -50,7 +50,7 @@ const NavBar = () => {
               <NavItem>
                 <NavLink
                   tag={RouterNavLink}
-                  to="/landing-page"
+                  to="/"
                   exact
                   activeClassName="router-link-exact-active"
                 >
@@ -61,13 +61,25 @@ const NavBar = () => {
                 <NavItem>
                   <NavLink
                     tag={RouterNavLink}
-                    to="/MyGardens"
+                    to="/landing-page"
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    My Gardens
+                  Design
                   </NavLink>
-                </NavItem>
+              </NavItem>
+              )}
+              {isAuthenticated && (
+                  <NavItem>
+                      <NavLink
+                        tag={RouterNavLink}
+                        to="/MyGardens"
+                        exact
+                        activeClassName="router-link-exact-active"
+                      >
+                        My Gardens
+                      </NavLink>
+                  </NavItem>
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>

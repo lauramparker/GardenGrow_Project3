@@ -2,6 +2,10 @@ import axios from "axios";
 // import Routes from "../../../../routes";
 
 const API = {
+  // Create user
+  createUser: function({lastName, fistName, userName, email, profilePicture}) {
+    return axios.post("/api/users", {lastName, fistName, userName, email, profilePicture})
+  },
   // Gets all plants in db
   getPlants: function() {
     return axios.get("/api/plants"); //added to fix CORS access error //remove when deploying
