@@ -4,15 +4,15 @@ import Header from "../../components/Header";
 
 
 function MyGarden() {
-  return (
-    <div>
-      <Header />
-      <Container />
-      <Row />
-      <Col />
+	return (
+		<div>
+			<Header />
+			<Container />
+			<Row />
+			<Col />
 
-    </div>
-  );
+		</div>
+	);
 }
 
 export default MyGarden;
