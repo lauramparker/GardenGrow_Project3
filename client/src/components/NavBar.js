@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   Collapse,
@@ -39,7 +39,7 @@ const NavBar = () => {
     <div className="nav-container">
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand className="logo" />
+          <NavbarBrand className="logo">GardenGrow</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
@@ -97,21 +97,20 @@ const NavBar = () => {
                       className="dropdown-profile"
                       activeClassName="router-link-exact-active"
                     >
-                      {/* <FontAwesomeIcon icon="user" className="mr-3" />  */}
-                      Profile
+                      <FontAwesomeIcon icon="user" className="mr-3" /> Profile
                     </DropdownItem>
                     <DropdownItem
                       id="qsLogoutBtn"
                       onClick={() => logoutWithRedirect()}
                     >
-                      {/* <FontAwesomeIcon icon="power-off" className="mr-3" />  */}
-                      Log out
+                      <FontAwesomeIcon icon="power-off" className="mr-3" /> Log
+                      out
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               )}
             </Nav>
-            {!isAuthenticated && (
+            {/* {!isAuthenticated && (
               <Nav className="d-md-none" navbar>
                 <NavItem>
                   <Button
@@ -124,7 +123,7 @@ const NavBar = () => {
                   </Button>
                 </NavItem>
               </Nav>
-            )}
+            )} */}
             {isAuthenticated && (
               <Nav
                 className="d-md-none justify-content-between"
@@ -143,7 +142,7 @@ const NavBar = () => {
                   </span>
                 </NavItem>
                 <NavItem>
-                  {/* <FontAwesomeIcon icon="user" className="mr-3" /> */}
+                  <FontAwesomeIcon icon="user" className="mr-3" />
                   <RouterNavLink
                     to="/profile"
                     activeClassName="router-link-exact-active"
@@ -152,7 +151,7 @@ const NavBar = () => {
                   </RouterNavLink>
                 </NavItem>
                 <NavItem>
-                  {/* <FontAwesomeIcon icon="power-off" className="mr-3" /> */}
+                  <FontAwesomeIcon icon="power-off" className="mr-3" />
                   <RouterNavLink
                     to="#"
                     id="qsLogoutBtn"

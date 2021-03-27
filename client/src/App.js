@@ -4,7 +4,6 @@ import { Container } from "reactstrap";
 
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 import ExternalApi from "../src/views/ExternalApi";
@@ -49,7 +48,6 @@ const App = () => {
 						<Route path="/Garden" component={Garden} />
 					</Switch>
 				</Container>
-				<Footer />
 			</div>
 		</Router>
 	);
