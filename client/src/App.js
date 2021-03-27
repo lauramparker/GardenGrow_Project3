@@ -1,14 +1,12 @@
 import React from "react";
 import { HashRouter, Route } from "react-router-dom";
-
 import { Container } from "reactstrap";
-
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
+import Footer from './components/Footer';
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
-import Footer from './components/Footer';
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
 import GardenEdit from "./pages/garden-edit/GardenEdit";

@@ -34,7 +34,7 @@ const NavBar = () => {
     <div className="nav-container">
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand className="logo">GardenGrow</NavbarBrand>
+          <NavbarBrand className="logo" />
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
@@ -114,7 +114,7 @@ const NavBar = () => {
                 </UncontrolledDropdown>
               )}
             </Nav>
-            {/* {!isAuthenticated && (
+            {!isAuthenticated && (
               <Nav className="d-md-none" navbar>
                 <NavItem>
                   <Button
@@ -127,7 +127,7 @@ const NavBar = () => {
                   </Button>
                 </NavItem>
               </Nav>
-            )} */}
+            )}
             {isAuthenticated && (
               <Nav
                 className="d-md-none justify-content-between"
