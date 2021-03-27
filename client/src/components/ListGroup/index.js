@@ -23,9 +23,9 @@ export function Item(props) {
                         <input 
                             className="form-check-input"
                             type="checkbox" 
-                            value="" 
-                            id="flexCheckDefault"
-                            onChange={event=> props.handleSelectChange(event.target)}>
+                            value={props.plant.Name} //not working
+                            id="broccoli"
+                            onChange={event=> props.handleSelectChange(event.target)}> 
                         </input>      
                         <label className="form-check-label" for="flexCheckDefault">{props.plant.Name}</label>
                     </div>

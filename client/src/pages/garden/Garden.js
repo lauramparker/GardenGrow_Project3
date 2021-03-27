@@ -62,8 +62,9 @@ function Garden() {
 //When user selects plant from plant list, update component state 
 
     function handleSelectChange(event)  {
-        console.log("Plant Selected!");
-        setListObject({ name: event.target.value }); // !!! (currently name only) - how does event.target take the complete plant object?
+        const value = event.target.id //!!!!!!! returning undefined no matter what goes here . use bind??
+        console.log(id);
+        setListObject({ name: value }); // !!!!!!!!!!
         addGardenData(listObject);
     };
 
@@ -72,7 +73,7 @@ function Garden() {
 //Updated garden state passes to CardContainer (data) and re-renders the cards
     function addGardenData() {
         setGarden(prevGarden => ({
-            garden_data: [...prevGarden.garden_data, {listObject}]  //!!! check "prevState" use
+            garden_data: [...prevGarden.garden_data, {listObject}]  //! this seems to be working (no value from listObject, but it's saving)
         }));
     };
 
