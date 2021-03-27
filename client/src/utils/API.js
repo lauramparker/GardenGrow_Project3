@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default {
+const API = {
 	// Gets all plants in db
 	getPlants: function() {
 		return axios.get("/api/plants");
@@ -31,3 +31,5 @@ export default {
 //     return axios.put("/api/gardens/plots" + id);
 //   },
 };
+
+export default API;
