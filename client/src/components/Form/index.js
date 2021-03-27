@@ -6,10 +6,13 @@ import Loading from "../../components/Loading";
 // import "react-date-range/dist/styles.css"; // main style file
 // import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
+import { useHistory } from "react-router-dom";
+
 
 function GardenForm() {
   const { user } = useAuth0();
   const loggedInUser = localStorage.getItem('user') || '';
+  let history = useHistory();
 
   //[garden, setGarden] in garden.js
     const [garden, setGarden] = useState ({
@@ -55,6 +58,7 @@ function GardenForm() {
     const handleSubmit = (e) => {
       e.preventDefault();
       //saving new Garden to db
+      history.push("/Garden");
         API.saveGarden({
           gardenName: garden.name,
           length: garden.length,
@@ -86,6 +90,8 @@ function GardenForm() {
   //    //saving new Garden to db
   //   console.log(onsubmit);
   // };
+
+
 
   return (
     <div>
@@ -148,6 +154,7 @@ function GardenForm() {
               type="submit"
               // disabled={!(garden.gardenName && garden.length && garden.width)}
               onClick={handleSubmit}
+              
             >
               Submit
             </button>
