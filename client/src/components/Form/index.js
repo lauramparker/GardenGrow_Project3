@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../components/Loading";
-import { DateRange,} from "react-date-range";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
+// import { DateRange,} from "react-date-range";
+// import "react-date-range/dist/styles.css"; // main style file
+// import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
 import { useHistory } from "react-router-dom";
 
@@ -23,13 +23,13 @@ function GardenForm() {
     
   
   // state for date range pickr
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
+  // const [state, setState] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: null,
+  //     key: "selection",
+  //   },
+  // ]);
 
   console.log('user', user);
   if(!loggedInUser) {
@@ -144,14 +144,14 @@ function GardenForm() {
             </Col>
           </Row>
           <Row>
-            <DateRange
+            {/* <DateRange
               editableDateInputs={true}
               onChange={(item) => setState([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={state}
               date={new Date()}
               
-            />
+            /> */}
           </Row>
           <Row className="form-group">
             <button
