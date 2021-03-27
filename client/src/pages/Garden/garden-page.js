@@ -10,11 +10,10 @@ import SearchForm from "../../components/SearchForm";
 // import GardenForm from "../../components/Form";
 
 
-
-
 function Garden() {
 //setting state for plants table to load plants in List table
 	const[plants, setPlants] = useState([]);
+	const[search, setSearch] = useState("");
 
 	//garden , set Garden updated in Form
 	const[garden, setGarden] = useState({
@@ -22,7 +21,7 @@ function Garden() {
 		length: "",
 		width: "",
 		total_plots: 16,
-		garden_data: {} //array of cardState objects //try JSON object
+		garden_data: [] //array of cardState objects //try JSON object
 	});
   
 
@@ -98,6 +97,10 @@ function Garden() {
 			.catch(err => console.log(err));
 	}
 
+	function handleOnchange (e) {
+		setSearch(e.target.value);
+	}
+
 
 
 
@@ -123,9 +126,10 @@ function Garden() {
 				</Col>
 			</Row>
 			<Row>
-				<SearchForm>
-                    search={this.state.search}
-				</SearchForm>
+				<SearchForm
+				value={search}
+				onChange={handleOnchange}
+				 />
 			</Row>        
 			<Footer />
 
