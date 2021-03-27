@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../components/Loading";
-// import { DateRange } from "react-date-range";
-// import "react-date-range/dist/styles.css"; // main style file
-// import "react-date-range/dist/theme/default.css"; // theme css file
+import { DateRange,} from "react-date-range";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
+import { useHistory } from "react-router-dom";
+
 
 function GardenForm() {
   const { user } = useAuth0();
   const loggedInUser = localStorage.getItem('user') || '';
+  let history = useHistory();
 
   //[garden, setGarden] in garden.js
     const [garden, setGarden] = useState ({
@@ -20,13 +23,14 @@ function GardenForm() {
     
   
   // state for date range pickr
-  // const [state, setState] = useState([
-  //   {
-  //     startDate: new Date(),
-  //     endDate: null,
-  //     key: "selection",
-  //   },
-  // ]);
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    },
+  ]);
+
   console.log('user', user);
   if(!loggedInUser) {
     API.createUser({
@@ -42,12 +46,14 @@ function GardenForm() {
   }
  
 
-  const handleChange = (e) => {
+  const handleChange = (e, date) => {
      const {name, value } = e.target;
      setGarden({
         ...garden, 
         [name]: value,
       })
+        console.log(date); // native Date object
+      
     };
     
 
@@ -55,6 +61,7 @@ function GardenForm() {
     const handleSubmit = (e) => {
       e.preventDefault();
       //saving new Garden to db
+      history.push("/Garden");
         API.saveGarden({
           gardenName: garden.name,
           length: garden.length,
@@ -86,6 +93,8 @@ function GardenForm() {
   //    //saving new Garden to db
   //   console.log(onsubmit);
   // };
+
+
 
   return (
     <div>
@@ -135,12 +144,14 @@ function GardenForm() {
             </Col>
           </Row>
           <Row>
-            {/* <DateRange
+            <DateRange
               editableDateInputs={true}
               onChange={(item) => setState([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={state}
-            /> */}
+              date={new Date()}
+              
+            />
           </Row>
           <Row className="form-group">
             <button
@@ -148,6 +159,7 @@ function GardenForm() {
               type="submit"
               // disabled={!(garden.gardenName && garden.length && garden.width)}
               onClick={handleSubmit}
+              
             >
               Submit
             </button>
