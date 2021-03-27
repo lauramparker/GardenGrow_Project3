@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Container } from "reactstrap";
 
@@ -36,9 +36,10 @@ const App = () => {
   }
 
   return (
-    <HashRouter>
+    <Router>
       <div id="app" className="d-flex flex-column h-100">
         <NavBar />
+        <Switch>
         <Container className="flex-grow-1 mt-5">
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
@@ -49,8 +50,9 @@ const App = () => {
             <Route exact path="/garden" component={Garden} />
         </Container>
         <Footer />
+        </Switch>
       </div>
-    </HashRouter>
+    </Router>
   );
 };
 
