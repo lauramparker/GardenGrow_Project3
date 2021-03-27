@@ -63,7 +63,7 @@ function GardenForm() {
       //saving new Garden to db
       history.push("/Garden");
         API.saveGarden({
-          gardenName: garden.name,
+          gardenName: garden.gardenName,
           length: garden.length,
           width: garden.width,
         }).then(res => setGarden({
