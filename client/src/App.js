@@ -12,7 +12,7 @@ import Profile from "./views/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import Landing from "./pages/landing-page/Landing.js";
-import MyGarden from "./pages/my-gardens/MyGarden.js";
+import MyGardens from "./pages/my-gardens/MyGardens.js";
 import GardenEdit from "./pages/garden-edit/GardenEdit";
 import Garden from "./pages/garden/Garden";
 
@@ -44,7 +44,7 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/landing-page" component={Landing} />
-            <Route exact path="/my-gardens" component={MyGarden} />
+            <Route exact path="/my-gardens" component={MyGardens} />
             <Route exact path="/garden-edit" component={GardenEdit} />
             <Route exact path="/garden" component={Garden} />
         </Container>

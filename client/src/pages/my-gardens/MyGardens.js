@@ -1,18 +1,19 @@
 import React from "react";
-import {Col, Row, Container} from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 
-
-function MyGarden() {
+// need to pass in user gardens as props
+function MyGardens(props) {
   return (
     <div>
-      <Container />
-      <Row />
-      <Col />
+      <Container>
+        <Row />
+        <Col />
+      </Container>
 
-		</div>
-	);
+    </div>
+  );
 }
 
-export default MyGarden;
+export default MyGardens;
 
 // new garden should append here in list format. 
