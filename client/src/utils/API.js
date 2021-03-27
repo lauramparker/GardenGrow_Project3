@@ -1,16 +1,20 @@
 import axios from "axios";
 // import Routes from "../../../../routes";
 
-export default {
+const API = {
+  // Create user
+  createUser: function({lastName, fistName, userName, email, profilePicture}) {
+    return axios.post("/api/users", {lastName, fistName, userName, email, profilePicture})
+  },
   // Gets all plants in db
   getPlants: function() {
     return axios.get("/api/plants"); //added to fix CORS access error //remove when deploying
   },
 
-  // Get all gardens for specific user id ?????
-  getGardens: function(user_id) {
-    return axios.get("/api/gardens/" + user_id);
-  },
+	// Get all gardens for specific user id ?????
+	getGardens: function(user_id) {
+		return axios.get("/api/gardens/" + user_id);
+	},
 
 
 // Get a Garden in the database with a specific id
@@ -37,4 +41,6 @@ export default {
     return axios.delete("/api/gardens/" + id);
   },
 
-};
+}
+
+export default API;

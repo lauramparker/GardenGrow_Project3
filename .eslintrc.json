@@ -1,6 +1,8 @@
 {
     "env": {
         "browser": true,
+        "node":true,
+        "jest/globals": true,
         "es2021": true
     },
     "extends": [
@@ -15,7 +17,7 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react", "jest"
     ],
     "rules": {
         "indent": [

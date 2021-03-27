@@ -56,7 +56,7 @@ function Garden() {
         API.getOneGarden(id)
             .then(res => setGarden(res.data))
             .catch(err => console.log(err));
-        }, [])
+        }, [id])
 
 
 //When user selects plant from plant list, update component state 
