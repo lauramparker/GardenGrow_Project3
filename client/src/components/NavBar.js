@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   Collapse,
@@ -50,7 +50,7 @@ const NavBar = () => {
               <NavItem>
                 <NavLink
                   tag={RouterNavLink}
-                  to="/landing-page"
+                  to="/"
                   exact
                   activeClassName="router-link-exact-active"
                 >
@@ -61,13 +61,25 @@ const NavBar = () => {
                 <NavItem>
                   <NavLink
                     tag={RouterNavLink}
-                    to="/MyGardens"
+                    to="/landing-page"
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    My Gardens
+                  Design
                   </NavLink>
-                </NavItem>
+              </NavItem>
+              )}
+              {isAuthenticated && (
+                  <NavItem>
+                      <NavLink
+                        tag={RouterNavLink}
+                        to="/MyGardens"
+                        exact
+                        activeClassName="router-link-exact-active"
+                      >
+                        My Gardens
+                      </NavLink>
+                  </NavItem>
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
@@ -101,15 +113,14 @@ const NavBar = () => {
                       className="dropdown-profile"
                       activeClassName="router-link-exact-active"
                     >
-                      {/* <FontAwesomeIcon icon="user" className="mr-3" />  */}
-                      Profile
+                      <FontAwesomeIcon icon="user" className="mr-3" /> Profile
                     </DropdownItem>
                     <DropdownItem
                       id="qsLogoutBtn"
                       onClick={() => logoutWithRedirect()}
                     >
-                      {/* <FontAwesomeIcon icon="power-off" className="mr-3" />  */}
-                      Log out
+                      <FontAwesomeIcon icon="power-off" className="mr-3" /> Log
+                      out
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
@@ -147,7 +158,7 @@ const NavBar = () => {
                   </span>
                 </NavItem>
                 <NavItem>
-                  {/* <FontAwesomeIcon icon="user" className="mr-3" /> */}
+                  <FontAwesomeIcon icon="user" className="mr-3" />
                   <RouterNavLink
                     to="/profile"
                     activeClassName="router-link-exact-active"
@@ -156,7 +167,7 @@ const NavBar = () => {
                   </RouterNavLink>
                 </NavItem>
                 <NavItem>
-                  {/* <FontAwesomeIcon icon="power-off" className="mr-3" /> */}
+                  <FontAwesomeIcon icon="power-off" className="mr-3" />
                   <RouterNavLink
                     to="#"
                     id="qsLogoutBtn"

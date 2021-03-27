@@ -1,11 +1,17 @@
 // User model
 const mongoose = require("mongoose");
-const { gardenSchema } = require("./garden");
 const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-	username: {
+	lastName: {
+		type: String,
+		required: true,
+	},
+	firstName: {
+		type: String,
+	},
+	userName: {
 		type: String,
 		required: true,
 		unique: true
@@ -15,11 +21,15 @@ const userSchema = new Schema({
 		required: true,
 		unique: true
 	},
-	gardens: {
-		type: Array,
-		of: gardenSchema
+	profilePicture: {
+		type: String,
+		required: true
 	},
-	image: String
+	gardens : [{
+		type: Schema.Types.ObjectId,
+		ref: "Garden"
+	}]
+
 });
 
 const User = mongoose.model("User", userSchema);

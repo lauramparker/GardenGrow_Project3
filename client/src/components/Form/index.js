@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from "../../components/Loading";
 // import { DateRange } from "react-date-range";
 // import "react-date-range/dist/styles.css"; // main style file
 // import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
 
 function GardenForm() {
+  const { user } = useAuth0();
+  const loggedInUser = localStorage.getItem('user') || '';
+
   //[garden, setGarden] in garden.js
     const [garden, setGarden] = useState ({
         gardenName:"",
         length:"",
-        width:""
+        width:"",
       })
     
   
@@ -22,11 +27,27 @@ function GardenForm() {
   //     key: "selection",
   //   },
   // ]);
+  console.log('user', user);
+  if(!loggedInUser) {
+    API.createUser({
+      lastName: user.family_name, 
+      firstName: user.given_name,
+      userName: user.nickname,
+      email: user.email,
+      profilePicture: user.picture
+    }).then((data) => { 
+      console.log('user created', data);
+      localStorage.setItem('user', data._id)
+    });
+  }
+ 
 
   const handleChange = (e) => {
      const {name, value } = e.target;
-     setGarden({...garden, [name]: value})
-     console.log(value);
+     setGarden({
+        ...garden, 
+        [name]: value,
+      })
     };
     
 
@@ -37,7 +58,7 @@ function GardenForm() {
         API.saveGarden({
           gardenName: garden.name,
           length: garden.length,
-          width: garden.width
+          width: garden.width,
         }).then(res => setGarden({
           gardenName: res.data.gardenName,
           length: res.data.length,
@@ -138,4 +159,6 @@ function GardenForm() {
           }
 
 
-export default GardenForm;
+export default withAuthenticationRequired(GardenForm, {
+  onRedirecting: () => <Loading />,
+});

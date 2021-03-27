@@ -12,8 +12,8 @@ function Landing() {
       <Row />
       <Col />
 
-    </div>
-  );
+		</div>
+	);
 }
 
 export default Landing;

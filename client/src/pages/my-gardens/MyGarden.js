@@ -9,8 +9,8 @@ function MyGarden() {
       <Row />
       <Col />
 
-    </div>
-  );
+		</div>
+	);
 }
 
 export default MyGarden;

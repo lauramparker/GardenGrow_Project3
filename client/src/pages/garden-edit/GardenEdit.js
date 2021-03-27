@@ -8,13 +8,13 @@ function GardenEdit() {
   return (
     <div>
         <Container />
-            <Row />
-            <Col />
+        <Row />
+        <Col />
               
       <Footer />
 
-    </div>
-  );
+		</div>
+	);
 }
 
 export default GardenEdit;
