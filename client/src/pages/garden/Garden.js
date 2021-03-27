@@ -18,8 +18,9 @@ function Garden() {
         name: "",
         spacing: "",
         harvest: "",
-        image: ""
+        image: "",
     }) 
+
 
 //garden , set Garden updated in Form
 //we can separate garden into the form property needs and the garden page data needs
@@ -29,12 +30,7 @@ function Garden() {
         width: "",
         total_plots: "", //use for length and width of garden
         garden_data: [ //must be array for map to work (array of listObjects)
-            "plant a", 
-            "plant b",
-            "plant c",
-            "plant d",
-            "plant e",
-            "plant f", 
+         
         ],
              
     })
@@ -59,13 +55,15 @@ function Garden() {
         }, [])
 
 
+    
 //When user selects plant from plant list, update component state 
 
     function handleSelectChange(event)  {
-        const value = event.target.id //!!!!!!! returning undefined no matter what goes here . use bind??
-        console.log(id);
-        setListObject({ name: value }); // !!!!!!!!!!
-        addGardenData(listObject);
+        event.preventDefault();
+        const value = event.currentTarget.value
+        setListObject({ name: value});
+            console.log(listObject);
+            addGardenData(listObject);
     };
 
 
@@ -73,7 +71,7 @@ function Garden() {
 //Updated garden state passes to CardContainer (data) and re-renders the cards
     function addGardenData() {
         setGarden(prevGarden => ({
-            garden_data: [...prevGarden.garden_data, {listObject}]  //! this seems to be working (no value from listObject, but it's saving)
+            garden_data: [...prevGarden.garden_data, {listObject}]  
         }));
     };
 
@@ -121,7 +119,7 @@ function handleGardenSubmit(event) {
                             <Item 
                             key={plant._id}
                             plant={plant}
-                            handleSelectChange={handleSelectChange}  
+                            handleSelectChange={handleSelectChange}
                             >                              
                         </Item>
                         ))}
