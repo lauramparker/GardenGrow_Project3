@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
-import { ListGroup, Item } from "../../components/ListGroup";
+import Table from "../../components/Table";
+// import { ListGroup, Item } from "../../components/ListGroup";
 // import SearchForm from "../../components/SearchForm";
 
 
@@ -15,6 +16,7 @@ function Garden() {
     const[plants, setPlants] = useState([]) //must be array for map to work (array of objects)
 
     const[listObject, setListObject] = useState({ //set as object 
+        id: "",
         name: "",
         spacing: "",
         harvest: "",
@@ -28,7 +30,6 @@ function Garden() {
         gardenName: " ",
         length: "",
         width: "",
-        total_plots: "", //use for length and width of garden
         garden_data: [ //must be array for map to work (array of listObjects)
          
         ],
@@ -59,10 +60,9 @@ function Garden() {
 //When user selects plant from plant list, update component state 
 
     function handleSelectChange(event)  {
-        event.preventDefault();
         const value = event.currentTarget.value
         setListObject({ name: value});
-            console.log(listObject);
+            // console.log(listObject);
             addGardenData(listObject);
     };
 
@@ -72,7 +72,8 @@ function Garden() {
     function addGardenData() {
         setGarden(prevGarden => ({
             garden_data: [...prevGarden.garden_data, {listObject}]  
-        }));
+        }))
+        console.log(garden.garden_data);
     };
 
 //runs when garden container renders (like component did mount)
@@ -90,16 +91,16 @@ function Garden() {
 
 //when the user saves their garden, need to reroute to MyGardens or LandingPage
 //don't need to post as Garden is consistantly updated above
-function handleGardenSubmit(event) {
-    event.preventDefault()
-    alert("You planned your Garden! Want to start another?")
-    .catch(err => console.log(err));
-};
+    function handleGardenSubmit(event) {
+        event.preventDefault()
+        alert("You planned your Garden! Want to start another?")
+        .catch(err => console.log(err));
+    };
 
 
   return (
     <div>
-      <Container fluid>
+        <Container fluid>
             <Row>
 
                 <Col>
@@ -107,37 +108,25 @@ function handleGardenSubmit(event) {
 
                     <CardContainer 
                         data={garden.garden_data}
-                        // total_plots={garden.total_plots}
                         onClick={handleGardenSubmit}
                     />
                 </Col>
 
                 <Col>
                     <h3>Select Plants</h3>
-                    <ListGroup>
-                        {plants.map(plant => (
-                            <Item 
-                            key={plant._id}
-                            plant={plant}
+        
+                    <Table
+                            plants={plants}
                             handleSelectChange={handleSelectChange}
-                            >                              
-                        </Item>
-                        ))}
-                    </ListGroup>
+                            >
+                    </Table>
                 </Col>
             
             </Row>
-         
+		</Container>
+		<Footer />
 
-            <Row>
-                {/* <SearchForm>
-                  
-                </SearchForm> */}
-					</Row>
-				</Container>
-				<Footer />
-
-			</div>
+	</div>
 		);
 	
 }

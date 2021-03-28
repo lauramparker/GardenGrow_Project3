@@ -1,12 +1,53 @@
-table {
-    border: 1px solid black;
+td {  
+    width: 100px;
+    overflow-wrap: normal;
+    font-size: small;
+    
+}
+
+th {
+    font-size: medium;
+    color: green;
+    text-align: center;
+}
+
+#plantList {
+    /* box-sizing: border-box;
+    max-width: 300px;
+    max-height: 500px;
+    border-style: solid;
+    
+    padding: 20px;
+    margin: 20px; */
+    table-layout: fixed;
+    /* width: 600px;
+    height: 600px; */
+    border: 1px solid lightgreen;
+    border-color: lightgreen;
     overflow-x: scroll;
     overflow-y: scroll;
-    max-height: 350px;
+}
+
+/* #plantBox {
+  box-sizing: border-box;
+  width: 600px;
+  height: 600px;
+  border-style: solid;
+  border-color: lightgreen;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid lightgreen;
+  overflow-x: scroll;
+  overflow-y: scroll;
+} */
+
+.scrollbar {
+  position: relative;
+  height: 600px;
+  overflow: auto;
   }
-  
-td,th {
-    border: 1px solid black;
-    width: 50px;
-    overflow-wrap: normal;
+
+.table-wrapper-scroll-y {
+  display: block;
+  border: 1px solid lightgreen;
   }
