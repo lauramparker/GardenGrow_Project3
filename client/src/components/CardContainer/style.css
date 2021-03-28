@@ -1,2 +1,35 @@
+body,html {
+    padding: 5px;
+    margin: 5px;
+  }
 
+.wrapper {
+    display:grid;
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4, 100px);
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    background-color: white;
+}
 
+/* //set media breakpoints fr = fraction */
+@media (min-width: 600px) {
+    .wrapper {
+      grid-template-columns: repeat (2, 1fr);
+    }
+  }
+
+.plot {
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 10px;
+    color: white;
+    line-height: 1;
+    /* font-family:  */
+    /* font-weight: 50; */
+    cursor: pointer;
+    transition: all .3s ease;
+  }
