@@ -12,8 +12,8 @@ const API = {
   },
 
 	// Get all gardens for specific user id ?????
-	getGardens: function(user_id) {
-		return axios.get("/api/gardens/" + user_id);
+	getGardens: function() {
+		return axios.get("/api/gardens");
 	},
 
 
@@ -33,8 +33,8 @@ const API = {
   },
 
    // Updates a Garden with array of plots as plants are added
-   updateGarden: function(id, data) {
-    return axios.put("/api/gardens/" + id, data);
+   updateGarden: function(id) {
+    return axios.put("/api/gardens/" + id);
   },
 
   deleteGarden: function(id) {
