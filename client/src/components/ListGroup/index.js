@@ -8,34 +8,31 @@ import "./style.css";
 export function ListGroup({children}) {
 
     return(
-        <div className="list-overflow-container" id="List">
+        <div className="list-overflow-container" id="gardenList">
         <ul className="list-group">{children} </ul>
         </div>
         );
     }
 
 
-    
 export function Item(props) {
 
     // const[checked, setChecked] = useState([])  //for future check uncheck
 
             return(
 
-                <li className="list-group-item" >
+                <li className="list-group-item" id={props.garden._id}>
                     
                     <div class="form-check">
                         <input 
                             className="form-check-input"
                             type="checkbox" 
-                            // defaultChecked={props.listObject.checked}
-                            value={props.plant.Name} 
-                            id="checkBox"
-                            // onClick={() => setChecked(!checked)}
-                            onChange={props.handleSelectChange}
+                            value={props.garden.gardenName} 
+                            // id={props.plant._id} //this doesn't work in input
+                            onChange={props.handleChange}
                             > 
                         </input>      
-                        <label className="form-check-label" for="flexCheckDefault">{props.plant.Name}</label>
+                        <label className="form-check-label" for="flexCheckDefault">{props.garden.gardenName}</label>
                     </div>
     
                 </li>
