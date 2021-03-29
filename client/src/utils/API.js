@@ -11,9 +11,9 @@ const API = {
     return axios.get("/api/plants"); //added to fix CORS access error //remove when deploying
   },
 
-	// Get all gardens for specific user id ?????
-	getGardens: function(user_id) {
-		return axios.get("/api/gardens/" + user_id);
+	// Get all gardens (grabs use-specific gardens when user is logged in)
+	getGardens: function() {
+		return axios.get("/api/gardens");
 	},
 
 
@@ -33,8 +33,8 @@ const API = {
   },
 
    // Updates a Garden with array of plots as plants are added
-   updateGarden: function(id, data) {
-    return axios.put("/api/gardens/" + id, data);
+   updateGarden: function() {
+    return axios.put("/api/gardens/");
   },
 
   deleteGarden: function(id) {
