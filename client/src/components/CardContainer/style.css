@@ -28,8 +28,6 @@ body,html {
     font-size: 10px;
     color: white;
     line-height: 1;
-    /* font-family:  */
-    /* font-weight: 50; */
     cursor: pointer;
     transition: all .3s ease;
   }

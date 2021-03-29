@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
-// import { ListGroup, Item } from "../../components/ListGroup";
 // import SearchForm from "../../components/SearchForm";
 
 
@@ -46,16 +44,6 @@ function Garden() {
         .catch(err => console.log(err))
     }, [])
 
-
-//Load specific Garden one time (NEW Garden) when pages loads !!!!!! NEED to attach id!
-        const {id} = useParams()
-        useEffect(() => {
-        API.getOneGarden(id)
-            .then(res => setGarden(res.data))
-            .catch(err => console.log(err));
-        }, [id])
-
-
     
 //When user selects plant from plant list, update component state 
 
@@ -89,8 +77,7 @@ function Garden() {
 
 
 
-//when the user saves their garden, need to reroute to MyGardens or LandingPage
-//don't need to post as Garden is consistantly updated above
+//when the user saves their garden, need to reroute to MyGardens
     function handleGardenSubmit(event) {
         event.preventDefault()
         alert("You planned your Garden! Want to start another?")
@@ -108,7 +95,6 @@ function Garden() {
 
                     <CardContainer 
                         data={garden.garden_data}
-                        onClick={handleGardenSubmit}
                     />
                 </Col>
 
@@ -121,7 +107,11 @@ function Garden() {
                             >
                     </Table>
                 </Col>
-            
+            </Row>
+            <Row>
+                <Col>
+                <button className="btn" id="saveBtn" onClick={handleGardenSubmit}>Save Garden</button>
+                </Col>
             </Row>
 		</Container>
 		<Footer />

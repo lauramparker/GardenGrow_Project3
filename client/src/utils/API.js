@@ -11,7 +11,10 @@ const API = {
     return axios.get("/api/plants"); //added to fix CORS access error //remove when deploying
   },
 
-	// Get all gardens for specific user id ?????
+
+	// Get all gardens (grabs use-specific gardens when user is logged in)
+
+
 	getGardens: function() {
 		return axios.get("/api/gardens");
 	},

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-// import {Col, Row, Container} from "react-bootstrap";
+import {Col, Row, Container} from "react-bootstrap";
 import API from "../../utils/API";
 import {ListGroup, Item} from "../../components/ListGroup";
 
@@ -8,6 +8,7 @@ function MyGarden() {
 
 
       const[gardens, setGardens] = useState([])
+
 
       useEffect(() => {
         API.getGardens()
@@ -18,27 +19,19 @@ function MyGarden() {
 
 
     function handleDelete(event) {
-      event.preventDefault()
-      API.deleteGarden()
+      const id = event.currentTarget.value
+      API.deleteGarden(id)
       .catch(err => console.log(err));
     };
 
         return (
           <div>
-            {/* <Container>
-                <Row>
-                <Col> */}
+            <Container>
+              <Row>
+                <Col>
 
-                     <h3>List Gardens </h3>
-                     <ul>
-                        {gardens.map(garden => (
-
-                        <li key={garden._id}>
-                            <p> {garden.gardenName}</p>
-
-                            </li>
-                        ))}
-                      </ul>
+                     <h3>My Gardens </h3>
+          
                       <ListGroup>
                           {gardens.map(garden => (
                               <Item
@@ -49,7 +42,10 @@ function MyGarden() {
                               </Item>
                           ))}
                       </ListGroup>
-                            
+
+                </Col>
+              </Row>
+            </Container>      
           </div>
         );
 
