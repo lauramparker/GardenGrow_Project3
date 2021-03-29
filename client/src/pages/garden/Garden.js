@@ -89,8 +89,7 @@ function Garden() {
 
 
 
-//when the user saves their garden, need to reroute to MyGardens or LandingPage
-//don't need to post as Garden is consistantly updated above
+//when the user saves their garden, need to reroute to MyGardens
     function handleGardenSubmit(event) {
         event.preventDefault()
         alert("You planned your Garden! Want to start another?")
@@ -108,7 +107,6 @@ function Garden() {
 
                     <CardContainer 
                         data={garden.garden_data}
-                        onClick={handleGardenSubmit}
                     />
                 </Col>
 
@@ -121,7 +119,11 @@ function Garden() {
                             >
                     </Table>
                 </Col>
-            
+            </Row>
+            <Row>
+                <Col>
+                <button className="btn" id="saveBtn" onClick={handleGardenSubmit}>Save Garden</button>
+                </Col>
             </Row>
 		</Container>
 		<Footer />
