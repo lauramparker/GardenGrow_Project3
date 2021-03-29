@@ -1,14 +1,11 @@
 import React, { Fragment } from "react";
-
-import Hero from "../components/Hero";
-import Content from "../components/Content";
+import GardenImage from "../assets/GardenGrow.jpeg";
+import "./home.css";
 
 const Home = () => (
-  <Fragment>
-    <Hero />
-    <hr />
-    <Content />
-  </Fragment>
+	<Fragment>
+		<img className="hero-image" src={GardenImage} alt="hero" />
+	</Fragment>
 );
 
 export default Home;

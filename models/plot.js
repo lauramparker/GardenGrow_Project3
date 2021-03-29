@@ -2,13 +2,18 @@
 const { Schema, model } = require("mongoose");
 const { plantSchema } = require("./plants");
 
-const PLOT_SIZE_SQFT = 4;
+// const PLOT_SIZE_SQFT = 4; 
 
 const plotSchema = new Schema({
 	plant: {
 		type: plantSchema,
 		required: false,
 	},
+	// plant: {
+	//     type: Schema.Types.ObjectId ,
+	//     required: false,
+	//     ref: "Plant",
+	// },
 	spaceMinimum: Number,
 	spaceMaximum: Number,
 	maxPlants: Number,
@@ -31,5 +36,5 @@ const Plot = model("Plot", plotSchema);
 
 module.exports = {
 	plotSchema,
-	Plot,
+	Plot
 };

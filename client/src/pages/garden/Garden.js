@@ -1,51 +1,39 @@
-import React, {useState, useEffect} from "react";
-import {Col, Row, Container} from "react-bootstrap";
-import { useParams } from "react-router-dom";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
-import { ListGroup, Item } from "../../components/ListGroup";
-import SearchForm from "../../components/SearchForm";
-// import GardenForm from "../../components/Form";
+import Table from "../../components/Table";
+// import SearchForm from "../../components/SearchForm";
 
 
 
 
 function Garden() {
 //setting state for plants table to load plants in List table
-    const[plants, setPlants] = useState([])
+    const[plants, setPlants] = useState([]) //must be array for map to work (array of objects)
+
+    const[listObject, setListObject] = useState({ //set as object 
+        id: "",
+        name: "",
+        spacing: "",
+        harvest: "",
+        image: "",
+    }) 
+
 
 //garden , set Garden updated in Form
+//we can separate garden into the form property needs and the garden page data needs
     const[garden, setGarden] = useState({
         gardenName: " ",
         length: "",
         width: "",
-        total_plots: 16,
-        garden_data: [ //try JSON object //has to be array for .map to work
-            "plant a", 
-            "plant b",
-            "plant c",
-            "plant d",
-            "plant e",
-            "plant f", 
+        garden_data: [ //must be array for map to work (array of listObjects)
+         
         ],
              
     })
   
-
-// setting Card state context. 
-//List can update cardstate with selected plant
-    const[cardState, setCardState] = useState({ 
-        selected: false,
-        plot_id: "", //how do we set plot?
-        plant_id: "",
-        plant_name: "",
-        plantImg:"",
-        onClick: (plant_id, plant_name, plantImg) => {
-            setCardState({ ...cardState, plant_id, plant_name, plantImg });
-            }
-    }) 
 
 
 //Load all plants and set to plants when Garden page renders
@@ -56,51 +44,50 @@ function Garden() {
         .catch(err => console.log(err))
     }, [])
 
+    
+//When user selects plant from plant list, update component state 
 
-//Load specific Garden (new Garden) when pages loads (will use - need to define id)
-        const {id} = useParams()
-        useEffect(() => {
-        API.getOneGarden(id)
-            .then(res => setGarden(res.data))
-            .catch(err => console.log(err));
-        }, [])
-
-
-//update CardState with selected plant from List checkbox //Add updated cardstate to garden.garden_data
-//need to connect plants and cards in DB
-
-    function handleSelectedPlant(event)  {
-        event.setCardState(
-
-            cardState.selected=true
-            )
-        .then(cardState => handleGardenUpdate(cardState))
-        .catch(err => console.log(err));
-    };   
-
-
-//add new cardState info to garden_data array // should loadGarden? to reload the Garden
-    function handleGardenUpdate(cardState) {
-        setGarden(garden.garden_data=(garden.garden_data.push(cardState)))
-        .catch(err => console.log(err));
+    function handleSelectChange(event)  {
+        const value = event.currentTarget.value
+        setListObject({ name: value});
+            // console.log(listObject);
+            addGardenData(listObject);
     };
 
 
+//Adds selected plant data to garden_data.  
+//Updated garden state passes to CardContainer (data) and re-renders the cards
+    function addGardenData() {
+        setGarden(prevGarden => ({
+            garden_data: [...prevGarden.garden_data, {listObject}]  
+        }))
+        console.log(garden.garden_data);
+    };
 
-//when the user SAVES their garden, update saved garden
-    function handleGardenSave(event) {
+//runs when garden container renders (like component did mount)
+    useEffect((garden) => {
+       API.updateGarden({
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({garden})
+        })
+            .then(res => res.json())
+            .then(data =>setGarden(data));
+    }, []);
+
+
+
+//when the user saves their garden, need to reroute to MyGardens
+    function handleGardenSubmit(event) {
         event.preventDefault()
-        API.updateGarden() //route to update new garden (save happens on loading page)
-          .then(req=> setGarden(req.data)) //update state with new garden
-          .catch(err => console.log(err));
+        alert("You planned your Garden! Want to start another?")
+        .catch(err => console.log(err));
     };
-
-
 
 
   return (
     <div>
-      <Container fluid>
+        <Container fluid>
             <Row>
 
                 <Col>
@@ -108,42 +95,31 @@ function Garden() {
 
                     <CardContainer 
                         data={garden.garden_data}
-                        // total_plots={garden.total_plots}
-                        handleGardenUpdate={handleGardenUpdate}
-                        onClick={handleGardenSave}
                     />
                 </Col>
 
                 <Col>
                     <h3>Select Plants</h3>
-                    <ListGroup>
-                        {plants.map(plant => (
-                            <Item 
-                            key={plant._id}
-                            plant={plant}
-                            handleSelectedPlant={handleSelectedPlant}  
-                            >                              
-                        </Item>
-                        ))}
-                    </ListGroup>
+        
+                    <Table
+                            plants={plants}
+                            handleSelectChange={handleSelectChange}
+                            >
+                    </Table>
                 </Col>
-            
             </Row>
-         
-
             <Row>
-                <SearchForm>
-                    {/* search={this.state.search} */}
-                </SearchForm>
-            </Row>  
-        </Container>      
-      <Footer />
+                <Col>
+                <button className="btn" id="saveBtn" onClick={handleGardenSubmit}>Save Garden</button>
+                </Col>
+            </Row>
+		</Container>
+		<Footer />
 
-    </div>
-  );
+	</div>
+		);
+	
 }
 
 
 export default Garden;
-
-// new garden should append here in list format. 

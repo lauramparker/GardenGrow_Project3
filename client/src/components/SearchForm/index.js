@@ -6,13 +6,13 @@ function SearchForm(props) {
             <div className="form-group">
                 <label htmlFor="search">Search Plant Data</label>
                 <input
-                    onChange={props}
-                    value={props}
+                    onChange={props.onChange}
+                    value={props.value}
                     term="search"
                     type="text"
-                    ClassName="form-control"
+                    className="form-control"
                 />
-                <button onClick={props} className="btn">Submit</button>
+                <button onClick={props.onClick} className="btn">Submit</button>
             </div>
         </form>
     )

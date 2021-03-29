@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
-import { DateRange } from "react-date-range";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from "../../components/Loading";
+// import { DateRange,} from "react-date-range";
+// import "react-date-range/dist/styles.css"; // main style file
+// import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
+import { useHistory } from "react-router-dom";
+
 
 function GardenForm() {
+  const { user } = useAuth0();
+  const loggedInUser = localStorage.getItem('user') || '';
+  let history = useHistory();
+
   //[garden, setGarden] in garden.js
     const [garden, setGarden] = useState ({
         gardenName:"",
         length:"",
-        width:""
+        width:"",
       })
     
   
@@ -23,15 +31,73 @@ function GardenForm() {
   //   },
   // ]);
 
-  const handleChange = (e) => {
+  console.log('user', user);
+  if(!loggedInUser) {
+    API.createUser({
+      lastName: user.family_name, 
+      firstName: user.given_name,
+      userName: user.nickname,
+      email: user.email,
+      profilePicture: user.picture
+    }).then((data) => { 
+      console.log('user created', data);
+      localStorage.setItem('user', data._id)
+    });
+  }
+ 
+
+  const handleChange = (e, date) => {
      const {name, value } = e.target;
-     setGarden({...garden, [name]: value})
-     console.log(value);
+     setGarden({
+        ...garden, 
+        [name]: value,
+      })
+        console.log(date); // native Date object
+      
     };
     
 
+  //VERSION TWO
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      //saving new Garden to db
+      history.push("/Garden");
+        API.saveGarden({
+          gardenName: garden.gardenName,
+          length: garden.length,
+          width: garden.width,
+        }).then(res => setGarden({
+          gardenName: res.data.gardenName,
+          length: res.data.length,
+          width: res.data.length
+        }))
+        .catch((err) => console.log(err));
+    };
 
-  //
+
+
+  // VERSION ONE TO TEST
+  // const handleSubmit = (e) => {
+  //   alert(this.state.value);
+  //   e.preventDefault();
+    
+  //     API.saveGarden({
+  //       gardenName: garden.name,
+  //       length: garden.length,
+  //       width: garden.width
+  //     }).then (() => setGarden({
+  //       gardenName:"",
+  //       length:"",
+  //       width:""
+  //     }))
+  //     .catch((err) => console.log(err));
+  //    //saving new Garden to db
+  //   console.log(onsubmit);
+  // };
+
+
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
       API.saveGarden({
@@ -47,6 +113,7 @@ function GardenForm() {
      //saving new Garden to db
    
   };
+
 
   return (
     <div>
@@ -101,6 +168,8 @@ function GardenForm() {
               onChange={(item) => setState([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={state}
+              date={new Date()}
+              
             /> */}
           </Row>
           <Row className="form-group">
@@ -109,6 +178,7 @@ function GardenForm() {
               type="submit"
               // disabled={!(garden.gardenName && garden.length && garden.width)}
               onClick={handleSubmit}
+              
             >
               Submit
             </button>
@@ -120,4 +190,6 @@ function GardenForm() {
           }
 
 
-export default GardenForm;
+export default withAuthenticationRequired(GardenForm, {
+  onRedirecting: () => <Loading />,
+});

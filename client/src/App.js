@@ -43,7 +43,6 @@ const App = () => {
         <Container className="flex-grow-1 mt-5">
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
-            {/* <Route exact path="/external-api" component={ExternalApi} /> */}
             <Route exact path="/landing-page" component={Landing} />
             <Route exact path="/my-gardens" component={MyGarden} />
             <Route exact path="/garden-edit" component={GardenEdit} />

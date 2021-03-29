@@ -1,12 +1,32 @@
-table {
-    border: 1px solid black;
+td {  
+    width: 100px;
+    overflow-wrap: normal;
+    font-size: small;
+    
+}
+
+th {
+    font-size: medium;
+    color: green;
+    text-align: center;
+}
+
+#plantList {
+    table-layout: fixed;
+    border: 1px solid lightgreen;
+    border-color: lightgreen;
     overflow-x: scroll;
     overflow-y: scroll;
-    max-height: 350px;
+}
+
+
+.scrollbar {
+  position: relative;
+  height: 600px;
+  overflow: auto;
   }
-  
-td,th {
-    border: 1px solid black;
-    width: 50px;
-    overflow-wrap: normal;
+
+.table-wrapper-scroll-y {
+  display: block;
+  border: 1px solid lightgreen;
   }
