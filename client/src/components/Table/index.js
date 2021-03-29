@@ -21,12 +21,11 @@ function Table(props) {
                 return (
                 <tr>
                     <td>
-                        <div class="form-check">
+                        <div class="form-check" id={plant._id}>
                             <input 
                                 className="form-check-input"
                                 type="checkbox" 
                                 value={plant.Name} 
-                                // id={props.plant._id} //this doesn't work in input
                                 onChange={props.handleSelectChange}
                                 > 
                             </input>      

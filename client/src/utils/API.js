@@ -33,8 +33,8 @@ const API = {
   },
 
    // Updates a Garden with array of plots as plants are added
-   updateGarden: function() {
-    return axios.put("/api/gardens/");
+   updateGarden: function(id) {
+    return axios.put("/api/gardens/" + id);
   },
 
   deleteGarden: function(id) {

@@ -39,7 +39,7 @@ export function Item(props) {
                             </label>
                     </div>
 
-                    <button type="button" id="deleteBtn" value={props.garden._id} onClick={props.handleDelete}>
+                    <button className="btn" id="deleteBtn" value={props.garden._id} onClick={props.handleDelete}>
                      Delete
                     </button>
                 </li>
