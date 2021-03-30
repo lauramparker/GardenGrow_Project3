@@ -4,6 +4,7 @@ import Form from "../../components/Form";
 
 
 
+
 function Landing() {
   return (
     <div>
@@ -11,7 +12,6 @@ function Landing() {
       <Form/>
       <Row />
       <Col />
-
 		</div>
 	);
 }

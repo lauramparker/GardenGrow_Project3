@@ -32,7 +32,9 @@ const NavBar = () => {
 
   return (
     <div className="nav-container">
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md"
+      style={{borderRadius:"15px"}}
+      >
         <Container>
           <NavbarBrand className="logo" />
           <NavbarToggler onClick={toggle} />
@@ -43,9 +45,11 @@ const NavBar = () => {
                 style={{
                   fontFamily: "'Concert One', cursive",
                   fontWeight: "400",
+                  fontSize:"30px",
+                  color:"#8C8627",
                 }}
               >
-                Garden Grow
+                Grid Gardens
               </NavItem>
               <NavItem>
                 <NavLink
