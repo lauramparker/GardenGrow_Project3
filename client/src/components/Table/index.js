@@ -20,7 +20,7 @@ function Table(props) {
         <tbody>
             {props.plants.map(plant => { 
                 return (
-                <tr>
+                <tr key={plant._id}>
                     <td>
                         <div className="form-check container-fluid" id={plant._id}>
                             <input 
