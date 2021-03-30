@@ -93,7 +93,7 @@ function Garden() {
     function handleGardenSubmit(event) {
         event.preventDefault()
         alert("You planned your Garden! Want to start another?")
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
     };
 
 
