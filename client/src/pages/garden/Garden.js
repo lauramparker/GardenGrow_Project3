@@ -130,8 +130,6 @@ function Garden() {
                 </Col>
             </Row>
 		</Container>
-		<Footer />
-
 	</div>
 		);
 	
