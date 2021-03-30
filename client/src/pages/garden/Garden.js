@@ -26,14 +26,12 @@ function Garden() {
 //we can separate garden into the form property needs and the garden page data needs
     const[garden, setGarden] = useState({
         gardenName: " ",
-        length: "",
-        width: "",
+        length: 4,
+        width: 6,
         garden_data: [ //must be array for map to work (array of listObjects)
          
-        ],
-             
+        ],      
     })
-  
 
 
 //Load all plants and set to plants when Garden page renders
@@ -44,20 +42,32 @@ function Garden() {
         .catch(err => console.log(err))
     }, [])
 
+
+//Load garden / setGarden after user inputs newly saved Garden fields
+    useEffect(() => {
+        const id = "605e6f230cdfe6b454d8e9d4"; //placeholder ID
+        API.getOneGarden(id)
+        .then(res => setGarden(res.data))
+        // .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }, [])
+
     
+
 //When user selects plant from plant list, update component state 
 
     function handleSelectChange(event)  {
         const value = event.currentTarget.value
-        setListObject({ name: value});
-            // console.log(listObject);
+        console.log(value);
+        setListObject({ ...listObject, name: value });
+            console.log(listObject);
             addGardenData(listObject);
     };
 
 
 //Adds selected plant data to garden_data.  
 //Updated garden state passes to CardContainer (data) and re-renders the cards
-    function addGardenData() {
+    function addGardenData(listObject) {
         setGarden(prevGarden => ({
             garden_data: [...prevGarden.garden_data, {listObject}]  
         }))
@@ -95,6 +105,9 @@ function Garden() {
 
                     <CardContainer 
                         data={garden.garden_data}
+                        length={garden.length}
+                        width={garden.width}
+                        gardenName={garden.gardenName}
                     />
                 </Col>
 

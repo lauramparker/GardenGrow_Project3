@@ -3,10 +3,13 @@ body,html {
     margin: 5px;
   }
 
+
+/* number of columns and rows determined inline (grid-template-rows & columns) 
+when user enters garden dimensions */
 .wrapper {
     display:grid;
-    grid-template-rows: repeat(4, 100px);
-    grid-template-columns: repeat(4, 100px);
+    /* grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4, 100px); */
     grid-column-gap: 2px;
     grid-row-gap: 2px;
     background-color: white;
