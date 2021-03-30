@@ -4,6 +4,7 @@ import Form from "../../components/Form";
 
 
 
+
 function Landing() {
   return (
     <div>
@@ -14,6 +15,7 @@ function Landing() {
       </ Container>
     </div>
   );
+
 }
 
 export default Landing;
