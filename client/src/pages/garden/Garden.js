@@ -54,6 +54,26 @@ function Garden() {
         .catch(err => console.log(err))
     }, [])
 
+
+//NEW VERSION
+    useEffect((id) => {
+        API.updateGarden(id)
+        .then(res =>setGarden(res.data));
+     }, [garden.garden_data]);
+
+    //OLD VERSION
+//runs when garden container renders (like component did mount)
+    // useEffect((garden) => {
+    //    API.updateGarden({
+    //         method: 'PUT',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({garden})
+    //     })
+    //         .then(res => res.json())
+    //         .then(data =>setGarden(data));
+    // }, []);
+
+
     
 
 //When user selects plant from plant list, update component state 
@@ -75,17 +95,6 @@ function Garden() {
         }))
         console.log(garden.garden_data);
     };
-
-//runs when garden container renders (like component did mount)
-    useEffect((garden) => {
-       API.updateGarden({
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({garden})
-        })
-            .then(res => res.json())
-            .then(data =>setGarden(data));
-    }, []);
 
 
 
