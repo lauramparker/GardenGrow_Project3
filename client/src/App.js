@@ -43,7 +43,7 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/landing-page" component={Landing} />
-            <Route exact path="/my-gardens" component={MyGarden} />
+            <Route exact path={["/my-gardens", "/mygardens"]} component={MyGarden} />
             <Route exact path="/garden-edit" component={GardenEdit} />
             <Route exact path="/garden" component={Garden} />
           </Switch>

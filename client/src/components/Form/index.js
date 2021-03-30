@@ -15,12 +15,22 @@ function GardenForm() {
   let history = useHistory();
 
   //[garden, setGarden] in garden.js
+
   const [garden, setGarden] = useState({
     gardenName: "",
     length: "",
     width: "",
   });
 
+    const [garden, setGarden] = useState ({
+        gardenName:"",
+        length:"",
+        width:"",
+        plant_date: "",
+        total_plots: ""
+      })
+    
+ 
   // state for date range pickr
   const [state, setState] = useState([
     {
@@ -54,6 +64,7 @@ function GardenForm() {
     console.log(date); // native Date object
   };
 
+
   //VERSION TWO
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,6 +77,15 @@ function GardenForm() {
     })
       .then((res) =>
         setGarden({
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      //saving new Garden to db
+      history.push("/Garden");
+        API.saveGarden({
+          gardenName: garden.gardenName,
+          length: garden.length,
+          width: garden.width,
+        }).then(res => setGarden({
           gardenName: res.data.gardenName,
           length: res.data.length,
           width: res.data.length,
@@ -73,6 +93,7 @@ function GardenForm() {
       )
       .catch((err) => console.log(err));
   };
+
 
   // VERSION ONE TO TEST
   // const handleSubmit = (e) => {
@@ -92,23 +113,7 @@ function GardenForm() {
   //    //saving new Garden to db
   //   console.log(onsubmit);
   // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //     API.saveGarden({
-  //       gardenName: garden.name,
-  //       length: garden.length,
-  //       width: garden.width
-  //     }).then (res => setGarden({
-  //       gardenName: res.data.gardenName,
-  //       length: res.data.legth,
-  //       width: res.data.width
-  //     }))
-  //     .catch((err) => console.log(err));
-  //    //saving new Garden to db
-
-  // };
-
+            
   return (
     <div style={{ height: "325px" }}>
       <div>
@@ -148,7 +153,7 @@ function GardenForm() {
                 <select
                   onChange={handleChange}
                   name="length"
-                  value={garden.length} //changed from state.length
+                  value={garden.length} 
                 >
                   <option value="2">2</option>
                   <option value="4">4</option>
