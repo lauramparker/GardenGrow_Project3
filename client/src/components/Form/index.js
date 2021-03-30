@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../components/Loading";
-import { DateRange,} from "react-date-range";
+import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
@@ -14,13 +14,6 @@ function GardenForm() {
   const loggedInUser = localStorage.getItem("user") || "";
   let history = useHistory();
 
-  //[garden, setGarden] in garden.js
-
-  const [garden, setGarden] = useState({
-    gardenName: "",
-    length: "",
-    width: "",
-  });
 
     const [garden, setGarden] = useState ({
         gardenName:"",
@@ -66,17 +59,6 @@ function GardenForm() {
 
 
   //VERSION TWO
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    //saving new Garden to db
-    history.push("/Garden");
-    API.saveGarden({
-      gardenName: garden.gardenName,
-      length: garden.length,
-      width: garden.width,
-    })
-      .then((res) =>
-        setGarden({
     const handleSubmit = (e) => {
       e.preventDefault();
       //saving new Garden to db
@@ -94,25 +76,6 @@ function GardenForm() {
       .catch((err) => console.log(err));
   };
 
-
-  // VERSION ONE TO TEST
-  // const handleSubmit = (e) => {
-  //   alert(this.state.value);
-  //   e.preventDefault();
-
-  //     API.saveGarden({
-  //       gardenName: garden.name,
-  //       length: garden.length,
-  //       width: garden.width
-  //     }).then (() => setGarden({
-  //       gardenName:"",
-  //       length:"",
-  //       width:""
-  //     }))
-  //     .catch((err) => console.log(err));
-  //    //saving new Garden to db
-  //   console.log(onsubmit);
-  // };
             
   return (
     <div style={{ height: "325px" }}>
