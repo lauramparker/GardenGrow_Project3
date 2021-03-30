@@ -22,7 +22,7 @@ export function Item(props) {
             return(
 
                 <li className="list-group-item" >
-                    <div class="form-check">
+                    <div className="form-check">
                         <input 
                             className="form-check-input"
                             type="checkbox" 
@@ -31,7 +31,7 @@ export function Item(props) {
                             onChange={props.handleRenderGarden} //Render Garden info?
                             > 
                         </input>      
-                        <label className="form-check-label" for="flexCheckDefault">
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
                             <span><strong>{props.garden.gardenName}</strong></span><br></br>
                             {/* <span>Plant Date: {props.garden.date}</span> */}
                             <small>length: {props.garden.length} ft & </small>

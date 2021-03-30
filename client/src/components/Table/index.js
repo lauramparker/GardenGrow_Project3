@@ -30,7 +30,7 @@ function Table(props) {
                                 onChange={props.handleSelectChange}
                                 > 
                             </input>      
-                            <label className="form-check-label" for="flexCheckDefault">{plant.Name}</label>
+                            <label className="form-check-label" htmlFor="flexCheckDefault">{plant.Name}</label>
                         </div>
                     </td> 
 
