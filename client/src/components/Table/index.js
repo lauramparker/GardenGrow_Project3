@@ -4,6 +4,7 @@ import "./style.css";
 
 //set up table that lists plants
 function Table(props) {
+
     return (
     <div>
       <div className = "table-wrapper-scroll-y scrollbar">

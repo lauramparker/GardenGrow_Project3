@@ -57,7 +57,6 @@ function GardenForm() {
     };
     
 
-  //VERSION TWO
     const handleSubmit = (e) => {
       e.preventDefault();
       //saving new Garden to db
@@ -73,26 +72,6 @@ function GardenForm() {
         }))
         .catch((err) => console.log(err));
     };
-
-
-  // VERSION ONE TO TEST
-  // const handleSubmit = (e) => {
-  //   alert(this.state.value);
-  //   e.preventDefault();
-    
-  //     API.saveGarden({
-  //       gardenName: garden.name,
-  //       length: garden.length,
-  //       width: garden.width
-  //     }).then (() => setGarden({
-  //       gardenName:"",
-  //       length:"",
-  //       width:""
-  //     }))
-  //     .catch((err) => console.log(err));
-  //    //saving new Garden to db
-  //   console.log(onsubmit);
-  // };
 
 
 
