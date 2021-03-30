@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Row, Container} from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 import Form from "../../components/Form";
 
 
@@ -8,12 +8,14 @@ import Form from "../../components/Form";
 function Landing() {
   return (
     <div>
-      <Container />
-      <Form/>
-      <Row />
-      <Col />
-		</div>
-	);
+      <Container >
+        <Form />
+        <Row />
+        <Col />
+      </ Container>
+    </div>
+  );
+
 }
 
 export default Landing;
