@@ -34,3 +34,8 @@ when user enters garden dimensions */
     cursor: pointer;
     transition: all .3s ease;
   }
+
+  #gardenBox {
+    text-align: left;
+  }
+

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container } from "react-bootstrap";
 import "./style.css";
 
 
@@ -21,6 +22,8 @@ function CardContainer(props) {
 
     return(
         <div>
+        <Container id ="gardenBox">
+            
             <div className = "wrapper" 
                 style={{"grid-template-rows": "repeat("+ dimensions.length+", 100px)",
                 "grid-template-columns": "repeat("+ dimensions.width+", 100px)"}}>
@@ -31,6 +34,8 @@ function CardContainer(props) {
                 </div>
                 ))}
             </div>
+
+        </Container>
         </div>
 
     )

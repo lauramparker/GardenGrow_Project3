@@ -19,6 +19,8 @@ function GardenForm() {
         gardenName:"",
         length:"",
         width:"",
+        plant_date: "",
+        total_plots: ""
       })
     
   
@@ -101,7 +103,7 @@ function GardenForm() {
                 <select
                   onChange={handleChange}
                   name="length"
-                  value={garden.length} //changed from state.length
+                  value={garden.length} 
                 >
                   <option value="2">2</option>
                   <option value="4">4</option>
