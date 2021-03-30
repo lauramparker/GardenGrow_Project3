@@ -1,13 +1,16 @@
 import React from "react";
 
 const Footer = () => (
-  
-  <footer className="bg-light p-3 text-center"style={{position:"relative", bottom: "0", right:"0", left:"0", top:"20px", borderRadius:"5px"}}> 
-    <div className="logo" />
-    <p>
+  <div class="container my-5">
+
+<footer className="bg-light p-3 text-center" style={{width:"100%", borderRadius:"5px", top:"0", bottom:"0"}}> 
+    <div className="logo">
+    <span row d-flex justify-content-center>
       Garden Grow
-    </p>
+    </span>
+  </div>
   </footer>
-);
+  </div>
+  );
 
 export default Footer;

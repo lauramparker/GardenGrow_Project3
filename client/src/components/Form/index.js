@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../components/Loading";
-// import { DateRange,} from "react-date-range";
-// import "react-date-range/dist/styles.css"; // main style file
-// import "react-date-range/dist/theme/default.css"; // theme css file
+import { DateRange,} from "react-date-range";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
 import { useHistory } from "react-router-dom";
 import "./style.css";
@@ -22,13 +22,14 @@ function GardenForm() {
   });
 
   // state for date range pickr
-  // const [state, setState] = useState([
-  //   {
-  //     startDate: new Date(),
-  //     endDate: null,
-  //     key: "selection",
-  //   },
-  // ]);
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    },
+  ]);
+  
 
   console.log("user", user);
   if (!loggedInUser) {
@@ -114,20 +115,20 @@ function GardenForm() {
         <form
           onSubmit={handleSubmit}
           style={{
-            width: "550px",
+            width: "750",
             border: "2px solid",
             borderColor: "#73AD21",
-            position: "fixed",
+            position: "absolute",
             top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+            left: "35%",
+            transform: "translate(-25%, -25%)",
             borderRadius:"15px"
           }}
         >
           <div className="mt-4" style={{ textAlign: "center" }}>
             <h3>Garden Parameters</h3>
           </div>
-          <Container style={{ width: "550px" }} className="mt-3 px-5">
+          <Container style={{ width: "550" }} className="mt-3 px-5">
             <Row className="form-group">
               <Col size="6">
                 <input
@@ -173,14 +174,17 @@ function GardenForm() {
               </Col>
             </Row>
             <Row>
-              {/* <DateRange
+              <DateRange
               editableDateInputs={true}
-              onChange={(item) => setState([item.selection])}
+              onChange={(item) => {  console.log(item); 
+                setState([item.selection])
+              }}
               moveRangeOnFirstSelection={false}
               ranges={state}
               date={new Date()}
               
-            /> */}
+            />
+            <h1>{state.selection}</h1>
             </Row>
             <br></br>
             <Row className="form-group">

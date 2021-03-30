@@ -16,7 +16,6 @@ import MyGarden from "./pages/my-gardens/MyGarden.js";
 import GardenEdit from "./pages/garden-edit/GardenEdit";
 import Garden from "./pages/garden/Garden";
 
-
 // styles
 import "./App.css";
 
@@ -39,17 +38,17 @@ const App = () => {
     <Router>
       <div id="app" className="d-flex flex-column h-100">
         <NavBar />
-        <Switch>
         <Container className="flex-grow-1 mt-5">
+          <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/landing-page" component={Landing} />
             <Route exact path="/my-gardens" component={MyGarden} />
             <Route exact path="/garden-edit" component={GardenEdit} />
             <Route exact path="/garden" component={Garden} />
+          </Switch>
         </Container>
         <Footer />
-        </Switch>
       </div>
     </Router>
   );

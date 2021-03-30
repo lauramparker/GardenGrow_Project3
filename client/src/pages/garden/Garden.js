@@ -3,10 +3,12 @@ import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
+// import { useHistory } from "react-router-dom"; - for onsubmit
 import "./Garden.css";
 // import SearchForm from "../../components/SearchForm";
 
 function Garden() {
+  // let history = useHistory(); - for onsubmit
   //setting state for plants table to load plants in List table
   const [plants, setPlants] = useState([]); //must be array for map to work (array of objects)
 
@@ -69,10 +71,11 @@ function Garden() {
 
   //when the user saves their garden, need to reroute to MyGardens
   function handleGardenSubmit(event) {
+   
     event.preventDefault();
-    alert("You planned your Garden! Want to start another?").catch((err) =>
-      console.log(err)
-    );
+    alert("You planned your Garden! Want to start another?")
+    
+    // history.push("/MyGarden"); -might need
   }
 
   return (
@@ -107,3 +110,4 @@ function Garden() {
 }
 
 export default Garden;
+
