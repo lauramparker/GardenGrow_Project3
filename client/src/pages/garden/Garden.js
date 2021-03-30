@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
-import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
 // import SearchForm from "../../components/SearchForm";
@@ -130,8 +129,6 @@ function Garden() {
                 </Col>
             </Row>
 		</Container>
-		<Footer />
-
 	</div>
 		);
 	
