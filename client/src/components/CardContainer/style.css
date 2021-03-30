@@ -12,7 +12,7 @@ when user enters garden dimensions */
     grid-template-columns: repeat(4, 100px); */
     grid-column-gap: 2px;
     grid-row-gap: 2px;
-    background-color: white;
+    background-color: rgba(0,0,0,0);
 }
 
 /* //set media breakpoints fr = fraction */
@@ -23,19 +23,30 @@ when user enters garden dimensions */
   }
 
 .plot {
-    background-color: lightgreen;
+  
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    font-size: 10px;
+    font-size: 13px;
     color: white;
     line-height: 1;
     cursor: pointer;
     transition: all .3s ease;
+    border-radius: 5px;
   }
+
+
+.plot:nth-child(odd) {
+  background-color: #8C8627;
+}
+
+.plot:nth-child(even) {
+  background: #403C01;
+}
 
   #gardenBox {
     text-align: left;
   }
+
 

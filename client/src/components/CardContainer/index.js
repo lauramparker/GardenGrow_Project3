@@ -25,8 +25,8 @@ function CardContainer(props) {
         <Container id ="gardenBox">
             
             <div className = "wrapper" 
-                style={{"grid-template-rows": "repeat("+ dimensions.length+", 100px)",
-                "grid-template-columns": "repeat("+ dimensions.width+", 100px)"}}>
+                style={{"gridTemplateRows": "repeat("+ dimensions.length+", 100px)",
+                "gridTemplateColumns": "repeat("+ dimensions.width+", 100px)"}}>
 
                 {props.data.map(data=> (
                 <div className= "plot" key={data.listObject.name}>  

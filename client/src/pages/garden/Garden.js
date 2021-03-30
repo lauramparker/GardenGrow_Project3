@@ -1,58 +1,63 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
-import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
+// import { useHistory } from "react-router-dom"; - for onsubmit
+import "./Garden.css";
 // import SearchForm from "../../components/SearchForm";
 
-
-
-
 function Garden() {
-//setting state for plants table to load plants in List table
-    const[plants, setPlants] = useState([]) //must be array for map to work (array of objects)
 
-    const[listObject, setListObject] = useState({ //set as object 
-        id: "",
-        name: "",
-        spacing: "",
-        harvest: "",
-        image: "",
-    }) 
+  // let history = useHistory(); - for onsubmit
+  //setting state for plants table to load plants in List table
+  const [plants, setPlants] = useState([]); //must be array for map to work (array of objects)
 
+  const [listObject, setListObject] = useState({
+    //set as object
+    id: "",
+    name: "",
+    spacing: "",
+    harvest: "",
+    image: "",
+  });
 
-//garden , set Garden updated in Form
-//values below are for testing, will be overwritten when garden(id) is called
-    const[garden, setGarden] = useState({
-        gardenName: "My Play Garden",
-        length: 4,
-        width: 6,
-        plant_date: "",
-        total_plots: 6,
-        garden_data: [ //must be array for map to work (array of listObjects)
-         
-        ],      
-    })
+  //garden , set Garden updated in Form
+  //we can separate garden into the form property needs and the garden page data needs
+  const [garden, setGarden] = useState({
+    gardenName: " ",
+    length: "",
+    width: "",
+    garden_data: [
+      //must be array for map to work (array of listObjects)
+    ],
+  });
 
+  //Load all plants and set to plants when Garden page renders
+  useEffect(() => {
+    API.getPlants()
+      .then((res) => setPlants(res.data))
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }, []);
 
-//Load all plants and set to plants when Garden page renders
-    useEffect(() => {
-        API.getPlants()
-        .then(res => setPlants(res.data))
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-    }, [])
+  //When user selects plant from plant list, update component state
 
+  function handleSelectChange(event) {
+    const value = event.currentTarget.value;
+    setListObject({ name: value });
+    // console.log(listObject);
+    addGardenData(listObject);
+  }
 
-//Load garden / setGarden after user inputs newly saved Garden fields
-    useEffect(() => {
-        const id = "605e6f230cdfe6b454d8e9d4"; //placeholder ID
-        API.getOneGarden(id)
-        .then(res => setGarden(res.data))
-        // .then(res => console.log(res))
-        .catch(err => console.log(err))
-    }, [])
+  //Adds selected plant data to garden_data.
+  //Updated garden state passes to CardContainer (data) and re-renders the cards
+  function addGardenData() {
+    setGarden((prevGarden) => ({
+      garden_data: [...prevGarden.garden_data, { listObject }],
+    }));
+    console.log(garden.garden_data);
+  }
 
 
 //NEW VERSION
@@ -104,47 +109,46 @@ function Garden() {
         alert("You planned your Garden! Want to start another?")
         .catch(err => console.log(err));
     };
+  
+
+  //when the user saves their garden, need to reroute to MyGardens
+  function handleGardenSubmit(event) { 
+    event.preventDefault();
+    alert("You planned your Garden! Want to start another?")
+    // history.push("/MyGarden"); -might need
+  }
 
 
   return (
     <div>
-        <Container fluid>
-            <Row>
+      <Container fluid>
+        <Row>
+          <Col>
+            <h3>{garden.gardenName}</h3>
 
-                <Col>
-                    <h3>Name: {garden.gardenName}</h3>
-                    <p><small>Dimensions = {garden.length} ft long x {garden.width} ft wide</small></p>
-                    <p><small>Contains #{garden.total_plots} 2ft x 2ft plots</small></p>
+            <CardContainer data={garden.garden_data} />
+          </Col>
 
-                    <CardContainer 
-                        data={garden.garden_data}
-                        length={garden.length}
-                        width={garden.width}
-                    />
-                </Col>
+          <Col>
+            <h3>Select Plants</h3>
 
-                <Col>
-                    <h3>Select Plants</h3>
-        
-                    <Table
-                            plants={plants}
-                            handleSelectChange={handleSelectChange}
-                            >
-                    </Table>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                <button className="btn" id="saveBtn" onClick={handleGardenSubmit}>Save Garden</button>
-                </Col>
-            </Row>
-		</Container>
-		<Footer />
-
-	</div>
-		);
-	
+            <Table
+              plants={plants}
+              handleSelectChange={handleSelectChange}
+            ></Table>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <button className="btn" id="saveBtn" onClick={handleGardenSubmit}>
+              Save Garden
+            </button>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 }
 
-
 export default Garden;
+

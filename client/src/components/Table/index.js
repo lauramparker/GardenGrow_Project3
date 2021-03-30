@@ -7,9 +7,9 @@ function Table(props) {
 
     return (
     <div>
-      <div className = "table-wrapper-scroll-y scrollbar">
+      <div style={{height:"400px"}} className = "table-wrapper-scroll-y scrollbar">
         <table className="table table-bordered table-hover" id="plantList">
-        <thead>
+        <thead> 
             <tr>
                 <th>Name</th>
                 <th>Spacing</th>
@@ -22,7 +22,7 @@ function Table(props) {
                 return (
                 <tr>
                     <td>
-                        <div class="form-check" id={plant._id}>
+                        <div class="form-check container-fluid" id={plant._id}>
                             <input 
                                 className="form-check-input"
                                 type="checkbox" 
@@ -40,12 +40,12 @@ function Table(props) {
 
                 </tr>
                 )
-            })
-            }
+            })}
         </tbody>
         </table> 
       </div>
     </div>
+
     );
 }
 
