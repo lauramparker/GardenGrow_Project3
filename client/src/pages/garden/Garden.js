@@ -23,11 +23,13 @@ function Garden() {
 
 
 //garden , set Garden updated in Form
-//we can separate garden into the form property needs and the garden page data needs
+//values below are for testing, will be overwritten when garden(id) is called
     const[garden, setGarden] = useState({
-        gardenName: " ",
+        gardenName: "My Play Garden",
         length: 4,
         width: 6,
+        plant_date: "",
+        total_plots: 6,
         garden_data: [ //must be array for map to work (array of listObjects)
          
         ],      
@@ -101,13 +103,14 @@ function Garden() {
             <Row>
 
                 <Col>
-                    <h3>Plot Garden</h3>
+                    <h3>Name: {garden.gardenName}</h3>
+                    <p><small>Dimensions = {garden.length} ft long x {garden.width} ft wide</small></p>
+                    <p><small>Contains #{garden.total_plots} 2ft x 2ft plots</small></p>
 
                     <CardContainer 
                         data={garden.garden_data}
                         length={garden.length}
                         width={garden.width}
-                        gardenName={garden.gardenName}
                     />
                 </Col>
 
