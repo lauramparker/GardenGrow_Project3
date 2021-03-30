@@ -28,8 +28,8 @@ const API = {
     },
 
   // Create (Saves) a NEW Garden to the database
-  saveGarden: function({gardenName, length, width}) {
-    return axios.post("/api/gardens", {gardenName, length, width} );
+  saveGarden: function({userId, gardenName, length, width}) {
+    return axios.post("/api/gardens", {userId , gardenName, length, width} );
   },
 
    // Updates a Garden with array of plots as plants are added

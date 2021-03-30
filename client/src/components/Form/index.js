@@ -10,10 +10,12 @@ import API from "../../utils/API";
 function GardenForm() {
   const { user } = useAuth0();
   const loggedInUser = localStorage.getItem('user') || '';
+  console.log('user',JSON.parse(loggedInUser));
+ 
 
   //[garden, setGarden] in garden.js
     const [garden, setGarden] = useState ({
-        gardenName:"",
+        name:"",
         length:"",
         width:"",
       })
@@ -27,7 +29,7 @@ function GardenForm() {
   //     key: "selection",
   //   },
   // ]);
-  console.log('user', user);
+ 
   if(!loggedInUser) {
     API.createUser({
       lastName: user.family_name, 
@@ -35,17 +37,18 @@ function GardenForm() {
       userName: user.nickname,
       email: user.email,
       profilePicture: user.picture
-    }).then((data) => { 
-      console.log('user created', data);
-      localStorage.setItem('user', data._id)
+    }).then((res) => { 
+      console.log('user created', res.data);
+      localStorage.setItem('user', res.data._id)
     });
   }
  
 
   const handleChange = (e) => {
      const {name, value } = e.target;
+     console.log('value', value);
      setGarden({
-        ...garden, 
+        ...garden,
         [name]: value,
       })
     };

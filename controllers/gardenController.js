@@ -16,6 +16,7 @@ module.exports = {
 	},
 
 	create: (req, res) => {
+		console.log("data", req);
 		Garden
 			.create(req.body)
 			.then(model => res.json(model))
