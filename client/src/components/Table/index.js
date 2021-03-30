@@ -22,7 +22,7 @@ function Table(props) {
                 return (
                 <tr>
                     <td>
-                        <div class="form-check container-fluid" id={plant._id}>
+                        <div className="form-check container-fluid" id={plant._id}>
                             <input 
                                 className="form-check-input"
                                 type="checkbox" 
