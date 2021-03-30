@@ -19,6 +19,8 @@ function GardenForm() {
         gardenName:"",
         length:"",
         width:"",
+        total_plots:"",
+        plant_date:""
       })
     
   
@@ -74,22 +76,6 @@ function GardenForm() {
     };
 
 
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-      API.saveGarden({
-        gardenName: garden.name,
-        length: garden.length,
-        width: garden.width
-      }).then (res => setGarden({
-        gardenName: res.data.gardenName,
-        length: res.data.legth,
-        width: res.data.width
-      }))
-      .catch((err) => console.log(err));
-     //saving new Garden to db
-   
-  };
 
 
   return (
@@ -118,7 +104,7 @@ function GardenForm() {
                 <select
                   onChange={handleChange}
                   name="length"
-                  value={garden.length} //changed from state.length
+                  value={garden.length} 
                 >
                   <option value="2">2</option>
                   <option value="4">4</option>
