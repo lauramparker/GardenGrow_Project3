@@ -59,25 +59,65 @@ function Garden() {
     console.log(garden.garden_data);
   }
 
-  //runs when garden container renders (like component did mount)
-  useEffect((garden) => {
-    API.updateGarden({
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ garden }),
-    })
-      .then((res) => res.json())
-      .then((data) => setGarden(data));
-  }, []);
 
+//NEW VERSION
+    useEffect((id) => {
+        API.updateGarden(id)
+        .then(res =>setGarden(res.data));
+     }, [garden.garden_data]);
+
+    //OLD VERSION
+//runs when garden container renders (like component did mount)
+    // useEffect((garden) => {
+    //    API.updateGarden({
+    //         method: 'PUT',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({garden})
+    //     })
+    //         .then(res => res.json())
+    //         .then(data =>setGarden(data));
+    // }, []);
+
+
+    
+
+//When user selects plant from plant list, update component state 
+
+    function handleSelectChange(event)  {
+        const value = event.currentTarget.value
+        console.log(value);
+        setListObject({ ...listObject, name: value });
+            console.log(listObject);
+            addGardenData(listObject);
+    };
+
+
+//Adds selected plant data to garden_data.  
+//Updated garden state passes to CardContainer (data) and re-renders the cards
+    function addGardenData(listObject) {
+        setGarden(prevGarden => ({
+            garden_data: [...prevGarden.garden_data, {listObject}]  
+        }))
+        console.log(garden.garden_data);
+    };
+
+
+
+//when the user saves their garden, need to reroute to MyGardens
+    function handleGardenSubmit(event) {
+        event.preventDefault()
+        alert("You planned your Garden! Want to start another?")
+        .catch(err => console.log(err));
+    };
+  
 
   //when the user saves their garden, need to reroute to MyGardens
   function handleGardenSubmit(event) { 
     event.preventDefault();
     alert("You planned your Garden! Want to start another?")
-    
     // history.push("/MyGarden"); -might need
   }
+
 
   return (
     <div>
