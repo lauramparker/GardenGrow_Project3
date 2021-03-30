@@ -19,8 +19,8 @@ function GardenForm() {
         gardenName:"",
         length:"",
         width:"",
-        total_plots:"",
-        plant_date:""
+        plant_date: "",
+        total_plots: ""
       })
     
   
