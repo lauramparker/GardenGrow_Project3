@@ -1,33 +1,47 @@
-import React from "react";
-// import { Col, Row  } from "react-bootstrap";  //{Grid?}
-import CardColumns from "react-bootstrap/CardColumns"; 
-import Cards from "../Card";
+import React, { useState } from "react";
+import { Container } from "react-bootstrap";
 import "./style.css";
 
 
-//for the number of total_plots, create a card
+//div Wrapper is CSS Grids
+
 function CardContainer(props) {
-    
-    return (
-        <div> 
-            <CardColumns>
+
+    //correct version - need props to pass correctly from getOneGarden id
+    // const[dimensions, setDimensions] = useState({
+    //     length: props.length,
+    //     width: props.width,
+    // });
+
+    //placeholder
+    const[dimensions, setDimensions] = useState({
+        length: 3,
+        width: 3,
+    });
+
+
+    return(
+        <div>
+        <Container id ="gardenBox">
             
+            <div className = "wrapper" 
+                style={{"gridTemplateRows": "repeat("+ dimensions.length+", 100px)",
+                "gridTemplateColumns": "repeat("+ dimensions.width+", 100px)"}}>
+
                 {props.data.map(data=> (
-                    <Cards key={data.Name}
-                        name={data.Name}
-                        spacing={data.spacing}
-                        harvest={data.harvest}
-                        image={data.image}
-                    >
-                    </Cards>
-                    
+                <div className= "plot" key={data.listObject.name}>  
+                    Plant: {data.listObject.name}
+                </div>
                 ))}
-                
-            </CardColumns>
-            <button onClick={props.handleGardenSubmit}>Save Garden</button>
+            </div>
+
+        </Container>
         </div>
+
     )
 
-};
-
+}
 export default CardContainer;
+
+
+    

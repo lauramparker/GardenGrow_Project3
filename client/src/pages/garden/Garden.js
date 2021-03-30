@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import API from "../../utils/API";
-import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardContainer";
-import { ListGroup, Item } from "../../components/ListGroup";
+import Table from "../../components/Table";
 // import SearchForm from "../../components/SearchForm";
 
 
@@ -15,30 +13,26 @@ function Garden() {
     const[plants, setPlants] = useState([]) //must be array for map to work (array of objects)
 
     const[listObject, setListObject] = useState({ //set as object 
+        id: "",
         name: "",
         spacing: "",
         harvest: "",
-        image: ""
+        image: "",
     }) 
 
+
 //garden , set Garden updated in Form
-//we can separate garden into the form property needs and the garden page data needs
+//values below are for testing, will be overwritten when garden(id) is called
     const[garden, setGarden] = useState({
-        gardenName: " ",
-        length: "",
-        width: "",
-        total_plots: "", //use for length and width of garden
+        gardenName: "My Play Garden",
+        length: 4,
+        width: 6,
+        plant_date: "",
+        total_plots: 6,
         garden_data: [ //must be array for map to work (array of listObjects)
-            "plant a", 
-            "plant b",
-            "plant c",
-            "plant d",
-            "plant e",
-            "plant f", 
-        ],
-             
+         
+        ],      
     })
-  
 
 
 //Load all plants and set to plants when Garden page renders
@@ -50,31 +44,35 @@ function Garden() {
     }, [])
 
 
-//Load specific Garden one time (NEW Garden) when pages loads !!!!!! NEED to attach id!
-        const {id} = useParams()
-        useEffect(() => {
+//Load garden / setGarden after user inputs newly saved Garden fields
+    useEffect(() => {
+        const id = "605e6f230cdfe6b454d8e9d4"; //placeholder ID
         API.getOneGarden(id)
-            .then(res => setGarden(res.data))
-            .catch(err => console.log(err));
-        }, [id])
+        .then(res => setGarden(res.data))
+        // .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }, [])
 
+    
 
 //When user selects plant from plant list, update component state 
 
     function handleSelectChange(event)  {
-        const value = event.target.id //!!!!!!! returning undefined no matter what goes here . use bind??
-        console.log(id);
-        setListObject({ name: value }); // !!!!!!!!!!
-        addGardenData(listObject);
+        const value = event.currentTarget.value
+        console.log(value);
+        setListObject({ ...listObject, name: value });
+            console.log(listObject);
+            addGardenData(listObject);
     };
 
 
 //Adds selected plant data to garden_data.  
 //Updated garden state passes to CardContainer (data) and re-renders the cards
-    function addGardenData() {
+    function addGardenData(listObject) {
         setGarden(prevGarden => ({
-            garden_data: [...prevGarden.garden_data, {listObject}]  //! this seems to be working (no value from listObject, but it's saving)
-        }));
+            garden_data: [...prevGarden.garden_data, {listObject}]  
+        }))
+        console.log(garden.garden_data);
     };
 
 //runs when garden container renders (like component did mount)
@@ -90,56 +88,48 @@ function Garden() {
 
 
 
-//when the user saves their garden, need to reroute to MyGardens or LandingPage
-//don't need to post as Garden is consistantly updated above
-function handleGardenSubmit(event) {
-    event.preventDefault()
-    alert("You planned your Garden! Want to start another?")
-    .catch(err => console.log(err));
-};
+//when the user saves their garden, need to reroute to MyGardens
+    function handleGardenSubmit(event) {
+        event.preventDefault()
+        alert("You planned your Garden! Want to start another?")
+        // .catch(err => console.log(err));
+    };
 
 
   return (
     <div>
-      <Container fluid>
+        <Container fluid>
             <Row>
 
                 <Col>
-                    <h3>Plot Garden</h3>
+                    <h3>Name: {garden.gardenName}</h3>
+                    <p><small>Dimensions = {garden.length} ft long x {garden.width} ft wide</small></p>
+                    <p><small>Contains #{garden.total_plots} 2ft x 2ft plots</small></p>
 
                     <CardContainer 
                         data={garden.garden_data}
-                        // total_plots={garden.total_plots}
-                        onClick={handleGardenSubmit}
+                        length={garden.length}
+                        width={garden.width}
                     />
                 </Col>
 
                 <Col>
                     <h3>Select Plants</h3>
-                    <ListGroup>
-                        {plants.map(plant => (
-                            <Item 
-                            key={plant._id}
-                            plant={plant}
-                            handleSelectChange={handleSelectChange}  
-                            >                              
-                        </Item>
-                        ))}
-                    </ListGroup>
+        
+                    <Table
+                            plants={plants}
+                            handleSelectChange={handleSelectChange}
+                            >
+                    </Table>
                 </Col>
-            
             </Row>
-         
-
             <Row>
-                {/* <SearchForm>
-                  
-                </SearchForm> */}
-					</Row>
-				</Container>
-				<Footer />
-
-			</div>
+                <Col>
+                <button className="btn" id="saveBtn" onClick={handleGardenSubmit}>Save Garden</button>
+                </Col>
+            </Row>
+		</Container>
+	</div>
 		);
 	
 }
