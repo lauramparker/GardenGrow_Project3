@@ -68,13 +68,8 @@ function GardenForm() {
           gardenName: garden.gardenName,
           length: garden.length,
           width: garden.width,
-        }).then(res => {setGarden({
-          gardenName: res.data.gardenName,
-          length: res.data.length,
-          width: res.data.length,
-          id: res.data._id
-        })
-          history.push("/Garden")
+        }).then(() => {
+           history.push("/Garden")
         }).catch((err) => console.log(err));
   };
 

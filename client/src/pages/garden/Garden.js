@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
 import CardContainer from "../../components/CardContainer";
+import Loading from "../../components/Loading";
 import Table from "../../components/Table";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 // import { useHistory } from "react-router-dom"; - for onsubmit
 import "./Garden.css";
 // import SearchForm from "../../components/SearchForm";
@@ -12,7 +14,7 @@ function Garden() {
   // let history = useHistory(); - for onsubmit
   //setting state for plants table to load plants in List table
   const [plants, setPlants] = useState([]); //must be array for map to work (array of objects)
-
+  const { user } = useAuth0();
   const [listObject, setListObject] = useState({
     //set as object
     id: "",
@@ -41,20 +43,28 @@ function Garden() {
       .catch((err) => console.log(err));
   }, []);
 
-
   useEffect(() => {
-    API.getOneGarden(garden.id)
-    .then((res) => setGarden(res.data))
+    API.getUser(user.email)
+    .then((res) => setGarden(res.data[0].gardens))
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
   }, []);
 
 
+  // useEffect(() => {
+  //   console.log('garden', garden)
+  //   API.getOneGarden(garden.id)
+  //   .then((res) => setGarden(res.data))
+  //   .then((res) => console.log(res))
+  //   .catch((err) => console.log(err));
+  // }, []);
+
+
 //NEW VERSION
-    useEffect((id) => {
-        API.updateGarden(id)
-        .then(res =>setGarden(res.data));
-     }, [garden.garden_data]);
+    // useEffect((id) => {
+    //     API.updateGarden(id)
+    //     .then(res =>setGarden(res.data));
+    //  }, [garden.garden_data]);
 
     //OLD VERSION
 //runs when garden container renders (like component did mount)
@@ -99,7 +109,7 @@ function Garden() {
     alert("You planned your Garden! Want to start another?")
     // history.push("/MyGarden"); -might need
   }
-
+  console.log('gardens', garden);
 
   return (
     <div>
@@ -132,5 +142,7 @@ function Garden() {
   );
 }
 
-export default Garden;
+export default withAuthenticationRequired(Garden, {
+  onRedirecting: () => <Loading />,
+});
 
