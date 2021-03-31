@@ -20,9 +20,9 @@ function Table(props) {
         <tbody>
             {props.plants.map(plant => { 
                 return (
-                <tr>
+                <tr key={plant._id}>
                     <td>
-                        <div class="form-check container-fluid" id={plant._id}>
+                        <div className="form-check container-fluid" id={plant._id}>
                             <input 
                                 className="form-check-input"
                                 type="checkbox" 
@@ -30,7 +30,7 @@ function Table(props) {
                                 onChange={props.handleSelectChange}
                                 > 
                             </input>      
-                            <label className="form-check-label" for="flexCheckDefault">{plant.Name}</label>
+                            <label className="form-check-label" htmlFor="flexCheckDefault">{plant.Name}</label>
                         </div>
                     </td> 
 
