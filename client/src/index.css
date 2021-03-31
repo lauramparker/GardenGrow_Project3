@@ -1,10 +1,13 @@
 body {
+  position: relative;
   margin: 0;
-  padding: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
   font-family: 'Quicksand', sans-serif; font-weight: 300px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #BDD4F2;
+
 }
 
 code {

@@ -36,19 +36,23 @@ const App = () => {
 
   return (
     <Router>
-      <div id="app" className="d-flex flex-column h-100">
-        <NavBar />
+      <div id="app" className="d-flex flex-column">
         <Container className="flex-grow-1 mt-5">
+          <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/landing-page" component={Landing} />
-            <Route exact path={["/my-gardens", "/mygardens"]} component={MyGarden} />
+            <Route
+              exact
+              path={["/my-gardens", "/mygardens"]}
+              component={MyGarden}
+            />
             <Route exact path="/garden-edit" component={GardenEdit} />
             <Route exact path="/garden" component={Garden} />
           </Switch>
+          <Footer />
         </Container>
-        <Footer />
       </div>
     </Router>
   );

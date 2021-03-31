@@ -2,13 +2,18 @@
     box-sizing: border-box;
     max-width: 300px;
     max-height: 500px;
-    border-style: solid;
-    border-color: lightgreen;
     padding: 20px;
     margin: 20px;
     overflow-y: scroll;
+    display: block;
+    background-color: rgba(204, 157, 69, 0.11);
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
 }
 
 #deleteBtn {
-    color:hotpink
+    background-color:#F2B199;
+    color:"white";
 }
+

@@ -83,21 +83,18 @@ function GardenForm() {
         <form
           onSubmit={handleSubmit}
           style={{
-            width: "750",
+            width: "650",
             border: "2px solid",
             borderColor: "#73AD21",
-            position: "absolute",
-            top: "50%",
-            left: "35%",
-            transform: "translate(-25%, -25%)",
+            position: "relative",
             borderRadius:"15px"
           }}
         >
-          <div className="mt-4" style={{ textAlign: "center" }}>
+          <div className="mt-4 center" style={{ textAlign: "center" }}>
             <h3>Garden Parameters</h3>
           </div>
-          <Container style={{ width: "550" }} className="mt-3 px-5">
-            <Row className="form-group">
+          <Container style={{ width: "550" }} className="mt-3 px-5 center">
+            <Row className="form-group ">
               <Col size="6">
                 <input
                   onChange={handleChange}
@@ -109,7 +106,7 @@ function GardenForm() {
                 />
               </Col>
             </Row>
-            <Row className="form-group">
+            <Row className="form-group center">
               <Col size="6">
                 <label>Length</label>
                 <br></br>
@@ -141,7 +138,8 @@ function GardenForm() {
                 </select>
               </Col>
             </Row>
-            <Row>
+            <Row > 
+              <Col>
               <DateRange
               editableDateInputs={true}
               onChange={(item) => {  console.log(item); 
@@ -152,6 +150,7 @@ function GardenForm() {
               date={new Date()}
               
             />
+              </Col>
             <h1>{state.selection}</h1>
             </Row>
             <br></br>

@@ -1,23 +1,16 @@
 import React from "react";
-import { Col, Row, Container } from "react-bootstrap";
 import Form from "../../components/Form";
-
-
-
+import "./Landing.css";
 
 function Landing() {
   return (
-    <div>
-      <Container >
-        <Form />
-        <Row />
-        <Col />
-      </ Container>
+    <div className="center" >
+<Form />
     </div>
+    
   );
-
 }
 
 export default Landing;
 
-// new garden should append here in list format. 
+// new garden should append here in list format.
