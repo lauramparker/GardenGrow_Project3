@@ -15,14 +15,14 @@ function GardenForm() {
   let history = useHistory();
 
 
-    // const [garden, setGarden] = useState ({
-    //     gardenName:"",
-    //     length:"",
-    //     width:"",
-    //     plant_date: "",
-    //     total_plots: "",
-    //     id:""
-    //   })
+    const [garden, setGarden] = useState ({
+        gardenName:"",
+        length:"",
+        width:"",
+        plant_date: "",
+        total_plots: "",
+        id:""
+      })
     
  
   // state for date range pickr
