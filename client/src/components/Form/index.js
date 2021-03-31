@@ -63,6 +63,7 @@ function GardenForm() {
     const handleSubmit = (e) => {
       e.preventDefault();
         API.saveGarden({
+          userId: loggedInUser,
           gardenName: garden.gardenName,
           length: garden.length,
           width: garden.width,

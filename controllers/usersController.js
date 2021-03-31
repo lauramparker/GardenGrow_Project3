@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 // Defines the methods for usersController
 // ============================================================================
 const db = require("../models");
@@ -9,8 +10,9 @@ module.exports = {
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));
 	},
-	findByEmail: function(req, res) {
-		db.User.findOne({ email: req.params.email })
+	findById: function(req, res) {
+		db.User.find({_id: req.params.id })
+		    .populate("gardens")
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));
 	},
@@ -20,7 +22,7 @@ module.exports = {
 			.catch(err => res.status(422).json(err));
 	},
 	update: function(req, res) {
-		db.User.findOneAndUpdate({ email: req.params.email }, req.body)
+		db.User.findOneAndUpdate({_id: req.params.id }, req.body)
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));
 	},

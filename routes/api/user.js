@@ -10,8 +10,8 @@ router
 
 // Matches with "/api/users/:id"
 router
-	.route("/:email")
-	.get(usersController.findByEmail)
+	.route("/:id")
+	.get(usersController.findById)
 	.put(usersController.update)
 	.delete(usersController.remove);
 
