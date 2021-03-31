@@ -6,23 +6,13 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import API from "../../utils/API";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import "./style.css";
 
-function GardenForm() {
+function GardenForm(props) {
   const { user } = useAuth0();
   const loggedInUser = localStorage.getItem("user") || "";
-  let history = useHistory();
 
-
-    // const [garden, setGarden] = useState ({
-    //     gardenName:"",
-    //     length:"",
-    //     width:"",
-    //     plant_date: "",
-    //     total_plots: "",
-    //     id:""
-    //   })
     
  
   // state for date range pickr
@@ -49,39 +39,14 @@ function GardenForm() {
     });
   }
 
-  const handleChange = (e, date) => {
-    const { name, value } = e.target;
-    setGarden({
-      ...garden,
-      [name]: value,
-    });
-    console.log(date); // native Date object
-  };
 
-
-  //saving new Garden to db
-    const handleSubmit = (e) => {
-      e.preventDefault();
-        API.saveGarden({
-          gardenName: garden.gardenName,
-          length: garden.length,
-          width: garden.width,
-        }).then(res => {setGarden({
-          gardenName: res.data.gardenName,
-          length: res.data.length,
-          width: res.data.length,
-          id: res.data._id
-        })
-          history.push("/Garden")
-        }).catch((err) => console.log(err));
-  };
 
             
   return (
     <div style={{ height: "325px" }}>
       <div>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={props.handleSubmit}
           style={{
             width: "750",
             border: "2px solid",
@@ -100,12 +65,12 @@ function GardenForm() {
             <Row className="form-group">
               <Col size="6">
                 <input
-                  onChange={handleChange}
+                  onChange={props.handleChange}
                   className="form-control"
                   type="text"
                   placeholder="Add garden name..."
                   name="gardenName"
-                  value={garden.gardenName}
+                  value= {props.garden.gardenName}
                 />
               </Col>
             </Row>
@@ -114,9 +79,9 @@ function GardenForm() {
                 <label>Length</label>
                 <br></br>
                 <select
-                  onChange={handleChange}
+                  onChange={props.handleChange}
                   name="length"
-                  value={garden.length} 
+                  value={setGarden.length}  //setGarden
                 >
                   <option value="2">2</option>
                   <option value="4">4</option>
@@ -129,9 +94,9 @@ function GardenForm() {
                 <label>Width</label>
                 <br></br>
                 <select
-                  onChange={handleChange}
+                  onChange={props.handleChange}
                   name="width"
-                  value={garden.width}
+                  value={props.garden.width}
                 >
                   <option value="2">2</option>
                   <option value="4">4</option>
@@ -160,7 +125,7 @@ function GardenForm() {
                 className="btn btn-success"
                 type="submit"
                 // disabled={!(garden.gardenName && garden.length && garden.width)}
-                onClick={handleSubmit}
+                onClick={props.handleSubmit}
               >
                 Submit
               </button>

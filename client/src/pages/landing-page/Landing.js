@@ -5,11 +5,16 @@ import Form from "../../components/Form";
 
 
 
-function Landing() {
+
+function Landing(props) {
   return (
     <div>
       <Container >
-        <Form />
+        <Form 
+          garden={props.garden}
+          handleSubmit={props.handleSubmit}
+          handleChange={props.handleChange}
+        />
         <Row />
         <Col />
       </ Container>
