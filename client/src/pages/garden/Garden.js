@@ -25,11 +25,11 @@ function Garden() {
   //garden , set Garden updated in Form
   //we can separate garden into the form property needs and the garden page data needs
   const [garden, setGarden] = useState({
+    id:"",
     gardenName: " ",
     length: "",
     width: "",
     garden_data: [
-      //must be array for map to work (array of listObjects)
     ],
   });
 
@@ -41,23 +41,13 @@ function Garden() {
       .catch((err) => console.log(err));
   }, []);
 
-  //When user selects plant from plant list, update component state
 
-  function handleSelectChange(event) {
-    const value = event.currentTarget.value;
-    setListObject({ name: value });
-    // console.log(listObject);
-    addGardenData(listObject);
-  }
-
-  //Adds selected plant data to garden_data.
-  //Updated garden state passes to CardContainer (data) and re-renders the cards
-  function addGardenData() {
-    setGarden((prevGarden) => ({
-      garden_data: [...prevGarden.garden_data, { listObject }],
-    }));
-    console.log(garden.garden_data);
-  }
+  useEffect(() => {
+    API.getOneGarden(garden.id)
+    .then((res) => setGarden(res.data))
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+  }, []);
 
 
 //NEW VERSION
@@ -102,14 +92,6 @@ function Garden() {
     };
 
 
-
-//when the user saves their garden, need to reroute to MyGardens
-    function handleGardenSubmit(event) {
-        event.preventDefault()
-        alert("You planned your Garden! Want to start another?")
-        .catch(err => console.log(err));
-    };
-  
 
   //when the user saves their garden, need to reroute to MyGardens
   function handleGardenSubmit(event) { 

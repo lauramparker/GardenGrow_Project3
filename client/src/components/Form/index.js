@@ -15,13 +15,14 @@ function GardenForm() {
   let history = useHistory();
 
 
-    const [garden, setGarden] = useState ({
-        gardenName:"",
-        length:"",
-        width:"",
-        plant_date: "",
-        total_plots: ""
-      })
+    // const [garden, setGarden] = useState ({
+    //     gardenName:"",
+    //     length:"",
+    //     width:"",
+    //     plant_date: "",
+    //     total_plots: "",
+    //     id:""
+    //   })
     
  
   // state for date range pickr
@@ -58,22 +59,21 @@ function GardenForm() {
   };
 
 
-  //VERSION TWO
+  //saving new Garden to db
     const handleSubmit = (e) => {
       e.preventDefault();
-      //saving new Garden to db
-      history.push("/Garden");
         API.saveGarden({
           gardenName: garden.gardenName,
           length: garden.length,
           width: garden.width,
-        }).then(res => setGarden({
+        }).then(res => {setGarden({
           gardenName: res.data.gardenName,
           length: res.data.length,
           width: res.data.length,
+          id: res.data._id
         })
-      )
-      .catch((err) => console.log(err));
+          history.push("/Garden")
+        }).catch((err) => console.log(err));
   };
 
             
