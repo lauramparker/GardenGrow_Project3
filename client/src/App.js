@@ -24,17 +24,10 @@ import "./App.css";
 import initFontAwesome from "./utils/initFontAwesome";
 initFontAwesome();
 
+
+
+
 const App = () => {
-  // const { isLoading, error } = useAuth0();
-
-  // if (error) {
-  //   return <div>Oops... {error.message}</div>;
-  // }
-
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
-
 
 //Define Garden State
   const [garden, setGarden] = useState({
@@ -47,24 +40,15 @@ const App = () => {
     ],
   });
 
-  //***saving new Garden to db
-  const handleChange = (e, date) => {
-    const { name, value } = e.target;
-    setGarden({
-      ...garden,
-      [name]: value,
-    });
-    console.log(date); // native Date object
-  };
 
-
-//***saving new Garden to db
+//***saving new Garden to db - must be in parent
   const handleSubmit = (e) => {
       e.preventDefault();
         API.saveGarden({
           gardenName: garden.gardenName,
           length: garden.length,
           width: garden.width,
+          date: garden.date
         }).then(res => {setGarden({
           gardenName: res.data.gardenName,
           length: res.data.length,
@@ -79,22 +63,11 @@ const App = () => {
   //***When user selects plant from plant list, update component state 
   function handleSelectChange(event)  {
     const value = event.currentTarget.value
-    // console.log(value);
-    // setListObject({ ...listObject, name: value });
-    //     console.log(listObject);
-        // addGardenData(listObject);
         setGarden(prevGarden => ({
-          garden_data: [...prevGarden.garden_data, (value)]  
+          garden_data: [...prevGarden.garden_data, (value)]  ///
       }))
 };
 
-//***Adds selected plant data to garden_data.  
-// function addGardenData() {
-//     setGarden(prevGarden => ({
-//         garden_data: [...prevGarden.garden_data, {listObject}]  
-//     }))
-//     console.log(garden.garden_data);
-// };
 
 //***when the user saves their garden, need to reroute to MyGardens
 //change to update
@@ -115,8 +88,8 @@ function handleGardenSubmit(event) {
                    component={Landing} 
                    garden={garden}
                    handleSubmit={handleSubmit}
-                   handleChange={handleChange}
-                  />
+                  //  onSubmit= { this.handleSubmit.bind(this) } 
+                   />
             <Route exact path={["/my-gardens", "/mygardens"]} 
                    component={MyGarden} 
                    garden={garden}
