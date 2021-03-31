@@ -6,15 +6,15 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
 	lastName: {
 		type: String,
-		required: true,
+		required: false,
 	},
 	firstName: {
 		type: String,
+		required: false,
 	},
 	userName: {
 		type: String,
-		required: true,
-		unique: true
+		required: false,
 	},
 	email: {
 		type: String,
@@ -23,7 +23,7 @@ const userSchema = new Schema({
 	},
 	profilePicture: {
 		type: String,
-		required: true
+		required: false,
 	},
 	gardens : [{
 		type: Schema.Types.ObjectId,

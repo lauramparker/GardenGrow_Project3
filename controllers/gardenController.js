@@ -19,7 +19,7 @@ module.exports = {
 
 		Garden
 			.create(req.body)
-			.then(gardenData => User.findOneAndUpdate({_id: req.body.userId}, {$push:{gardens: gardenData._id}}, {new: true}))
+			.then(gardenData => User.findOneAndUpdate({email: req.body.userId}, {$push:{gardens: gardenData._id}}, {new: true}))
 			.then(model => {
 				return res.json(model);
 			})

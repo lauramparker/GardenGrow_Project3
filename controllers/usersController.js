@@ -10,8 +10,8 @@ module.exports = {
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));
 	},
-	findById: function(req, res) {
-		db.User.find({_id: req.params.id })
+	findByEmail: function(req, res) {
+		db.User.find({email: req.params.email })
 		    .populate("gardens")
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));

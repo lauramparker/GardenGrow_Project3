@@ -34,18 +34,19 @@ function GardenForm() {
     },
   ]);
   
-
-  console.log("user", user);
   if (!loggedInUser) {
+    console.log('data', user)
     API.createUser({
       lastName: user.family_name,
       firstName: user.given_name,
       userName: user.nickname,
       email: user.email,
       profilePicture: user.picture,
-    }).then((data) => {
-      console.log("user created", data);
-      localStorage.setItem("user", data._id);
+    }).then((res) => {
+      console.log("user created", res);
+      localStorage.setItem("user", res.data.email);
+    }).catch(() => {
+      localStorage.setItem("user", user.email);
     });
   }
 
@@ -63,7 +64,7 @@ function GardenForm() {
     const handleSubmit = (e) => {
       e.preventDefault();
         API.saveGarden({
-          userId: loggedInUser,
+          userId: user.email,
           gardenName: garden.gardenName,
           length: garden.length,
           width: garden.width,

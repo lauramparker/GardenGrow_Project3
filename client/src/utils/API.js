@@ -9,7 +9,7 @@ const API = {
   // Get user
   getUser: function(id) {
     return axios.get("/api/users/" + id);
-  }
+  },
   // Gets all plants in db
   getPlants: function() {
     return axios.get("/api/plants"); //added to fix CORS access error //remove when deploying
