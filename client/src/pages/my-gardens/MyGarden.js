@@ -1,22 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import API from "../../utils/API";
+import Loading from '../../components/Loading';
 import { ListGroup, Item } from "../../components/ListGroup";
 
 
 function MyGarden() {
 
-  const [gardens, setGardens] = useState([])
+  const [gardens, setGardens] = useState([]);
+  const { user } = useAuth0();
 
   useEffect(() => {
     loadGardens()
   }, []);
 
   function loadGardens() {
-    API.getGardens()
-      .then(res => setGardens(res.data))
-      // .then(res => console.log(res))
-      .catch(err => console.log(err))
+    API.getUser(user.email)
+    .then((res) => {
+      return setGardens(res.data[0].gardens)
+    })
+    .catch(err => console.log(err))
   }
 
   function handleDelete(event) {
@@ -53,5 +58,7 @@ function MyGarden() {
 
 }
 
-export default MyGarden;
+export default withAuthenticationRequired(MyGarden, {
+  onRedirecting: () => <Loading />,
+});
 

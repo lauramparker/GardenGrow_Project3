@@ -1,4 +1,4 @@
-const { Garden } = require("../models");
+const { Garden, User } = require("../models");
 
 module.exports = {
 	findAll: (req, res) => {
@@ -16,9 +16,13 @@ module.exports = {
 	},
 
 	create: (req, res) => {
+
 		Garden
 			.create(req.body)
-			.then(model => res.json(model))
+			.then(gardenData => User.findOneAndUpdate({email: req.body.userId}, {$push:{gardens: gardenData._id}}, {new: true}))
+			.then(model => {
+				return res.json(model);
+			})
 			.catch(err => res.status(422).json(err));
 	},
 
