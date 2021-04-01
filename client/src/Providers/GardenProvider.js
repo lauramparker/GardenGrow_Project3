@@ -8,7 +8,7 @@ const GardenProvider = ({ children }) => {
 
 
     const [garden, setGarden] = useState({
-        // id:"",
+        // id:"", //don't need?? _id automatic with mongo
         date: "",
         gardenName: "",
         length: "",
