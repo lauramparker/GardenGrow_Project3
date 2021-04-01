@@ -8,7 +8,7 @@ const GardenProvider = ({ children }) => {
 
 
     const [garden, setGarden] = useState({
-        id:"",
+        // id:"",
         date: "",
         gardenName: "",
         length: "",
@@ -54,7 +54,7 @@ const GardenProvider = ({ children }) => {
 
 
   const handleSave = (e) => { //where does PUT/Update route go? also see garden.js (as handle submit, no routing)
-      API.updateGarden(id)
+      API.updateGarden()  //(id)
       .then(res =>setGarden(res.data));
   };
 
