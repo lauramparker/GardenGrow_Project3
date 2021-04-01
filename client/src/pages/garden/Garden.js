@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
-import { withAuthenticationRequired } from "@auth0/auth0-react";
 import CardContainer from "../../components/CardContainer";
 import Loading from "../../components/Loading";
 import Table from "../../components/Table";
