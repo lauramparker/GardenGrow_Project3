@@ -33,13 +33,29 @@ const GardenProvider = ({ children }) => {
           ...garden,
           gardenName: "",
           length: "",
-          width: "",
-          date: ""
+          width: ""
+        //   date: ""
         });
+    }
+};
 
-    default:
-    console.log("Sorry, unable to create Garden");
-    } 
+//CREATE POST A new Garden w Name, Length, Width, Date
+const handleSubmit = (e) => {
+    e.preventDefault();
+      API.saveGarden({
+        gardenName: garden.gardenName,
+        length: garden.length,
+        width: garden.width,
+        // date: dateRange.startDate //sending dateRange from local state
+      }).then(res => {setGarden({ //setGarden?
+        gardenName: res.data.gardenName,
+        length: res.data.length,
+        width: res.data.length,
+        // date: garden.date,
+        id: res.data._id //need to get Garden ID
+      })
+        // useHistory.push("/Garden")   //erring out
+      }).catch((err) => console.log(err));
   };
 
 
@@ -68,7 +84,8 @@ const GardenProvider = ({ children }) => {
             garden,
             handleChange,
             handleSelect,
-            handleSave
+            handleSave,
+            handleSubmit
             }}
         >
             {children}
