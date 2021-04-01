@@ -50,12 +50,14 @@ const GardenProvider = ({ children }) => {
         return setGarden(prevGarden => ({
           garden_data: [...prevGarden.garden_data, (value)]  ///  garden_data: [...prevGarden.garden_data, {plant}]  ///
       }))
+      .catch((err) => console.log(err));
   };
 
 
   const handleSave = (e) => { //where does PUT/Update route go? also see garden.js (as handle submit, no routing)
       API.updateGarden()  //(id)
-      .then(res =>setGarden(res.data));
+      .then(res =>setGarden(res.data))
+      .catch((err) => console.log(err));
   };
 
 
