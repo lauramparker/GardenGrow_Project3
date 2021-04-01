@@ -20,9 +20,11 @@ const GardenProvider = ({ children }) => {
   
   const handleChange = (e) => {
     const { name, value, type } = e.target;
+    console.log({ name, value, type});
 
     switch(type) {
       case 'text':
+      case 'select-one':
         return setGarden({
           ...garden,
           [name]: value
