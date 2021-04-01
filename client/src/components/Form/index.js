@@ -49,7 +49,7 @@ const Form = ({ children }) => {
                     <input
                       onChange={handleChange}
                       className="form-control"
-                      type="text"
+                      type="select-one"
                       placeholder="Add garden name..."
                       name="gardenName"
                       value= {garden.gardenName}
@@ -63,7 +63,7 @@ const Form = ({ children }) => {
                     <select
                       onChange={handleChange}
                       className="form-control"
-                      type="text"
+                      type="select-one"
                       name="length"
                       value={garden.length || ""}  
                     >{children}

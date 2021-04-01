@@ -76,7 +76,5 @@ function Garden() {   //{children}??
   );
 }
 
-export default withAuthenticationRequired(Garden, {
-  onRedirecting: () => <Loading />,
-});
+export default Garden;
 

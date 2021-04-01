@@ -16,6 +16,7 @@ function MyGarden() {
     loadGardens()
   }, []);
 
+
   function loadGardens() {
     API.getUser(user.email)
     .then((res) => {

@@ -1,5 +1,7 @@
 import React, { createContext, useState,} from 'react';
+import { useHistory } from "react-router-dom";
 import API from '../utils/API';
+
 
 
 export const GardenContext = createContext();
@@ -56,7 +58,7 @@ const handleSubmit = (e) => {
         // date: garden.date,
         id: res.data._id //need to get Garden ID
       })
-        // useHistory.push("/Garden")   //erring out
+        useHistory.push("/Garden" + garden.id)   //erring out
       }).catch((err) => console.log(err));
   };
 
