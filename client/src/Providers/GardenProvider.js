@@ -1,72 +1,78 @@
 import React, { createContext, useState,} from 'react';
+import API from '../utils/API';
+
 
 export const GardenContext = createContext();
 
 const GardenProvider = ({ children }) => {
 
-        const [garden, setGarden] = useState({
-            id:"",
-            date: "",
-            gardenName: "Oh PLEASE Work",
-            length: "",
-            width: "",
-            garden_data: [
-            ],
+
+    const [garden, setGarden] = useState({
+        id:"",
+        date: "",
+        gardenName: "",
+        length: "",
+        width: "",
+        garden_data: [
+        ], //attached plant data
+    });
+
+  
+  const handleChange = (e) => {
+    const { name, value, type } = e.target;
+
+    switch(type) {
+      case 'text':
+        return setGarden({
+          ...garden,
+          [name]: value
         });
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//       API.saveGarden({
-//         gardenName: garden.gardenName,
-//         length: garden.length,
-//         width: garden.width,
-//         date: garden.date
-//       }).then(res => {setGarden({
-//         gardenName: res.data.gardenName,
-//         length: res.data.length,
-//         width: res.data.length,
-//         id: res.data._id
-//       })
-//         useHistory.push("/Garden")   //erring out
-//       }).catch((err) => console.log(err));
-// };
+      case 'submit': 
+        return setGarden({
+          ...garden,
+          gardenName: "",
+          length: "",
+          width: "",
+          date: ""
+        });
 
-        const  handleChange = (e) => {  //date??
-            const { name, value } = e.target;
-            setGarden({...garden, [name]: value,});
-        };
-  
-//   const handleChange = (e) => {
-//     const { name, value, type } = e.target;
+    default:
+    console.log("Sorry, unable to create Garden");
+    } 
+  };
 
-//     // switch(type) {
-//     //   case 'text':
-//         return setGarden({
-//           ...garden,
-//           [name]: value
-//         });
 
-//       case 'submit': 
-//         return setGarden({
-//           ...garden,
-//           garden_data: [...garden, { plants }],
-//           todo: ''
-//         });
-//     } 
-//   }
+//When user selects plant from plant list, update component state 
+  const handleSelect = (e) =>  {
+    const value  = e.currentTarget.value  //need to destructure to get all plant info
+    
+        return setGarden(prevGarden => ({
+          garden_data: [...prevGarden.garden_data, (value)]  ///  garden_data: [...prevGarden.garden_data, {plant}]  ///
+      }))
+  };
+
+
+  const handleSave = (e) => { //where does PUT/Update route go? also see garden.js (as handle submit, no routing)
+      API.updateGarden(id)
+      .then(res =>setGarden(res.data));
+  };
+
 
     return (
         <>
         <GardenContext.Provider
             value={{
             garden,
-            handleChange
+            handleChange,
+            handleSelect,
+            handleSave
             }}
         >
             {children}
         </GardenContext.Provider>
         </>
     )
-}
+};
 
 export default GardenProvider;
