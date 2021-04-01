@@ -4,6 +4,7 @@ import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
 import CardContainer from "../../components/CardContainer";
+import Loading from "../../components/Loading";
 import Table from "../../components/Table";
 import "./Garden.css";
 
@@ -12,6 +13,7 @@ import "./Garden.css";
 function Garden() {   //{children}??
 
   //setting state for plants table to load plants in List table
+
   const [plants, setPlants] = useState([]);
 
 
@@ -26,6 +28,7 @@ function Garden() {   //{children}??
   }, []);
 
 
+
  
   // useParams(); ///
   useEffect(() => {
@@ -35,12 +38,12 @@ function Garden() {   //{children}??
   }, []);
 
 
+
   
   function handleGardenSubmit(event) { 
     event.preventDefault();
     useHistory.push("/MyGarden");  //reroute to MyGarden page
   };
-
 
 
   return (
@@ -73,5 +76,7 @@ function Garden() {   //{children}??
   );
 }
 
-export default Garden;
+export default withAuthenticationRequired(Garden, {
+  onRedirecting: () => <Loading />,
+});
 

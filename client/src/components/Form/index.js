@@ -8,6 +8,7 @@ import "./style.css";
 
 const Form = ({ children }) => {
 
+
   // state for date range pickr // component needs as []
   const [dateRange, setDateRange] = useState([
     {
@@ -17,8 +18,10 @@ const Form = ({ children }) => {
     }
   ]);
 
+
  
   const { handleChange, handleSubmit, garden } = useContext(GardenContext); 
+
 
 
       return (
