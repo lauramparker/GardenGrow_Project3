@@ -3,21 +3,16 @@ import React, { createContext, useState,} from 'react';
 export const GardenContext = createContext();
 
 const GardenProvider = ({ children }) => {
-  
-  const [state, setState] = useState({
-    todo: '',
-    items: []
-  })
 
-  const [garden, setGarden] = useState({
-    id:"",
-    date: "",
-    gardenName: "Oh PLEASE Work",
-    length: "",
-    width: "",
-    garden_data: [
-    ],
-  });
+        const [garden, setGarden] = useState({
+            id:"",
+            date: "",
+            gardenName: "Oh PLEASE Work",
+            length: "",
+            width: "",
+            garden_data: [
+            ],
+        });
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
@@ -36,10 +31,10 @@ const GardenProvider = ({ children }) => {
 //       }).catch((err) => console.log(err));
 // };
 
-function  handleChange (e) {  //date??
-    const { name, value } = e.target;
-    setGarden({...form, [name]: value,});
-  };
+        const  handleChange = (e) => {  //date??
+            const { name, value } = e.target;
+            setGarden({...garden, [name]: value,});
+        };
   
 //   const handleChange = (e) => {
 //     const { name, value, type } = e.target;
@@ -60,18 +55,18 @@ function  handleChange (e) {  //date??
 //     } 
 //   }
 
-  return (
-    <>
-      <GardenContext.Provider
-        value={{
-          state,
-          handleChange
-        }}
-      >
-        {children}
-      </GardenContext.Provider>
-    </>
-  )
+    return (
+        <>
+        <GardenContext.Provider
+            value={{
+            garden,
+            handleChange
+            }}
+        >
+            {children}
+        </GardenContext.Provider>
+        </>
+    )
 }
 
 export default GardenProvider;
