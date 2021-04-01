@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GardenContext } from "../../Providers/GardenProvider";
 import "./style.css";
 
 
-//set up table that lists plants
-function Table(props) {
+//set up table that lists plants  //props.plant from Garden - lift up plant state?
+function Table( props, {children} ) {
+
+    const { handleSelect } = useContext(GardenContext);
 
     return (
     <div>
@@ -23,13 +26,15 @@ function Table(props) {
                 <tr key={plant._id}>
                     <td>
                         <div className="form-check container-fluid" id={plant._id}>
+                        {children}
                             <input 
                                 className="form-check-input"
                                 type="checkbox" 
                                 value={plant.Name} 
-                                onChange={props.handleSelectChange}
+                                onChange={handleSelect}
                                 > 
-                            </input>      
+                            </input>
+                            {children}
                             <label className="form-check-label" htmlFor="flexCheckDefault">{plant.Name}</label>
                         </div>
                     </td> 

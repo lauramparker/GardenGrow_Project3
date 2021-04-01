@@ -1,49 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-
-
 import "./style.css";
 
-function Form(props) {
+const Form = ({ children }) => {
 
-          // state for garden form 
-          const [form, setForm] = useState({
-            length: "",
-            width: "",
-            gardenName: "",
-            date:""
-          });
+  // state for date range pickr // component needs as []
+  const [dateRange, setDateRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    }
+  ]);
 
-          // state for date range pickr // component needs as []
-          const [dateRange, setDateRange] = useState([
-            {
-              startDate: new Date(),
-              endDate: null,
-              key: "selection",
-            }
-          ]);
-
-      //     this.state = {value: ''}; //??
-
-      // this.handleChange = this.handleChange.bind(this);
-      // this.handleSubmit = this.handleSubmit.bind(this);
-
-
-  
-  function  handleChange (e, date) {  //date??
-        const { name, value } = e.target;
-        setForm({...form, [name]: value,});
-      };
+ 
+  const { handleChange, handleSubmit, garden } = useContext(GardenContext); 
 
 
       return (
         <div style={{ height: "325px" }}>
           <div>
             <form
-              onSubmit={props.handleSubmit}
+              onSubmit={handleChange}
               style={{
                 width: "750",
                 border: "2px solid",
@@ -54,7 +36,7 @@ function Form(props) {
                 transform: "translate(-25%, -25%)",
                 borderRadius:"15px"
               }}
-            >
+            >{children}
               <div className="mt-4" style={{ textAlign: "center" }}>
                 <h3>Garden Parameters</h3>
               </div>
@@ -67,8 +49,8 @@ function Form(props) {
                       type="text"
                       placeholder="Add garden name..."
                       name="gardenName"
-                      value= {form.gardenName}
-                    />
+                      value= {garden.gardenName}
+                    />{children}
                   </Col>
                 </Row>
                 <Row className="form-group">
@@ -77,9 +59,11 @@ function Form(props) {
                     <br></br>
                     <select
                       onChange={handleChange}
+                      className="form-control"
+                      type="text"
                       name="length"
-                      value={form.length}  //setGarden
-                    >
+                      value={garden.length || ""}  
+                    >{children}
                       <option value="2">2</option>
                       <option value="4">4</option>
                       <option value="6">6</option>
@@ -92,9 +76,11 @@ function Form(props) {
                     <br></br>
                     <select
                       onChange={handleChange}
+                      className="form-control"
+                      type="text"
                       name="width"
-                      value={form.width}
-                    >
+                      value={garden.width}
+                    >{children}
                       <option value="2">2</option>
                       <option value="4">4</option>
                       <option value="6">6</option>
@@ -121,8 +107,9 @@ function Form(props) {
                   <button
                     className="btn btn-success"
                     type="submit"
-                    onClick={props.handleSubmit} ///
-                  >
+                    onSubmit={handleChange}
+                    onClick={handleSubmit} 
+                  >{children}
                     Submit
                   </button>
                 </Row>

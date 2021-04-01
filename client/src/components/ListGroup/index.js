@@ -1,7 +1,4 @@
 import React from "react";
-// import React, {useState} from "react";
-// import {Container} from "react-bootstrap";
-// import Table from 'react-bootstrap/Table';
 import "./style.css";
 
 
@@ -36,6 +33,7 @@ export function Item(props) {
                             {/* <span>Plant Date: {props.garden.date}</span> */}
                             <small>length: {props.garden.length} ft & </small>
                             <small>width: {props.garden.width} ft</small>
+                            <small>id: {props.garden._id}</small> 
                             </label>
                     </div>
 

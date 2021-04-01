@@ -9,7 +9,7 @@ import "./Landing.css";
 
 
 
-function Landing(props) {
+function Landing() {
 
   // const { isLoading, error } = useAuth0();
 
@@ -44,15 +44,9 @@ function Landing(props) {
   return (
     <div>
       <Loading />;
-
       <Container >
-          <Form
-            props
-            garden={props.garden}
-            handleSubmit={props.handleSubmit}
-          >
-          </Form>
 
+          <Form></Form>
 
         <Row />
         <Col />

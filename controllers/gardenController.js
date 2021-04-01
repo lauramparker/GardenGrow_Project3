@@ -10,7 +10,7 @@ module.exports = {
 
 	findById: (req, res) => {
 		Garden
-			.find(req.params.id)
+			.findById(req.params.id)
 			.then(model => res.json(model))
 			.catch(err => res.status(422).json(err));
 	},

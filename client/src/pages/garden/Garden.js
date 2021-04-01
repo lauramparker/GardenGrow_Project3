@@ -1,52 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
-// import { useHistory } from "react-router-dom"; - for onsubmit
 import "./Garden.css";
-// import SearchForm from "../../components/SearchForm";
 
-function Garden(props) {
+
+
+function Garden() {   //{children}??
 
   //setting state for plants table to load plants in List table
-  const [plants, setPlants] = useState([]); //must be array for map to work (array of objects)
+  const [plants, setPlants] = useState([]);
 
-  // const [listObject, setListObject] = useState({
-  //   //set as object
-  //   id: "",
-  //   name: "",
-  //   spacing: "",
-  //   harvest: "",
-  //   image: "",
-  // });
+
+  const { garden, setGarden } = useContext(GardenContext);
 
 
   //Load all plants and set to plants when Garden page renders
   useEffect(() => {
     API.getPlants()
       .then((res) => setPlants(res.data))
-      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   }, []);
 
 
-//   useEffect(() => {
-//     API.getOneGarden(garden.id)
-//     .then((res) => setGarden(res.data))
-//     .then((res) => console.log(res))
-//     .catch((err) => console.log(err));
-//   }, []);
+ 
+  // useParams(); ///
+  useEffect(() => {
+    API.getOneGarden() //coming from new Garden State after form submission (id) or (garden._id)
+    .then((res) => setGarden(res.data)) //setGarden??
+    .catch((err) => console.log(err));
+  }, []);
 
-
-// //NEW VERSION
-//     useEffect((id) => {
-//         API.updateGarden(id)
-//         .then(res =>setGarden(res.data));
-//      }, [garden.garden_data]);
 
   
-
+  function handleGardenSubmit(event) { 
+    event.preventDefault();
+    useHistory.push("/MyGarden");  //reroute to MyGarden page
+  };
 
 
 
@@ -55,9 +48,9 @@ function Garden(props) {
       <Container fluid>
         <Row>
           <Col>
-            <h3>{props.garden.gardenName}</h3>
+            <h3>{garden.gardenName}</h3>
 
-            <CardContainer data={props.garden.garden_data} />
+            <CardContainer data={garden.garden_data} />
           </Col>
 
           <Col>
@@ -65,13 +58,12 @@ function Garden(props) {
 
             <Table
               plants={plants}
-              handleSelectChange={props.handleSelectChange}
             ></Table>
           </Col>
         </Row>
         <Row>
           <Col>
-            <button className="btn" id="saveBtn" onClick={props.handleGardenSubmit}>
+            <button className="btn" id="saveBtn" onClick={handleGardenSubmit}>
               Save Garden
             </button>
           </Col>
