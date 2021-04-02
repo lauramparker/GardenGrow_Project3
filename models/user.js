@@ -24,6 +24,7 @@ const userSchema = new Schema({
 		type: String,
 		required: false,
 	},
+	sub: String,
 	gardens : [{
 		type: Schema.Types.ObjectId,
 		ref: "Garden"
