@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
+import { GardenContext } from "../../Providers/GardenProvider";
 import "./style.css";
 
 
@@ -7,17 +8,13 @@ import "./style.css";
 
 function CardContainer(props) {
 
-    //correct version - need props to pass correctly from getOneGarden id
+    //Hard-Coded Version
     // const[dimensions, setDimensions] = useState({
-    //     length: props.length,
-    //     width: props.width,
+    //     length: 3,
+    //     width: 3,
     // });
 
-    //placeholder
-    const[dimensions, setDimensions] = useState({
-        length: 3,
-        width: 3,
-    });
+    const { garden } = useContext(GardenContext); 
 
 
     return(
@@ -25,12 +22,13 @@ function CardContainer(props) {
         <Container id ="gardenBox">
             
             <div className = "wrapper" 
-                style={{"gridTemplateRows": "repeat("+ dimensions.length+", 100px)",
-                "gridTemplateColumns": "repeat("+ dimensions.width+", 100px)"}}>
+                style={{"gridTemplateRows": "repeat("+ garden.length+", 100px)",
+                "gridTemplateColumns": "repeat("+ garden.width+", 100px)"}}>
 
-                {props.data && props.data.map(data=> (
-                <div className= "plot" key={data.listObject.name}>  
-                    Plant: {data.listObject.name}
+                {garden.plots && garden.plots.map(plot=> (
+                <div className= "plot" key={garden.plots.plot.plant.name}>  
+                    Plant: {garden.plots.plot.plant.name} 
+                    Max #: {garden.plots.plot.maxPlants}
                 </div>
                 ))}
             </div>
