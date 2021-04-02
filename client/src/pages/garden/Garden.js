@@ -142,7 +142,7 @@ function Garden() {
   );
 }
 
-export default withAuthenticationRequired(Garden, {
+export default  withAuthenticationRequired(Garden, {
   onRedirecting: () => <Loading />,
 });
 
