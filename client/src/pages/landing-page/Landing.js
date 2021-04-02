@@ -33,6 +33,7 @@ function Landing() {
         userName: user.nickname,
         email: user.email,
         profilePicture: user.picture,
+        sub: user.sub
       }).then((data) => {
         console.log("user created", data);
         localStorage.setItem("user", data._id);
