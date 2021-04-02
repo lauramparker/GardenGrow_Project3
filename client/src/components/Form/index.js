@@ -25,7 +25,7 @@ const Form = ({ children }) => {
 
 
       return (
-        <div style={{ height: "325px" }}>
+        <div className="form-container" style={{ height: "325px" }}>
           <div>
             <form
               onSubmit={handleChange}
