@@ -1,5 +1,4 @@
 import React, { createContext, useState, } from 'react';
-import { useHistory } from "react-router-dom";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from '../components/Loading';
 import API from '../utils/API';
@@ -22,7 +21,7 @@ const GardenProvider = ({ children }) => {
         garden_data: [
         ], //attached plant data
   });
-  console.log('history', useHistory());
+
   const handleChange = (e) => {
     const { name, value, type } = e.target;
    
@@ -64,9 +63,9 @@ const GardenProvider = ({ children }) => {
         length: res.data.length,
         width: res.data.length,
         // date: garden.date,
-        // id: res.data._id //need to get Garden ID
+        id: res.data._id //need to get Garden ID
       })
-      window.location.assign("/Garden/")   //erring out
+      window.location.assign("/Garden/")   //need to attach ID AFTER state is updated
       }).catch((err) => console.log(err));
   };
 
