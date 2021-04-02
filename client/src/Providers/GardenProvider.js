@@ -64,7 +64,7 @@ const GardenProvider = ({ children }) => {
         // date: garden.date,
         id: res.data._id //need to get Garden ID
       })
-      window.location.assign("/Garden/")   //need to attach ID AFTER state is updated
+      window.location.assign("/Garden/:id")   //need to attach ID AFTER state is updated
       }).catch((err) => console.log(err));
   };
 

@@ -43,8 +43,8 @@ function Landing() {
 
 
   return (
-    <div>
-      <Loading />;
+    <div className="center">
+      {/* <Loading />; */}
       <Container >
 
           <Form></Form>

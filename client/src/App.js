@@ -14,7 +14,6 @@ import Profile from "./views/Profile";
 
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
-import GardenEdit from "./pages/garden-edit/GardenEdit";
 import Garden from "./pages/garden/Garden";
 
 // styles
@@ -45,9 +44,6 @@ const App = () => {
                   />
             <Route exact path={["/my-gardens", "/mygardens"]} 
                    component={MyGarden} 
-                   />
-            <Route exact path="/garden-edit" 
-                   component={GardenEdit} 
                    />
             <Route path="/garden/"  //not exact path because Garden ID is needed
                    component={Garden} 

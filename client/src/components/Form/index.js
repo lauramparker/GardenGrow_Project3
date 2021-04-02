@@ -25,22 +25,19 @@ const Form = ({ children }) => {
 
 
       return (
-        <div className="form-container" style={{ height: "325px" }}>
+        <div className="form-container">
           <div>
             <form
               onSubmit={handleChange}
               style={{
-                width: "750",
+                width: "650",
                 border: "2px solid",
                 borderColor: "#73AD21",
-                position: "absolute",
-                top: "50%",
-                left: "35%",
-                transform: "translate(-25%, -25%)",
+                position: "relative",
                 borderRadius:"15px"
               }}
             >{children}
-              <div className="mt-4" style={{ textAlign: "center" }}>
+              <div className="mt-4 center" style={{ textAlign: "center" }}>
                 <h3>Garden Parameters</h3>
               </div>
               <Container style={{ width: "550" }} className="mt-3 px-5">

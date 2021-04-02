@@ -34,7 +34,7 @@ function MyGarden() {
   };
 
   return (
-    <div>
+    <div className="center"> 
       <Container>
         <Row>
           <Col>
