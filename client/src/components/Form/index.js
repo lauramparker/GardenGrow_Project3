@@ -47,7 +47,7 @@ const Form = ({ children }) => {
                 <Row className="form-group">
                   <Col size="6">
                     <input
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       className="form-control"
                       type="select-one"
                       placeholder="Add garden name..."
