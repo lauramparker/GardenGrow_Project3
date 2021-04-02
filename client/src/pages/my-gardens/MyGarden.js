@@ -9,7 +9,8 @@ import { ListGroup, Item } from "../../components/ListGroup";
 
 function MyGarden() {
 
-  const [gardens, setGardens] = useState([]);
+
+  const [gardens, setGardens] = useState([]) //user specific gardens, not releated to overall garden state
   const { user } = useAuth0();
 
   useEffect(() => {

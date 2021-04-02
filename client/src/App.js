@@ -11,6 +11,7 @@ import Profile from "./views/Profile";
 // import ExternalApi from "../src/views/ExternalApi";
 import { useAuth0 } from "@auth0/auth0-react";
 
+
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
 import GardenEdit from "./pages/garden-edit/GardenEdit";
@@ -33,6 +34,7 @@ const App = () => {
   if (isLoading) {
     return <Loading />;
   }
+
 
   return (
     <Router>
