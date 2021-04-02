@@ -56,9 +56,9 @@ const handleSubmit = (e) => {
         length: res.data.length,
         width: res.data.length,
         // date: garden.date,
-        id: res.data._id //need to get Garden ID
+        // id: res.data._id //need to get Garden ID
       })
-        useHistory.push("/Garden" + garden.id)   //erring out
+        useHistory.push("/Garden" + garden._id)   //erring out
       }).catch((err) => console.log(err));
   };
 
