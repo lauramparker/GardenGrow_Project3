@@ -18,8 +18,8 @@ const GardenProvider = ({ children }) => {
         gardenName: "",
         length: "",
         width: "",
-        garden_data: [
-        ], //attached plant data
+        plots: [
+        ], //changed from garden_data to plots []
   });
 
   const handleChange = (e) => {
@@ -57,7 +57,6 @@ const GardenProvider = ({ children }) => {
         width: garden.width,
         // date: dateRange.startDate //sending dateRange from local state
       }).then(res => {
-
         setGarden({ //setGarden?
         gardenName: res.data.gardenName,
         length: res.data.length,
@@ -72,16 +71,15 @@ const GardenProvider = ({ children }) => {
 
   //When user selects plant from plant list, update component state 
   const handleSelect = (e) => {
-    const value = e.currentTarget.value  //need to destructure to get all plant info
-
+    const value = e.currentTarget.value  //need to destructure to get all plant/plot info
     return setGarden(prevGarden => ({
-      garden_data: [...prevGarden.garden_data, (value)]  ///  garden_data: [...prevGarden.garden_data, {plant}]  ///
+      plots: [...prevGarden.plots, (value)]  ///  plots: [...prevGarden.plots, {plant}]  ///
     }))
       .catch((err) => console.log(err));
   };
 
 
-  const handleSave = (e) => { //where does PUT/Update route go? also see garden.js (as handle submit, no routing)
+  const handleSave = (e) => { //where does PUT/Update route go?
     API.updateGarden()  //(id)
       .then(res => setGarden(res.data))
       .catch((err) => console.log(err));
