@@ -12,7 +12,7 @@ const API = {
   },
   // Gets all plants in db
   getPlants: function() {
-    return axios.get("/api/plants"); //added to fix CORS access error //remove when deploying
+    return axios.get("/api/plants"); 
   },
 	// Get all gardens (grabs use-specific gardens when user is logged in)
 	getGardens: function() {
