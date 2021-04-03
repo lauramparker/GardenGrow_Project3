@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../../utils/API";
@@ -9,7 +9,7 @@ import "./Garden.css";
 
 
 
-function Garden() {   //{children}??
+function Garden( {children} ) {  //children???
 
   //setting state for plants table to load plants in List table
 
@@ -30,9 +30,9 @@ function Garden() {   //{children}??
 
   // send user to api/garden/:id after Garden state updates
   useEffect(() => {
-    const id = garden.id
-    // if (garden.id !==0) {
-    //   window.location.assign("/Garden/" + id);
+    const id = garden.id;
+    console.log(id);
+    // window.location.assign("/Garden/" + garden.id);
     // }
   }, [garden.id]);
 
@@ -65,7 +65,7 @@ function Garden() {   //{children}??
         </Row>
         <Row>
           <Col>
-            <button className="btn" id="saveBtn" onClick={handleSave}>
+            <button className="btn" id="saveBtn" onClick={handleSave}> {children}
               Save Garden
             </button>
           </Col>

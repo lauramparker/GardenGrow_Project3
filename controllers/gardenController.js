@@ -16,12 +16,15 @@ module.exports = {
 	},
 
 	create: (req, res) => {
-
+		let gardenModel;
 		Garden
 			.create(req.body)
-			.then(gardenData => User.findOneAndUpdate({email: req.body.userId}, {$push:{gardens: gardenData._id}}, {new: true}))
+			.then(garden => {
+				User.findOneAndUpdate({email: req.body.userId}, {$push:{gardens: garden._id}}, {new: true})
+				gardenModel = garden
+			})
 			.then(model => {
-				return res.json(model);
+				return res.json(gardenModel);
 			})
 			.catch(err => res.status(422).json(err));
 	},
