@@ -3,10 +3,10 @@ import { GardenContext } from "../../Providers/GardenProvider";
 import "./style.css";
 
 
-//set up table that lists plants
+//set up table that lists plants //props.handleSelectChange from Garden.js
 function Table(props) {
 
-const { handleSelectChange } = useContext(GardenContext);
+const { plants } = useContext(GardenContext);
 
     return (
     <div>
@@ -21,7 +21,7 @@ const { handleSelectChange } = useContext(GardenContext);
             </tr>
         </thead>
         <tbody>
-            {props.plants.map(plant => { 
+            {plants.map(plant => { 
                 return (
                 <tr key={plant._id}>
                     <td>
@@ -30,7 +30,7 @@ const { handleSelectChange } = useContext(GardenContext);
                                 className="form-check-input"
                                 type="checkbox" 
                                 value={plant.Name} 
-                                onChange={handleSelectChange}
+                                onChange={props.handleSelectChange} //from Garden.js
                                 > 
                             </input>      
                             <label className="form-check-label" htmlFor="flexCheckDefault">{plant.Name}</label>
