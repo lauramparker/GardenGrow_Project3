@@ -14,6 +14,8 @@ function Garden() {  //{children}???
 
   const { garden, setGarden, plants, handleSave } = useContext(GardenContext)
 
+  const [selectedPlant, setSelectedPlant] = useState(null);
+
 
 
   //When user selects plant from plant list, update component state 
@@ -22,12 +24,14 @@ function Garden() {  //{children}???
     const value = e.currentTarget.value;  
     const selectedPlant = plants.filter(plant => plant.Name === value);
     console.log("You selected this plant: " + selectedPlant);
-    return setGarden(prevGarden => ({
-      plots: [...prevGarden.plots, selectedPlant]  ///  add plant data to garden.plots, send to 
-    }))
-      .catch((err) => console.log(err));
+
   };
 
+  useEffect(() => {
+    setGarden(prevGarden => ({
+      plots: [...prevGarden.plots, selectedPlant]  ///  add plant data to garden.plots, send to 
+    }))
+  }, [selectedPlant]);
 
 
 
