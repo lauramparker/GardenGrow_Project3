@@ -1,25 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
-import { DateRange } from "react-date-range";
+// import { DateRange } from "react-date-range";
 // import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
+// import "react-date-range/dist/styles.css"; // main style file
+// import "react-date-range/dist/theme/default.css"; // theme css file
 import "./style.css";
 
 const Form = ({ children }) => {
 
 
   // state for date range pickr // component needs as []
-  const [dateRange, setDateRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    }
-  ]);
+  // const [dateRange, setDateRange] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: null,
+  //     key: "selection",
+  //   }
+  // ]);
 
   const { user } = useAuth0();
 
@@ -34,35 +34,6 @@ const Form = ({ children }) => {
   const [gardenData, setGardenData] = useState(null)
 
 
-
-  // useEffect(() => {
-  //   API.getGardens()
-  //     .then((res) => setGardenData(res.data))
-  //     .catch((err) => console.log(err));
-  // }, []);
-
-  const handleChange = (e) => {
-    // const { name, value, type } = e.target;
-
-    // switch (type) {
-    //   case 'text':
-    //   case 'select-one':
-    //     return setGarden({
-    //       ...garden,
-    //       [name]: value
-    //     });
-
-    //   case 'submit':
-    //     return setGarden({
-    //       ...garden,
-    //       gardenName: "",
-    //       length: "",
-    //       width: "",
-    //       date: ""
-    //     });
-    //   default: break;
-    // }
-  };
 
   //CREATE POST A new Garden w Name, Length, Width, Date
   const handleSubmit = (e) => {
@@ -101,12 +72,6 @@ const Form = ({ children }) => {
     } //end if 
   }, [gardenData]);
 
-
-  // useEffect(() => {
-  //   if (garden._id) {
-  //     history.push("/Garden/" + garden.id)
-  //   }
-  // }, [garden]);
 
 
 
