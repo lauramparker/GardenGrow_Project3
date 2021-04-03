@@ -1,7 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
 import { DateRange } from "react-date-range";
+import { useHistory } from "react-router-dom";
+import API from "../../utils/API";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import "./style.css";
@@ -18,9 +21,69 @@ const Form = ({ children }) => {
     }
   ]);
 
+  const { user } = useAuth0();
 
+  const history = useHistory();
  
-  const { handleChange, handleSubmit, garden } = useContext(GardenContext); 
+  const { garden, setGarden } = useContext(GardenContext); 
+
+
+
+  const handleChange = (e) => {
+    const { name, value, type } = e.target;
+
+    switch (type) {
+      case 'text':
+      case 'select-one':
+        return setGarden({
+          ...garden,
+          [name]: value
+        });
+
+      case 'submit':
+        return setGarden({
+          ...garden,
+          gardenName: "",
+          length: "",
+          width: "",
+          date: ""
+        });
+      default: break;
+    }
+  };
+
+  //CREATE POST A new Garden w Name, Length, Width, Date
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  }; 
+
+  useEffect(() => {
+    if (garden) {
+    API.saveGarden({
+      userId: user.email,
+      gardenName: garden.gardenName,
+      length: garden.length,
+      width: garden.width,
+      date: dateRange.startDate
+    }).then(res => {
+      setGarden({ //setGarden?
+      gardenName: res.data.gardenName,
+      length: res.data.length,
+      width: res.data.width,
+      date: garden.date,
+      id: res.data._id 
+    })
+    }).catch((err) => console.log(err));
+    } //end if 
+  }, [garden]);
+
+
+  useEffect(() => {
+    if (garden._id) {
+      history.push("/Garden/" + garden.id)
+    }
+  }, [garden]);
 
 
 

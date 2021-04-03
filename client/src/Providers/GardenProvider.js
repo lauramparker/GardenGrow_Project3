@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState, } from 'react';
 import { useHistory } from "react-router-dom";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import Loading from '../components/Loading';
+import Loading from "../components/Loading";
 import API from '../utils/API';
 
 
@@ -9,12 +9,16 @@ import API from '../utils/API';
 export const GardenContext = createContext();
 
 
-
 const GardenProvider = ({ children }) => {
 
   const { user } = useAuth0();
+
+  const history = useHistory();
+
+  // const [gardenData, setGardenData] = useState(null)
+
   const [garden, setGarden] = useState({
-        id:"", //don't need?? _id automatic with mongo
+        id:"",
         date: "",
         gardenName: "",
         length: "",
@@ -23,75 +27,82 @@ const GardenProvider = ({ children }) => {
         ], //changed from garden_data to plots []
   });
 
-   const [plants, setPlants] = useState([]);
+  const [plants, setPlants] = useState([]);
 
-  const handleChange = (e) => {
-    const { name, value, type } = e.target;
-   
-   
+   //Load all plants - don't pass plants to Garden.js
+   useEffect(() => {
+    API.getPlants()
+      .then((res) => setPlants(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
-    switch (type) {
-      case 'text':
-      case 'select-one':
-        return setGarden({
-          ...garden,
-          [name]: value
-        });
 
-      case 'submit':
-        return setGarden({
-          ...garden,
-          gardenName: "",
-          length: "",
-          width: ""
-          //   date: ""
-        });
-      default: break;
-    }
-  };
+  // const handleChange = (e) => {
+  //   const { name, value, type } = e.target;
 
-  //CREATE POST A new Garden w Name, Length, Width, Date
-  const handleSubmit = (e) => {
-    e.preventDefault();
-      API.saveGarden({
-        userId: user.email,
-        gardenName: garden.gardenName,
-        length: garden.length,
-        width: garden.width,
-        // date: dateRange.startDate //sending dateRange from local state
-      }).then(res => {
-        setGarden({ //setGarden?
-        gardenName: res.data.gardenName,
-        length: res.data.length,
-        width: res.data.length,
-        // date: garden.date,
-        id: res.data._id //need to get Garden ID
-      })
-      })
-      .catch((err) => console.log(err));  
-      window.location.assign("/Garden/")   //need to attach ID AFTER state is updated   
-  }; 
+  //   switch (type) {
+  //     case 'text':
+  //     case 'select-one':
+  //       return setGarden({
+  //         ...garden,
+  //         [name]: value
+  //       });
+
+  //     case 'submit':
+  //       return setGarden({
+  //         ...garden,
+  //         gardenName: "",
+  //         length: "",
+  //         width: ""
+  //         //   date: ""
+  //       });
+  //     default: break;
+  //   }
+  // };
+
+  // //CREATE POST A new Garden w Name, Length, Width, Date
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+    
+  // }; 
+
+  // useEffect(() => {
+  //   if (garden) {
+  //   API.saveGarden({
+  //     userId: user.email,
+  //     gardenName: garden.gardenName,
+  //     length: garden.length,
+  //     width: garden.width,
+  //     // date: dateRange.startDate
+  //   }).then(res => {
+  //     setGarden({ //setGarden?
+  //     gardenName: res.data.gardenName,
+  //     length: res.data.length,
+  //     width: res.data.width,
+  //     // date: garden.date,
+  //     id: res.data._id 
+  //   })
+  //   }).catch((err) => console.log(err));
+  //   } //end if 
+  // }, [garden]);
 
 
   // useEffect(() => {
-  //   const id = garden.id
-  //   console.log(id)
-  //   window.location.assign("/Garden/" + garden.id
-  //   // if (garden.id !==0) {
-  //   //   window.location.assign("/Garden/" + id);
-  //   // }
-  // }, [garden.id]);
-
+  //   if (garden._id) {
+  //     history.push("/Garden/" + garden.id)
+  //   }
+  // }, [garden]);
 
   
 
 
   //When user selects plant from plant list, update component state 
   const handleSelectChange = (e) => {
-    const value = e.currentTarget.value  
-    const selectedPlant = plants.filter(plant => plant.Name === value) //match to plant.name in {plants}
+    const value = e.currentTarget.value;  
+    const selectedPlant = plants.filter(plant => plant.Name === value); //match to plant.name in {plants} - this is working
+    console.log(selectedPlant);
     return setGarden(prevGarden => ({
-      plots: [...prevGarden.plots, selectedPlant]  ///  add plant data to garden.plots...plant schema or plot schema?
+      plots: [...prevGarden.plots, (selectedPlant)]  ///  add plant data to garden.plots, send to 
     }))
       .catch((err) => console.log(err));
   };
@@ -111,10 +122,8 @@ const GardenProvider = ({ children }) => {
       <GardenContext.Provider
         value={{
           garden,
-          handleChange,
           handleSelectChange,
           handleSave,
-          handleSubmit
         }}
       >
         {children}
@@ -122,6 +131,7 @@ const GardenProvider = ({ children }) => {
     </>
   )
 };
+
 
 export default withAuthenticationRequired(GardenProvider, {
   onRedirecting: () => <Loading />,

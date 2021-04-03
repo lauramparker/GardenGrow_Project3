@@ -6,9 +6,9 @@ import "./style.css";
 
 //div Wrapper is CSS Grids
 
-function CardContainer(props) {
+function CardContainer( {children} ) {
 
-    //Hard-Coded Version
+    //Hard-Coded Version.. Need to DIVIDE length & WIDTH / 2 for 2 x 2 Plots
     // const[dimensions, setDimensions] = useState({
     //     length: 3,
     //     width: 3,
@@ -19,16 +19,16 @@ function CardContainer(props) {
 
     return(
         <div>
-        <Container id ="gardenBox">
+        <Container id ="gardenBox"> {children}
             
             <div className = "wrapper" 
                 style={{"gridTemplateRows": "repeat("+ garden.length+", 100px)",
                 "gridTemplateColumns": "repeat("+ garden.width+", 100px)"}}>
 
                 {garden.plots && garden.plots.map(plot=> (
-                <div className= "plot" key={garden.plots.plot.plant.name}>  
-                    Plant: {garden.plots.plot.plant.name} 
-                    Max #: {garden.plots.plot.maxPlants}
+                <div className= "plot" key={garden.plot.plant.Name}>  
+                    Plant: {garden.plots.plant.Name} 
+                    Max #: {garden.plots.plant.maxPlants}
                 </div>
                 ))}
             </div>
