@@ -1,33 +1,45 @@
-import React from "react";
-// import { Col, Row  } from "react-bootstrap";  //{Grid?}
-import CardColumns from "react-bootstrap/CardColumns"; 
-import Cards from "../Card";
+import React, { useContext } from "react";
+import { Container } from "react-bootstrap";
+import { GardenContext } from "../../Providers/GardenProvider";
 import "./style.css";
 
 
-//for the number of total_plots, create a card
-function CardContainer(props) {
-    
-    return (
-        <div> 
-            <CardColumns>
+//div Wrapper is CSS Grids
+
+function CardContainer( {children} ) {
+
+    //Hard-Coded Version.. Need to DIVIDE length & WIDTH / 2 for 2 x 2 Plots
+    // const[dimensions, setDimensions] = useState({
+    //     length: 3,
+    //     width: 3,
+    // });
+
+    const { garden } = useContext(GardenContext); 
+
+
+    return(
+        <div>
+        <Container id ="gardenBox"> {children}
             
-                {props.data.map(data=> (
-                    <Cards key={data.Name}
-                        name={data.Name}
-                        spacing={data.spacing}
-                        harvest={data.harvest}
-                        image={data.image}
-                    >
-                    </Cards>
-                    
+            <div className = "wrapper" 
+                style={{"gridTemplateRows": "repeat("+ garden.length+", 100px)",
+                "gridTemplateColumns": "repeat("+ garden.width+", 100px)"}}>
+
+                {garden.plots && garden.plots.map(plot=> (
+                <div className= "plot" key={garden.plot.plant.Name}>  
+                    Plant: {garden.plots.plant.Name} 
+                    Max #: {garden.plots.plant.maxPlants}
+                </div>
                 ))}
-                
-            </CardColumns>
-            <button onClick={props.handleGardenSubmit}>Save Garden</button>
+            </div>
+
+        </Container>
         </div>
+
     )
 
-};
-
+}
 export default CardContainer;
+
+
+    

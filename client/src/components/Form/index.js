@@ -1,164 +1,162 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import Loading from "../../components/Loading";
 // import { DateRange } from "react-date-range";
+// import { useHistory } from "react-router-dom";
+import API from "../../utils/API";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 // import "react-date-range/dist/styles.css"; // main style file
 // import "react-date-range/dist/theme/default.css"; // theme css file
-import API from "../../utils/API";
+import "./style.css";
 
-function GardenForm() {
-  const { user } = useAuth0();
-  const loggedInUser = localStorage.getItem('user') || '';
+const Form = ({ children }) => {
 
-  //[garden, setGarden] in garden.js
-    const [garden, setGarden] = useState ({
-        gardenName:"",
-        length:"",
-        width:"",
-      })
-    
-  
-  // state for date range pickr
-  // const [state, setState] = useState([
+
+  // state for date range pickr // component needs as []
+  // const [dateRange, setDateRange] = useState([
   //   {
   //     startDate: new Date(),
   //     endDate: null,
   //     key: "selection",
-  //   },
+  //   }
   // ]);
-  console.log('user', user);
-  if(!loggedInUser) {
-    API.createUser({
-      lastName: user.family_name, 
-      firstName: user.given_name,
-      userName: user.nickname,
-      email: user.email,
-      profilePicture: user.picture
-    }).then((data) => { 
-      console.log('user created', data);
-      localStorage.setItem('user', data._id)
-    });
-  }
+
+  const { user } = useAuth0();
+
+  // const history = useHistory();
  
+  const { garden, setGarden } = useContext(GardenContext); 
 
-  const handleChange = (e) => {
-     const {name, value } = e.target;
-     setGarden({
-        ...garden, 
-        [name]: value,
-      })
-    };
-    
 
-  //VERSION TWO
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      //saving new Garden to db
-        API.saveGarden({
-          gardenName: garden.name,
-          length: garden.length,
-          width: garden.width,
-        }).then(res => setGarden({
+  const [name, setName] = useState("");
+  const [length, setLength] = useState("");
+  const [width, setWidth] = useState("");
+  const [gardenData, setGardenData] = useState(null)
+
+
+
+  //CREATE POST A new Garden w Name, Length, Width, Date
+  const handleSubmit = (e) => {
+    console.log("Handling submit")
+    e.preventDefault();
+
+    if (!name || !width || !length) {
+      console.error("Whoops! something wasn't set", name, width, length)
+    }
+
+    setGardenData({
+      gardenName: name,
+      width,
+      length,
+      dateRangeMinimum: null,
+      dateRangeMaximum: null,
+    })
+  }; 
+
+  useEffect(() => {
+    if (gardenData) {
+      API.saveGarden({
+        userId: user.email,
+        ...gardenData
+      }).then (res => {
+        setGarden({
           gardenName: res.data.gardenName,
           length: res.data.length,
-          width: res.data.length
-        }))
-        .catch((err) => console.log(err));
-    };
+          width: res.data.width,
+          dateRangeMinimum: null,
+          dateRangeMaximum: null,
+          plots: [],
+          id: res.data._id 
+        })
+      }).catch((err) => console.log(err));
+    } //end if 
+  }, [gardenData]);
 
 
-  // VERSION ONE TO TEST
-  // const handleSubmit = (e) => {
-  //   alert(this.state.value);
-  //   e.preventDefault();
-    
-  //     API.saveGarden({
-  //       gardenName: garden.name,
-  //       length: garden.length,
-  //       width: garden.width
-  //     }).then (() => setGarden({
-  //       gardenName:"",
-  //       length:"",
-  //       width:""
-  //     }))
-  //     .catch((err) => console.log(err));
-  //    //saving new Garden to db
-  //   console.log(onsubmit);
-  // };
-
-  return (
-    <div>
-      <div className="mt-4">
-        <h2>Garden Parameters</h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <Container className="mt-3 px-5">
-          <Row className="form-group">
-            <Col size="12">
-              <input
-                onChange={handleChange}
-                className="form-control"
-                type="text"
-                placeholder="Add garden name..."
-                name="gardenName"
-                value={garden.gardenName}
-              />
-            </Col>
-          </Row>
-          <Row className="form-group">
-            <Col size="12">
-              <label>
-                Length
-                <select
-                  onChange={handleChange}
-                  name="length"
-                  value={garden.length} //changed from state.length
-                >
-                  <option value="2">2</option>
-                  <option value="4">4</option>
-                  <option value="6">6</option>
-                  <option value="8">8</option>
-                  <option value="10">10</option>
-                </select>
-              </label>
-            </Col>
-            <Col size="12">
-              <select onChange={handleChange} name="width" value={garden.width}>
-                <option value="2">2</option>
-                <option value="4">4</option>
-                <option value="6">6</option>
-                <option value="8">8</option>
-                <option value="10">10</option>
-                width
-              </select>
-            </Col>
-          </Row>
-          <Row>
-            {/* <DateRange
-              editableDateInputs={true}
-              onChange={(item) => setState([item.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={state}
-            /> */}
-          </Row>
-          <Row className="form-group">
-            <button
-              className="btn btn-success"
-              type="submit"
-              // disabled={!(garden.gardenName && garden.length && garden.width)}
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
-          </Row>
-        </Container>
-      </form>
-    </div>
-  );
-          }
 
 
-export default withAuthenticationRequired(GardenForm, {
-  onRedirecting: () => <Loading />,
-});
+      return (
+        <div className="form-container" style={{ height: "325px" }}>
+          <div>
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                width: "750",
+                border: "2px solid",
+                borderColor: "#73AD21",
+                position: "absolute",
+                top: "50%",
+                left: "35%",
+                transform: "translate(-25%, -25%)",
+                borderRadius:"15px"
+              }}
+            >{children}
+              <div className="mt-4" style={{ textAlign: "center" }}>
+                <h3>Garden Parameters</h3>
+              </div>
+              <Container style={{ width: "550" }} className="mt-3 px-5">
+                <Row className="form-group">
+                  <Col size="6">
+                    <input
+                      onChange={(event) => setName(event.target.value)}
+                      className="form-control"
+                      type="select-one"
+                      placeholder="Add garden name..."
+                      name="gardenName"
+                      value= {name}
+                    />{children}
+                  </Col>
+                </Row>
+                <Row className="form-group">
+                  <Col size="6">
+                    <label>Length</label>
+                    <br></br>
+                    <select
+                      onChange={(event) => setLength(event.target.value)}
+                      className="form-control"
+                      type="select-one"
+                      name="length"
+                      value={length}  
+                    >{children}
+                      <option value="2">2</option>
+                      <option value="4">4</option>
+                      <option value="6">6</option>
+                      <option value="8">8</option>
+                      <option value="10">10</option>
+                    </select>
+                  </Col>
+                  <Col size="6">
+                    <label>Width</label>
+                    <br></br>
+                    <select
+                      onChange={(event) => setWidth(event.target.value) }
+                      className="form-control"
+                      type="text"
+                      name="width"
+                      value={width}
+                    >{children}
+                      <option value="2">2</option>
+                      <option value="4">4</option>
+                      <option value="6">6</option>
+                      <option value="8">8</option>
+                      <option value="10">10</option>
+                    </select>
+                  </Col>
+                </Row>
+                <br></br>
+                <Row className="form-group">
+                  <button
+                    className="btn btn-success"
+                    type="submit"
+                  >{children}
+                    Submit
+                  </button>
+                </Row>
+              </Container>
+            </form>
+          </div>
+        </div>
+      );
+    }
+
+export default Form;
