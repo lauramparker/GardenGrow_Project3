@@ -9,7 +9,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Both leaves and seeds can be used. Excessive intake is not recommended.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Amaranth"
+		"url": "http://gardenate.com/plant/Amaranth",
+		"inchesApart": [
+			20
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Angelica",
@@ -21,7 +26,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "The stems can be candied and used to decorate cakes and pastries. Pick the stems in the second year.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Angelica"
+		"url": "http://gardenate.com/plant/Angelica",
+		"inchesApart": [
+			18
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Artichokes (Globe)",
@@ -33,7 +43,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Pick buds before scales develop brown tips. If you have lots of small buds, they can be fried in olive oil and eaten whole. Rinse in plenty of cold water to remove earwigs or other insects.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Artichokes%2B(Globe)"
+		"url": "http://gardenate.com/plant/Artichokes%2B(Globe)",
+		"inchesApart": [
+			63,
+			79
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Asparagus",
@@ -45,7 +61,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Garlic, Onions, and root vegetables",
 		"culinaryHints": "Steaming is traditional, then coating with melted butter or hollandaise sauce. Alternatively break in short lengths, and cook quickly in hot oil in a wok and sprinkle with soy sauce or balsamic vinegar. NOTE: The asparagus berries are poisonous. Only the young shoots are edible.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Asparagus"
+		"url": "http://gardenate.com/plant/Asparagus",
+		"inchesApart": [
+			8,
+			16
+		],
+		"minPlants": 9,
+		"maxPlants": 2
 	},
 	{
 		"Name": "Asparagus Pea",
@@ -57,7 +79,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Cook quickly by steaming and serve with just a touch of butter and they are said to taste like their namesake .",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Asparagus%2BPea"
+		"url": "http://gardenate.com/plant/Asparagus%2BPea",
+		"inchesApart": [
+			8,
+			10
+		],
+		"minPlants": 9,
+		"maxPlants": 5
 	},
 	{
 		"Name": "Basil",
@@ -69,7 +97,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Basil is commonly used fresh in cooked recipes. It is generally added at the last moment, as cooking quickly destroys the flavour. Tear rather than chop. The fresh herb can be kept for a short time in plastic bags in the refrigerator, or for a longer period in the freezer, after being blanched quickly in boiling water.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Basil"
+		"url": "http://gardenate.com/plant/Basil",
+		"inchesApart": [
+			8,
+			10
+		],
+		"minPlants": 9,
+		"maxPlants": 5
 	},
 	{
 		"Name": "Beetroot",
@@ -81,7 +115,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Asparagus, Carrots, Sweetcorn, Spinach",
 		"culinaryHints": "Apart from boiling whole for salads, beetroot roast well, cut in wedges. They also make a tasty salad grated raw with carrot and a little fresh orange juice.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Beetroot"
+		"url": "http://gardenate.com/plant/Beetroot",
+		"inchesApart": [
+			8,
+			12
+		],
+		"minPlants": 9,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Borage",
@@ -93,7 +133,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Has a slight cucumber taste which goes well in salads and when cooked with silver beet or cabbage. The flowers make a pretty drink decoration when frozen in an iceblock.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Borage"
+		"url": "http://gardenate.com/plant/Borage",
+		"inchesApart": [
+			8
+		],
+		"minPlants": 9,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Broad beans",
@@ -105,7 +150,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "The fresh beans are eaten steamed or boiled. As the beans mature it is better to remove their tough outer skins after cooking. The leafy top shoots of the adult plants can be picked and steamed after flowering. Small beans can be eaten whole in the pods.",
 		"culinaryPreservation": "Will freeze well. Remove from pods and blanch.",
-		"url": "http://gardenate.com/plant/Beans%2B-%2Bbroad%2Bbeans%2C%2Bfava%2Bbeans"
+		"url": "http://gardenate.com/plant/Beans%2B-%2Bbroad%2Bbeans%2C%2Bfava%2Bbeans",
+		"inchesApart": [
+			6,
+			10
+		],
+		"minPlants": 16,
+		"maxPlants": 5
 	},
 	{
 		"Name": "Broccoli",
@@ -117,7 +168,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chilli, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "The stem (peeled), leaves, and flowerhead are all edible. Steam for best flavour. Peel large stalks, slice and steam. Goes well with blue cheese sauce.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Broccoli"
+		"url": "http://gardenate.com/plant/Broccoli",
+		"inchesApart": [
+			14,
+			20
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Brussels sprouts",
@@ -129,7 +186,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chili, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "Remove any discoloured outer leaves. Cut in half and steam with other vegetables. Do not overcook as that produces the distinctive smell that puts people off eating Brussels sprouts! They go well with a chopped tomato and onion mix.Traditionally served with roasted chestnuts for Xmas dinner in UK.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Brussels%2Bsprouts"
+		"url": "http://gardenate.com/plant/Brussels%2Bsprouts",
+		"inchesApart": [
+			18,
+			24
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Burdock",
@@ -141,7 +204,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Harvest in the first year when the burdock root is very crisp and has a sweet, mild, and pungent flavour with a little muddy harshness that can be reduced by soaking julienne/shredded roots in water for five to ten minutes. Immature flower stalks may also be harvested in late spring, before flowers appear; the taste resembles that of artichoke, to which the burdock is related. It is a key ingredient in the traditional Dandelion and Burdock beer.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Burdock"
+		"url": "http://gardenate.com/plant/Burdock",
+		"inchesApart": [
+			24
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Cabbage",
@@ -153,7 +221,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chili, capsicum), eggplant (aubergine), strawberry, mustard, parsnip",
 		"culinaryHints": "Young spring cabbage can be chopped and added to salad greens. Steaming preserves the goodness and flavour of cabbage. Can also be used in stir-fry. Red cabbage chopped and cooked with brown sugar, red wine, onions, vinegar and stock is served with boiled bacon or pork.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Cabbage"
+		"url": "http://gardenate.com/plant/Cabbage",
+		"inchesApart": [
+			20,
+			30
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Cape Gooseberry",
@@ -165,7 +239,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "The berry is the size of a cherry tomato, is very aromatic and full of tiny seeds. They are delicious eaten fresh or can be made into jam. They can be added to salads, desserts and cooked dishes, they are delicious stewed with other fruit, especially apples. They also go well in savoury dishes with meat or seafood.",
 		"culinaryPreservation": "Can be preserved dried.",
-		"url": "http://gardenate.com/plant/Cape%2BGooseberry"
+		"url": "http://gardenate.com/plant/Cape%2BGooseberry",
+		"inchesApart": [
+			20
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Capsicum",
@@ -177,7 +256,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Can be sliced and seeded and used raw in salads. Or brush with olive oil, roast at a high temperature until the skin changes colour then put in a covered dish until cool and rub off the skin and remove seeds.",
 		"culinaryPreservation": "Will freeze successfully without blanching if seeded and sliced.",
-		"url": "http://gardenate.com/plant/Capsicum"
+		"url": "http://gardenate.com/plant/Capsicum",
+		"inchesApart": [
+			8,
+			20
+		],
+		"minPlants": 9,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Cardoon",
@@ -189,7 +274,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Cut off the base and leaves, then cut the stalks into pieces. Boil the stalks for around 20 minutes until tender: drain, and peel off the surface of the stalks. Add precooked cardoons to a variety of dishes, they go well with mushrooms.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Cardoon"
+		"url": "http://gardenate.com/plant/Cardoon",
+		"inchesApart": [
+			20,
+			59
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Carrot",
@@ -201,7 +292,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Parsnips, Beetroot, Dill, Brassicas, Fennel",
 		"culinaryHints": "Steamed or raw carrots are tasty. Cook them in a small amount of water until nearly dry then add a pat of butter and teasp of brown sugar to glaze. They can be added to most casserole-type dishes. Grate raw carrots and add to salads",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Carrot"
+		"url": "http://gardenate.com/plant/Carrot",
+		"inchesApart": [
+			2,
+			12
+		],
+		"minPlants": 144,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Cauliflower",
@@ -213,7 +310,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chili, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "Cauliflower can be steamed. Young ones can be broken into small pieces and added raw to salad. Cook briefly and add to curry mix. Traditionally served with cheese sauce. Add tomato slices for colour.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Cauliflower"
+		"url": "http://gardenate.com/plant/Cauliflower",
+		"inchesApart": [
+			24,
+			39
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Celeriac",
@@ -225,7 +328,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Cook whole, scrubbed and peeled. Or slice or dice.Tastes like celery.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Celeriac"
+		"url": "http://gardenate.com/plant/Celeriac",
+		"inchesApart": [
+			18,
+			31
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Celery",
@@ -237,7 +346,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Sweetcorn",
 		"culinaryHints": "Chop and use raw in salad or braised in hot dishes.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Celery"
+		"url": "http://gardenate.com/plant/Celery",
+		"inchesApart": [
+			6,
+			12
+		],
+		"minPlants": 16,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Chicory",
@@ -249,7 +364,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Good in salads. Grill lightly with butter. Bake with ham and cheese.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Chicory"
+		"url": "http://gardenate.com/plant/Chicory",
+		"inchesApart": [
+			10,
+			12
+		],
+		"minPlants": 5,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Chilli peppers",
@@ -261,7 +382,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Wash, dry, and free whole. Use them direct from the freezer (no need to defrost). Wear plastic gloves or wash your hands thoroughly after handling and cutting to avoid accidentally rubbing chilli juice onto your mouth or eyes!",
 		"culinaryPreservation": "Will freeze well.",
-		"url": "http://gardenate.com/plant/Chilli%2Bpeppers"
+		"url": "http://gardenate.com/plant/Chilli%2Bpeppers",
+		"inchesApart": [
+			16,
+			20
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Chinese cabbage",
@@ -273,7 +400,12 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chilli, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "Use in stir-fry . Has a milder flavour than regular cabbage.Shred the inner leaves and stems to use in coleslaw salad.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Chinese%2Bcabbage"
+		"url": "http://gardenate.com/plant/Chinese%2Bcabbage",
+		"inchesApart": [
+			12
+		],
+		"minPlants": 4,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Chives",
@@ -285,7 +417,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use raw in salads or as a mild onion flavour in cooked dishes.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Chives"
+		"url": "http://gardenate.com/plant/Chives",
+		"inchesApart": [
+			2
+		],
+		"minPlants": 144,
+		"maxPlants": 144
 	},
 	{
 		"Name": "Choko/Chayote",
@@ -297,7 +434,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Chokos can be peeled and chopped to use in stews, soup or as a stir fry vegetable. Cooked or raw, it has a very mild flavour and is commonly served with seasonings e.g., salt, butter and pepper or in a dish with other vegetables and/or flavourings. It can also be boiled, stuffed, mashed or pickled",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Choko~Chayote"
+		"url": "http://gardenate.com/plant/Choko~Chayote",
+		"inchesApart": [
+			39
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Climbing beans",
@@ -309,7 +451,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Alliums (Chives, leek, garlic, onions), Florence fennel",
 		"culinaryHints": "Use young in salads - blanch and cool.",
 		"culinaryPreservation": "Will freeze well.",
-		"url": "http://gardenate.com/plant/Beans%2B-%2Bclimbing"
+		"url": "http://gardenate.com/plant/Beans%2B-%2Bclimbing",
+		"inchesApart": [
+			4,
+			8
+		],
+		"minPlants": 36,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Collards",
@@ -321,7 +469,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chili, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "Slice and steam or use in stir-fry",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Collards"
+		"url": "http://gardenate.com/plant/Collards",
+		"inchesApart": [
+			16,
+			20
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Coriander",
@@ -333,7 +487,12 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Fennel",
 		"culinaryHints": "Use the leaves to flavour hot meals or add fresh to salads.",
 		"culinaryPreservation": "The seeds can be dried and ground up for curries.",
-		"url": "http://gardenate.com/plant/Coriander"
+		"url": "http://gardenate.com/plant/Coriander",
+		"inchesApart": [
+			18
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Corn Salad",
@@ -345,7 +504,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Pick individual leaves or harvest the whole plant as required",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Corn%2BSalad"
+		"url": "http://gardenate.com/plant/Corn%2BSalad",
+		"inchesApart": [
+			4,
+			6
+		],
+		"minPlants": 36,
+		"maxPlants": 16
 	},
 	{
 		"Name": "Cowpeas",
@@ -357,7 +522,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Young leaves can be cooked and used like spinach and are very high in protein. The young pods are edible.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Cowpeas"
+		"url": "http://gardenate.com/plant/Cowpeas",
+		"inchesApart": [
+			1
+		],
+		"minPlants": 576,
+		"maxPlants": 576
 	},
 	{
 		"Name": "Cucumber",
@@ -369,7 +539,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potato, Tomatoes",
 		"culinaryHints": "Pick frequently before the fruit become too big. Use raw in salads, peeled if preferred.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Cucumber"
+		"url": "http://gardenate.com/plant/Cucumber",
+		"inchesApart": [
+			16,
+			24
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Daikon",
@@ -381,7 +557,12 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Gherkins, hyssop",
 		"culinaryHints": "Daikon radish can be eaten simmered, stir fried, grated, pickled or baked. Its leaves are also edible and can be used in recipes that call for turnip greens, and its seeds make sprouts to eat in salads or in sandwiches.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Daikon"
+		"url": "http://gardenate.com/plant/Daikon",
+		"inchesApart": [
+			6
+		],
+		"minPlants": 16,
+		"maxPlants": 16
 	},
 	{
 		"Name": "Dill",
@@ -393,7 +574,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Dill leaves can be used fresh or dried in salads, meats, vegetable dishes and soups. Freshly cut leaves enhance the flavour of dips, herb butter, soups, salads, fish dishes, and salads. Both the flowering heads and seeds are used in flavoured vinegars and oils. Used whole or ground, the seeds add zest to bread, cheese, and salad dressing.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Dill"
+		"url": "http://gardenate.com/plant/Dill",
+		"inchesApart": [
+			6
+		],
+		"minPlants": 16,
+		"maxPlants": 16
 	},
 	{
 		"Name": "Dwarf beans",
@@ -405,7 +591,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Alliums (Chives, leek, garlic, onions) Sunflower",
 		"culinaryHints": "Can be used in salads when young, blanched and cooled.",
 		"culinaryPreservation": "Will freeze well.",
-		"url": "http://gardenate.com/plant/Beans%2B-%2Bdwarf"
+		"url": "http://gardenate.com/plant/Beans%2B-%2Bdwarf",
+		"inchesApart": [
+			2,
+			6
+		],
+		"minPlants": 144,
+		"maxPlants": 16
 	},
 	{
 		"Name": "Eggplant",
@@ -417,7 +609,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Cut and use the same day if possible. Slice, no need to peel, and fry in olive oil.  Brush with oil and grill or bake. Or microwave,plain, for about 4 minutes on high. Makes a good substitute for pasta in lasagne or moussaka. Can be smoked over a gas ring or barbecue, cooled and peeled and used to make dips.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Eggplant"
+		"url": "http://gardenate.com/plant/Eggplant",
+		"inchesApart": [
+			24,
+			30
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Endive",
@@ -429,7 +627,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Alliums (garlic and onions)",
 		"culinaryHints": "Very tasty topped with grated swiss cheese and grilled for a couple of minutes to crisp up the cheese and wilt the leaves. Can use in salads additional to lettuce, but needs a flavoursome dressing if you aren't overly fond of bitterness.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Endive"
+		"url": "http://gardenate.com/plant/Endive",
+		"inchesApart": [
+			8,
+			12
+		],
+		"minPlants": 9,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Fennel",
@@ -441,7 +645,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Cut off leaves as required Use leaves fresh or dried . Particularly good with fish. The seeds can be used in pickling mixes.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Fennel"
+		"url": "http://gardenate.com/plant/Fennel",
+		"inchesApart": [
+			12
+		],
+		"minPlants": 4,
+		"maxPlants": 4
 	},
 	{
 		"Name": "French tarragon",
@@ -453,7 +662,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Tarragon goes well with fish, pork, beef, poultry, game, potatoes, tomatoes, carrots, and most vegetables.Â Tarragon can be used in cream sauces, herbed butters and vinegars, soups, sour creams, and yogurt. However, it can be overpowering in large amounts.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/French%2Btarragon"
+		"url": "http://gardenate.com/plant/French%2Btarragon",
+		"inchesApart": [
+			16,
+			24
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Garlic",
@@ -465,7 +680,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Asparagus, Beans, Brassicas, Peas, Potatoes",
 		"culinaryHints": "Cut the growing shoots or use the entire young garlic plants as 'garlic greens' in stirfry.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Garlic"
+		"url": "http://gardenate.com/plant/Garlic",
+		"inchesApart": [
+			4,
+			5
+		],
+		"minPlants": 36,
+		"maxPlants": 23
 	},
 	{
 		"Name": "Ginger",
@@ -477,7 +698,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use in any recipes requiring fresh ginger. Widely used in Asian cooking, it is hot without the 'burn' of chilli.  ",
 		"culinaryPreservation": " Ginger root freezes well either whole or grated, and can be used direct from the freezer in most recipes requiring fresh ginger.",
-		"url": "http://gardenate.com/plant/Ginger"
+		"url": "http://gardenate.com/plant/Ginger",
+		"inchesApart": [
+			15
+		],
+		"minPlants": 2,
+		"maxPlants": 2
 	},
 	{
 		"Name": "Horseradish",
@@ -489,7 +715,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Strong, spicy flavour traditionally used with roast beef. Used grated for horseradish sauce or horseradish cream",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Horseradish"
+		"url": "http://gardenate.com/plant/Horseradish",
+		"inchesApart": [
+			20
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Jerusalem Artichokes",
@@ -501,7 +732,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Scrape clean or peel (add a tsp of lemon or vinegar to the water to stop the tubers browning). Steam, boil, or use in artichoke soup (make with artichokes and some stock). Caution - because they contain 'resistent starch' Jerusalem Artichokes are a great promoter of flatulence in some individuals.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Jerusalem%2BArtichokes"
+		"url": "http://gardenate.com/plant/Jerusalem%2BArtichokes",
+		"inchesApart": [
+			12,
+			18
+		],
+		"minPlants": 4,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Kale",
@@ -513,7 +750,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chilli, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "Strong flavoured and nutritious vegetable. Wash well and chop finely then steam. A tomato or cheese sauce will mask the flavour if too strong.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Kale"
+		"url": "http://gardenate.com/plant/Kale",
+		"inchesApart": [
+			20,
+			39
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Kohlrabi",
@@ -525,7 +768,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chilli, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "Use when young. Scrub well, cut off leaf stalks, roots and woody parts. Young ones do not need peeling. Can be grated raw for salads or cut in pieces and steam. Use in casseroles.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Kohlrabi"
+		"url": "http://gardenate.com/plant/Kohlrabi",
+		"inchesApart": [
+			4,
+			10
+		],
+		"minPlants": 36,
+		"maxPlants": 5
 	},
 	{
 		"Name": "Leeks",
@@ -537,7 +786,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Trim off the roots and any damaged leaves. Young ones can be used whole with some of the green leaves. Wash thoroughly as the earth tends to get inside. Chop and fry in butter (or olive oil) until tender. Can be added to casserole meals, allowing time to cook through. Leek and mushroom make a tasty combination for a tart filling.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Leeks"
+		"url": "http://gardenate.com/plant/Leeks",
+		"inchesApart": [
+			4,
+			8
+		],
+		"minPlants": 36,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Lemon Balm",
@@ -549,7 +804,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "As a herb tea or added to fruit punch. Can be used to replace lemon, used sparingly, in desserts and with stewed fruit. Chop leaves into salad. Better used fresh than dried.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Lemon%2BBalm"
+		"url": "http://gardenate.com/plant/Lemon%2BBalm",
+		"inchesApart": [
+			10
+		],
+		"minPlants": 5,
+		"maxPlants": 5
 	},
 	{
 		"Name": "Lettuce",
@@ -561,7 +821,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Parsley, Celery",
 		"culinaryHints": "Wash well, spin or shake dry and use in salads and sandwiches",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Lettuce"
+		"url": "http://gardenate.com/plant/Lettuce",
+		"inchesApart": [
+			20,
+			30
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Luffa",
@@ -573,7 +839,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "The luffa flowers and fruits are soft and edible when young and are sometimes cooked and eaten like squash or okra. Loofah has been an important food source in many Asian cultures. The leaves and vines should not be eaten.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Luffa"
+		"url": "http://gardenate.com/plant/Luffa",
+		"inchesApart": [
+			18,
+			30
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Marrow",
@@ -585,7 +857,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Good, cut in thick slices, seeds removed and stuffed with mince or spicy vegetable mix then baked in the oven",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Marrow"
+		"url": "http://gardenate.com/plant/Marrow",
+		"inchesApart": [
+			35,
+			47
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Mint",
@@ -597,7 +875,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Mint adds a fresh flavour if chopped and sprinkled over salads. And is traditionally used mixed with vinegar and sugar to make mint sauce for lamb.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Mint"
+		"url": "http://gardenate.com/plant/Mint",
+		"inchesApart": [
+			12
+		],
+		"minPlants": 4,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Mizuna",
@@ -609,7 +892,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Leaves used raw, stir-fried, in soups. Young flowering stems can be cooked like broccoli.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Mizuna"
+		"url": "http://gardenate.com/plant/Mizuna",
+		"inchesApart": [
+			6,
+			8
+		],
+		"minPlants": 16,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Mustard greens",
@@ -621,7 +910,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chilli, capsicum), eggplant (aubergine), strawberry",
 		"culinaryHints": "Use young leaves in salad for a 'spicy kick'. Add to stir fry.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Mustard%2Bgreens"
+		"url": "http://gardenate.com/plant/Mustard%2Bgreens",
+		"inchesApart": [
+			14,
+			24
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Okra",
@@ -633,7 +928,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use pods fresh or dried in soups or casseroles or as a boiled vegetable.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Okra"
+		"url": "http://gardenate.com/plant/Okra",
+		"inchesApart": [
+			14,
+			24
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Onion",
@@ -645,7 +946,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Peas, Beans",
 		"culinaryHints": "Brown onions roasted whole with other vegetables are delicious. Red onions add colour to salads or stir-fry.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Onion"
+		"url": "http://gardenate.com/plant/Onion",
+		"inchesApart": [
+			2,
+			4
+		],
+		"minPlants": 144,
+		"maxPlants": 36
 	},
 	{
 		"Name": "Oregano",
@@ -657,7 +964,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Used to flavour tomato dishes, soups, sauces and Greek dishes like moussaka",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Oregano"
+		"url": "http://gardenate.com/plant/Oregano",
+		"inchesApart": [
+			6
+		],
+		"minPlants": 16,
+		"maxPlants": 16
 	},
 	{
 		"Name": "Pak Choy",
@@ -669,7 +981,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Climbing (pole) beans, tomato, peppers (chili, capsicum), eggplant (aubergine), strawberry, mustard",
 		"culinaryHints": "You can treat Pak Choy as \"cut and come again \" or use the whole plant in one go, whichever suits your needs.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Pak%2BChoy"
+		"url": "http://gardenate.com/plant/Pak%2BChoy",
+		"inchesApart": [
+			12,
+			16
+		],
+		"minPlants": 4,
+		"maxPlants": 2
 	},
 	{
 		"Name": "Parsley",
@@ -681,7 +999,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Use the leaves and stems to add flavour and colour. Can be cooked in dishes such as ratatouille, Traditionally used in white sauce.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Parsley"
+		"url": "http://gardenate.com/plant/Parsley",
+		"inchesApart": [
+			8,
+			12
+		],
+		"minPlants": 9,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Parsnip",
@@ -693,7 +1017,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Carrot, Celery, Brassicas",
 		"culinaryHints": "Peel and roast with vegetables or meat. The sweetish flavour of parsnips enhances most other vegetables.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Parsnip"
+		"url": "http://gardenate.com/plant/Parsnip",
+		"inchesApart": [
+			3,
+			4
+		],
+		"minPlants": 64,
+		"maxPlants": 36
 	},
 	{
 		"Name": "Peas",
@@ -705,7 +1035,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Raw straight from the pod in the garden is best! Raw in salads. Steamed lightly. Small pods can be steamed whole.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Peas"
+		"url": "http://gardenate.com/plant/Peas",
+		"inchesApart": [
+			5,
+			8
+		],
+		"minPlants": 23,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Potato",
@@ -717,7 +1053,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Cucumber, Pumpkin, Sunflowers, Tomatoes, Rosemary",
 		"culinaryHints": "Peeled or unpeeled and scrubbed, potatoes can be boiled, baked, fried and roasted. - The only way they are not used is raw. Keep in a pot of cold water after peeling, otherwise they will discolour.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Potato"
+		"url": "http://gardenate.com/plant/Potato",
+		"inchesApart": [
+			12,
+			16
+		],
+		"minPlants": 4,
+		"maxPlants": 2
 	},
 	{
 		"Name": "Pumpkin",
@@ -729,7 +1071,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Cut up, remove the skin and roast with other vegetables or meat. Young crisp shoots with young leaves can be cooked and eaten - stewed in coconut milk they are popular in Melanesia. Remove any strings and tough parts and stew until tender, or cook as a vegetable in boiling water 3-5 minutes.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Pumpkin"
+		"url": "http://gardenate.com/plant/Pumpkin",
+		"inchesApart": [
+			35,
+			47
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Radish",
@@ -741,7 +1089,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Hyssop, gherkins",
 		"culinaryHints": "Wash well and remove leaves and roots. Use raw in salads or on their own with bread and butter.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Radish"
+		"url": "http://gardenate.com/plant/Radish",
+		"inchesApart": [
+			1,
+			2
+		],
+		"minPlants": 576,
+		"maxPlants": 144
 	},
 	{
 		"Name": "Rhubarb",
@@ -753,7 +1107,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Pick stems about the thickness of your finger. Large stems will have tough 'strings' down the length of them. Use in pies, crumbles, fools and jams. Rhubarb goes well with orange. Will usually need sweetener.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Rhubarb"
+		"url": "http://gardenate.com/plant/Rhubarb",
+		"inchesApart": [
+			35
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Rocket",
@@ -765,7 +1124,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use in salads and stir-fry",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Rocket"
+		"url": "http://gardenate.com/plant/Rocket",
+		"inchesApart": [
+			6,
+			8
+		],
+		"minPlants": 16,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Rockmelon",
@@ -777,7 +1142,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Cut in half and scoop out and discard the seeds. Sprinkle with some ground ginger or serve plain.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Rockmelon"
+		"url": "http://gardenate.com/plant/Rockmelon",
+		"inchesApart": [
+			16,
+			24
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Rosella",
@@ -789,7 +1160,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "The large flowers produce a crimson enlarged calyx. Use the fleshy red calyx, without the green seed pod to make jam or jelly.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Rosella"
+		"url": "http://gardenate.com/plant/Rosella",
+		"inchesApart": [
+			140
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Rosemary",
@@ -801,7 +1177,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Leaves sprinkled on roast potatoes, meat and barbeque food make them extra tasty. Rosemary can also be used to add flavour to vinegars and oils.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Rosemary"
+		"url": "http://gardenate.com/plant/Rosemary",
+		"inchesApart": [
+			39,
+			59
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Rutabaga",
@@ -813,7 +1195,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Use when about the size of a tennis ball. The leaves can be cooked like cabbage when young.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Rutabaga"
+		"url": "http://gardenate.com/plant/Rutabaga",
+		"inchesApart": [
+			4,
+			8
+		],
+		"minPlants": 36,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Sage",
@@ -825,7 +1213,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "The leaves are used to flavour stuffing and meat dishes. Sage keeps well if dried.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Sage"
+		"url": "http://gardenate.com/plant/Sage",
+		"inchesApart": [
+			20
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Salsify",
@@ -837,7 +1230,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Wash and scrape the roots then boil before frying or roasting. They can also be used to make a creamed soup.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Salsify"
+		"url": "http://gardenate.com/plant/Salsify",
+		"inchesApart": [
+			6,
+			8
+		],
+		"minPlants": 16,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Savory - summer savory",
@@ -849,7 +1248,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Usually added to peas, beans or lentils. It has a slightly spicy flavour.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Savory%2B-%2Bsummer%2Bsavory"
+		"url": "http://gardenate.com/plant/Savory%2B-%2Bsummer%2Bsavory",
+		"inchesApart": [
+			10
+		],
+		"minPlants": 5,
+		"maxPlants": 5
 	},
 	{
 		"Name": "Savory - winter savory",
@@ -861,7 +1265,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Can be used as seasoning for beans and other green vegetables.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Savory%2B-%2Bwinter%2Bsavory"
+		"url": "http://gardenate.com/plant/Savory%2B-%2Bwinter%2Bsavory",
+		"inchesApart": [
+			12,
+			16
+		],
+		"minPlants": 4,
+		"maxPlants": 2
 	},
 	{
 		"Name": "Shallots",
@@ -873,7 +1283,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Peas, Beans",
 		"culinaryHints": "Use in any recipe instead of onions. Can be cooked whole, braised gently with other vegetables.",
 		"culinaryPreservation": "Can be pickled.",
-		"url": "http://gardenate.com/plant/Shallots"
+		"url": "http://gardenate.com/plant/Shallots",
+		"inchesApart": [
+			6,
+			8
+		],
+		"minPlants": 16,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Silverbeet",
@@ -885,7 +1301,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Corn, melon, cucurbit (cucumbers, squash, melons, gourds), most herbs, potato.",
 		"culinaryHints": "Wash thoroughly and inspect the back of the leaves for insects. Chop and put in a saucepan with very little water ( or just what is on the leaves). Cover and cook over a low to medium heat until the leaves collapse. A small amount of nutmeg enhances the flavour.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Silverbeet"
+		"url": "http://gardenate.com/plant/Silverbeet",
+		"inchesApart": [
+			6,
+			12
+		],
+		"minPlants": 16,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Snow Peas",
@@ -897,7 +1319,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Chives, Alliums, Tomatoes",
 		"culinaryHints": "Cook whole or eat raw in salads",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Snow%2BPeas"
+		"url": "http://gardenate.com/plant/Snow%2BPeas",
+		"inchesApart": [
+			3,
+			4
+		],
+		"minPlants": 64,
+		"maxPlants": 36
 	},
 	{
 		"Name": "Spinach",
@@ -909,7 +1337,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use young leaves in salad. Steam and add to other vegetables.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Spinach"
+		"url": "http://gardenate.com/plant/Spinach",
+		"inchesApart": [
+			8,
+			12
+		],
+		"minPlants": 9,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Spring onions",
@@ -921,7 +1355,10 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Peas, Beans",
 		"culinaryHints": "Can be eaten raw in salads. Often used chopped and sprinkled on Asian stir-fry.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Spring%2Bonions"
+		"url": "http://gardenate.com/plant/Spring%2Bonions",
+		"inchesApart": "data unavailable",
+		"minPlants": "data unavailable",
+		"maxPlants": "data unavailable"
 	},
 	{
 		"Name": "Squash",
@@ -933,7 +1370,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use whole or sliced. Steam or fry.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Squash"
+		"url": "http://gardenate.com/plant/Squash",
+		"inchesApart": [
+			24,
+			31
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Strawberries (from seeds)",
@@ -945,7 +1388,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: If you are using rotation beds, avoid putting strawberries where you have grown tomatoes, potatoes, peppers or eggplant",
 		"culinaryHints": "Strawberries can be used in any dessert needing soft fruit or berries. Summer pudding with raspberries and blackberries or boysenberries, mousse, trifle, dipped in melted chocolate or just with cream. Sprinkle a bowl of strawberries with balsamic vinegar and a little sugar to enhance the flavour and colour.Straight from the garden, warmed by the sun is best.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Strawberries%2B(from%2Bseeds)"
+		"url": "http://gardenate.com/plant/Strawberries%2B(from%2Bseeds)",
+		"inchesApart": [
+			12,
+			39
+		],
+		"minPlants": 4,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Strawberry Plants",
@@ -957,7 +1406,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: If you are using rotation beds, avoid putting strawberries where you have grown tomatoes, potatoes, peppers or eggplant",
 		"culinaryHints": "Pick strawberries and eat them straight from the garden - warm from the sunshine, delicious! Strawberries can be used in any dessert needing soft fruit or berries. Summer pudding which also has raspberries and blackberries or boysenberries, mousse, trifle, dipped in melted chocolate or just with cream. Sprinkle a bowl of strawberries with balsamic vinegar and a little sugar to enhance the flavour and colour.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Strawberry%2BPlants"
+		"url": "http://gardenate.com/plant/Strawberry%2BPlants",
+		"inchesApart": [
+			12,
+			39
+		],
+		"minPlants": 4,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Sunflower",
@@ -969,7 +1424,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Use seeds fresh or toasted",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Sunflower"
+		"url": "http://gardenate.com/plant/Sunflower",
+		"inchesApart": [
+			8,
+			12
+		],
+		"minPlants": 9,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Sweet corn",
@@ -981,7 +1442,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Celery.",
 		"culinaryHints": "Piick and cook within an hour. Remove the silks and outer leaves. Best flavour if microwave about 4 minutes per cob. Can be barbequed wrapped in foil. Cook large amounts in a stock pot until test soft. Sprinkle with black pepper and dip in butter.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Sweet%2Bcorn"
+		"url": "http://gardenate.com/plant/Sweet%2Bcorn",
+		"inchesApart": [
+			8,
+			12
+		],
+		"minPlants": 9,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Sweet Marjoram",
@@ -993,7 +1460,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Sweet Marjoram has a mild oregano flavor with a hint of balsam. Sweet Marjoram can be used as a substitute for oregano in sauces for mediterranean style pizza, lasagna, and eggplant parmigiana.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Sweet%2BMarjoram"
+		"url": "http://gardenate.com/plant/Sweet%2BMarjoram",
+		"inchesApart": [
+			8
+		],
+		"minPlants": 9,
+		"maxPlants": 9
 	},
 	{
 		"Name": "Sweet Potato",
@@ -1005,7 +1477,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use mashed, boiled, roasted, baked or fried. Or use in soups, pies, casseroles, curries and salads.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Sweet%2BPotato"
+		"url": "http://gardenate.com/plant/Sweet%2BPotato",
+		"inchesApart": [
+			16,
+			24
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Taro",
@@ -1017,7 +1495,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Taro can be cooked like potatoes, boiled, roasted, fried or steamed. It is not eaten raw.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Taro"
+		"url": "http://gardenate.com/plant/Taro",
+		"inchesApart": [
+			31
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Thyme",
@@ -1029,7 +1512,13 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Common, lemon, orange and caraway thyme are used in cooking. Thyme is mainly used with meat and fish but also tastes good with vegetables such as mushrooms, beans and carrots. The flavour can be very intense so thyme is best used sparingly.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Thyme"
+		"url": "http://gardenate.com/plant/Thyme",
+		"inchesApart": [
+			10,
+			12
+		],
+		"minPlants": 5,
+		"maxPlants": 4
 	},
 	{
 		"Name": "Tomatillo",
@@ -1041,7 +1530,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "Use in spicy sauces with or to replace tomatoes. They are the base of salsa verde in Mexican cookery.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Tomatillo"
+		"url": "http://gardenate.com/plant/Tomatillo",
+		"inchesApart": [
+			28
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Tomato",
@@ -1053,7 +1547,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Rosemary, Potatoes, Fennel",
 		"culinaryHints": "Use in sauces, with fried meals, in sandwiches.",
 		"culinaryPreservation": "Can be frozen whole or in pieces.",
-		"url": "http://gardenate.com/plant/Tomato"
+		"url": "http://gardenate.com/plant/Tomato",
+		"inchesApart": [
+			16,
+			24
+		],
+		"minPlants": 2,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Turnip",
@@ -1065,7 +1565,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes, Tomatoes",
 		"culinaryHints": "Grate young turnips and use raw in salads. Use older turnips in casseroles and stews.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Turnip"
+		"url": "http://gardenate.com/plant/Turnip",
+		"inchesApart": [
+			12,
+			20
+		],
+		"minPlants": 4,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Watermelon",
@@ -1077,7 +1583,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Cut up and eat in slices. Use to make fruit drinks. Use in fruit salads.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Watermelon"
+		"url": "http://gardenate.com/plant/Watermelon",
+		"inchesApart": [
+			24,
+			30
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Yacon",
@@ -1089,7 +1601,12 @@ var plantSeed = [
 		"avoidInstructions": "",
 		"culinaryHints": "The large roots can be used raw in salads peel and chop. Sprinkle with lemon juice to prevent browning. 'In the Andes, they are grated and squeezed through a cloth to yield a sweet refreshing drink. The juice can also be boiled down to produce a syrup. In South America the juice is concentrated to form dark brown blocks of sugar called chancaca.' (Green Harvest)",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Yacon"
+		"url": "http://gardenate.com/plant/Yacon",
+		"inchesApart": [
+			39
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	},
 	{
 		"Name": "Zucchini",
@@ -1101,7 +1618,13 @@ var plantSeed = [
 		"avoidInstructions": "Avoid growing close to: Potatoes",
 		"culinaryHints": "Zucchini are best picked or cut off the stem at about 15cm / 6 inches.Pick frequently to keep the plant producing new flowers.",
 		"culinaryPreservation": "",
-		"url": "http://gardenate.com/plant/Zucchini"
+		"url": "http://gardenate.com/plant/Zucchini",
+		"inchesApart": [
+			20,
+			35
+		],
+		"minPlants": 1,
+		"maxPlants": 1
 	}
 ];
 
