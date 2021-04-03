@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
 import { DateRange } from "react-date-range";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import "react-date-range/dist/styles.css"; // main style file
@@ -23,67 +23,90 @@ const Form = ({ children }) => {
 
   const { user } = useAuth0();
 
-  const history = useHistory();
+  // const history = useHistory();
  
   const { garden, setGarden } = useContext(GardenContext); 
 
 
+  const [name, setName] = useState("");
+  const [length, setLength] = useState("");
+  const [width, setWidth] = useState("");
+  const [gardenData, setGardenData] = useState(null)
+
+
+
+  // useEffect(() => {
+  //   API.getGardens()
+  //     .then((res) => setGardenData(res.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   const handleChange = (e) => {
-    const { name, value, type } = e.target;
+    // const { name, value, type } = e.target;
 
-    switch (type) {
-      case 'text':
-      case 'select-one':
-        return setGarden({
-          ...garden,
-          [name]: value
-        });
+    // switch (type) {
+    //   case 'text':
+    //   case 'select-one':
+    //     return setGarden({
+    //       ...garden,
+    //       [name]: value
+    //     });
 
-      case 'submit':
-        return setGarden({
-          ...garden,
-          gardenName: "",
-          length: "",
-          width: "",
-          date: ""
-        });
-      default: break;
-    }
+    //   case 'submit':
+    //     return setGarden({
+    //       ...garden,
+    //       gardenName: "",
+    //       length: "",
+    //       width: "",
+    //       date: ""
+    //     });
+    //   default: break;
+    // }
   };
 
   //CREATE POST A new Garden w Name, Length, Width, Date
   const handleSubmit = (e) => {
+    console.log("Handling submit")
     e.preventDefault();
-    
+
+    if (!name || !width || !length) {
+      console.error("Whoops! something wasn't set", name, width, length)
+    }
+
+    setGardenData({
+      gardenName: name,
+      width,
+      length,
+      dateRangeMinimum: null,
+      dateRangeMaximum: null,
+    })
   }; 
 
   useEffect(() => {
-    if (garden) {
-    API.saveGarden({
-      userId: user.email,
-      gardenName: garden.gardenName,
-      length: garden.length,
-      width: garden.width,
-      date: dateRange.startDate
-    }).then(res => {
-      setGarden({ //setGarden?
-      gardenName: res.data.gardenName,
-      length: res.data.length,
-      width: res.data.width,
-      date: garden.date,
-      id: res.data._id 
-    })
-    }).catch((err) => console.log(err));
+    if (gardenData) {
+      API.saveGarden({
+        userId: user.email,
+        ...gardenData
+      }).then (res => {
+        setGarden({
+          gardenName: res.data.gardenName,
+          length: res.data.length,
+          width: res.data.width,
+          dateRangeMinimum: null,
+          dateRangeMaximum: null,
+          plots: [],
+          id: res.data._id 
+        })
+      }).catch((err) => console.log(err));
     } //end if 
-  }, [garden]);
+  }, [gardenData]);
 
 
-  useEffect(() => {
-    if (garden._id) {
-      history.push("/Garden/" + garden.id)
-    }
-  }, [garden]);
+  // useEffect(() => {
+  //   if (garden._id) {
+  //     history.push("/Garden/" + garden.id)
+  //   }
+  // }, [garden]);
 
 
 
@@ -91,7 +114,7 @@ const Form = ({ children }) => {
         <div className="form-container" style={{ height: "325px" }}>
           <div>
             <form
-              onSubmit={handleChange}
+              onSubmit={handleSubmit}
               style={{
                 width: "750",
                 border: "2px solid",
@@ -110,12 +133,12 @@ const Form = ({ children }) => {
                 <Row className="form-group">
                   <Col size="6">
                     <input
-                      onChange={handleChange}
+                      onChange={(event) => setName(event.target.value)}
                       className="form-control"
                       type="select-one"
                       placeholder="Add garden name..."
                       name="gardenName"
-                      value= {garden.gardenName}
+                      value= {name}
                     />{children}
                   </Col>
                 </Row>
@@ -124,11 +147,11 @@ const Form = ({ children }) => {
                     <label>Length</label>
                     <br></br>
                     <select
-                      onChange={handleChange}
+                      onChange={(event) => setLength(event.target.value)}
                       className="form-control"
                       type="select-one"
                       name="length"
-                      value={garden.length || ""}  
+                      value={length}  
                     >{children}
                       <option value="2">2</option>
                       <option value="4">4</option>
@@ -141,11 +164,11 @@ const Form = ({ children }) => {
                     <label>Width</label>
                     <br></br>
                     <select
-                      onChange={handleChange}
+                      onChange={(event) => setWidth(event.target.value) }
                       className="form-control"
                       type="text"
                       name="width"
-                      value={garden.width}
+                      value={width}
                     >{children}
                       <option value="2">2</option>
                       <option value="4">4</option>
@@ -155,26 +178,11 @@ const Form = ({ children }) => {
                     </select>
                   </Col>
                 </Row>
-                <Row>
-                  <DateRange
-                  editableDateInputs={true}
-                  onChange={(item) => {  console.log(item); 
-                    setDateRange([item.selection])
-                  }}
-                  moveRangeOnFirstSelection={false}
-                  ranges={dateRange}
-                  date={new Date()}
-                  
-                />
-                <h1>{dateRange.selection}</h1>
-                </Row>
                 <br></br>
                 <Row className="form-group">
                   <button
                     className="btn btn-success"
                     type="submit"
-                    onSubmit={handleChange}
-                    onClick={handleSubmit} 
                   >{children}
                     Submit
                   </button>

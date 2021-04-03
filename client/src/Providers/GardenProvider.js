@@ -17,15 +17,7 @@ const GardenProvider = ({ children }) => {
 
   // const [gardenData, setGardenData] = useState(null)
 
-  const [garden, setGarden] = useState({
-        id:"",
-        date: "",
-        gardenName: "",
-        length: "",
-        width: "",
-        plots: [
-        ], //changed from garden_data to plots []
-  });
+  const [garden, setGarden] = useState();
 
   const [plants, setPlants] = useState([]);
 
@@ -35,63 +27,13 @@ const GardenProvider = ({ children }) => {
       .then((res) => setPlants(res.data))
       .catch((err) => console.log(err));
   }, []);
+  
+  useEffect(() => {
+    if (garden && garden.id) {
+      history.push("/Garden")
+    }
+  }, [garden])
 
-
-  // const handleChange = (e) => {
-  //   const { name, value, type } = e.target;
-
-  //   switch (type) {
-  //     case 'text':
-  //     case 'select-one':
-  //       return setGarden({
-  //         ...garden,
-  //         [name]: value
-  //       });
-
-  //     case 'submit':
-  //       return setGarden({
-  //         ...garden,
-  //         gardenName: "",
-  //         length: "",
-  //         width: ""
-  //         //   date: ""
-  //       });
-  //     default: break;
-  //   }
-  // };
-
-  // //CREATE POST A new Garden w Name, Length, Width, Date
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-    
-  // }; 
-
-  // useEffect(() => {
-  //   if (garden) {
-  //   API.saveGarden({
-  //     userId: user.email,
-  //     gardenName: garden.gardenName,
-  //     length: garden.length,
-  //     width: garden.width,
-  //     // date: dateRange.startDate
-  //   }).then(res => {
-  //     setGarden({ //setGarden?
-  //     gardenName: res.data.gardenName,
-  //     length: res.data.length,
-  //     width: res.data.width,
-  //     // date: garden.date,
-  //     id: res.data._id 
-  //   })
-  //   }).catch((err) => console.log(err));
-  //   } //end if 
-  // }, [garden]);
-
-
-  // useEffect(() => {
-  //   if (garden._id) {
-  //     history.push("/Garden/" + garden.id)
-  //   }
-  // }, [garden]);
 
   
 
@@ -122,6 +64,7 @@ const GardenProvider = ({ children }) => {
       <GardenContext.Provider
         value={{
           garden,
+          setGarden,
           handleSelectChange,
           handleSave,
         }}
