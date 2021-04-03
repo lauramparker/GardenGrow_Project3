@@ -29,6 +29,9 @@ const gardenSchema = new Schema({
 	dateRangeMinimum: Number,
 	dateRangeMaximum: Number,
 
+	startDate: Date,
+	endDate: Date,
+
 	// plot: {
 	//     type: Schema.Types.ObjectId,
 	//     ref: "Plot",
