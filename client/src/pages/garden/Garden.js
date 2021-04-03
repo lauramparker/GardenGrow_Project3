@@ -25,7 +25,6 @@ function Garden() {  //{children}???
     return setGarden(prevGarden => ({
       plots: [...prevGarden.plots, selectedPlant]  ///  add plant data to garden.plots, send to 
     }))
-      .catch((err) => console.log(err));
   };
 
 
