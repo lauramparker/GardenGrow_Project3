@@ -1,4 +1,5 @@
-import React, { createContext, useState, } from 'react';
+import React, { createContext, useEffect, useState, } from 'react';
+import { useHistory } from "react-router-dom";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from '../components/Loading';
 import API from '../utils/API';
@@ -13,7 +14,7 @@ const GardenProvider = ({ children }) => {
 
   const { user } = useAuth0();
   const [garden, setGarden] = useState({
-        // id:"", //don't need?? _id automatic with mongo
+        id:"", //don't need?? _id automatic with mongo
         date: "",
         gardenName: "",
         length: "",
@@ -21,6 +22,8 @@ const GardenProvider = ({ children }) => {
         plots: [
         ], //changed from garden_data to plots []
   });
+
+   const [plants, setPlants] = useState([]);
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -64,25 +67,42 @@ const GardenProvider = ({ children }) => {
         // date: garden.date,
         id: res.data._id //need to get Garden ID
       })
-      window.location.assign("/Garden/")   //need to attach ID AFTER state is updated
-      }).catch((err) => console.log(err));
-  };
+      })
+      .catch((err) => console.log(err));  
+      window.location.assign("/Garden/")   //need to attach ID AFTER state is updated   
+  }; 
+
+
+  // useEffect(() => {
+  //   const id = garden.id
+  //   console.log(id)
+  //   window.location.assign("/Garden/" + garden.id
+  //   // if (garden.id !==0) {
+  //   //   window.location.assign("/Garden/" + id);
+  //   // }
+  // }, [garden.id]);
+
+
+  
 
 
   //When user selects plant from plant list, update component state 
-  const handleSelect = (e) => {
-    const value = e.currentTarget.value  //need to destructure to get all plant/plot info
+  const handleSelectChange = (e) => {
+    const value = e.currentTarget.value  
+    const selectedPlant = plants.filter(plant => plant.Name === value) //match to plant.name in {plants}
     return setGarden(prevGarden => ({
-      plots: [...prevGarden.plots, (value)]  ///  plots: [...prevGarden.plots, {plant}]  ///
+      plots: [...prevGarden.plots, selectedPlant]  ///  add plant data to garden.plots...plant schema or plot schema?
     }))
       .catch((err) => console.log(err));
   };
 
+  
 
-  const handleSave = (e) => { //where does PUT/Update route go?
-    API.updateGarden()  //(id)
+  const handleSave = (e) => { 
+    API.updateGarden(garden.id) 
       .then(res => setGarden(res.data))
       .catch((err) => console.log(err));
+      useHistory.push("/MyGarden");  //reroute to MyGardens after garden saved
   };
 
 
@@ -92,7 +112,7 @@ const GardenProvider = ({ children }) => {
         value={{
           garden,
           handleChange,
-          handleSelect,
+          handleSelectChange,
           handleSave,
           handleSubmit
         }}
