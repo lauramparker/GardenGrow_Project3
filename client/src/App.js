@@ -8,13 +8,9 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
-// import ExternalApi from "../src/views/ExternalApi";
-// import { useAuth0 } from "@auth0/auth0-react";
-
 
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
-import GardenEdit from "./pages/garden-edit/GardenEdit";
 import Garden from "./pages/garden/Garden";
 
 // styles
@@ -46,9 +42,6 @@ const App = () => {
               />
               <Route exact path={["/my-gardens", "/mygardens"]}
                 component={MyGarden}
-              />
-              <Route exact path="/garden-edit"
-                component={GardenEdit}
               />
               <Route path="/garden/"  //not exact path because Garden ID is needed
                 component={Garden}

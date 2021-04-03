@@ -25,10 +25,10 @@ function CardContainer( {children} ) {
                 style={{"gridTemplateRows": "repeat("+ garden.length+", 100px)",
                 "gridTemplateColumns": "repeat("+ garden.width+", 100px)"}}>
 
-                {garden.plots && garden.plots.map(plot=> (
-                <div className= "plot" key={garden.plot.plant.Name}>  
-                    Plant: {garden.plots.plant.Name} 
-                    Max #: {garden.plots.plant.maxPlants}
+                {garden.plots && garden.plots.map(plant => (
+                <div className= "plot" key={plant.Name}>  
+                    Plant: {plant.Name} 
+                    {/* Max #: {maxPlants} */}
                 </div>
                 ))}
             </div>
