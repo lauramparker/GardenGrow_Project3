@@ -8,7 +8,6 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
-
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
 import Garden from "./pages/garden/Garden";
@@ -20,20 +19,13 @@ import "./App.css";
 import initFontAwesome from "./utils/initFontAwesome";
 initFontAwesome();
 
-
-
-
 const App = () => {
-
-
   return (
-
     <Router>
       <GardenProvider>
         <div id="app" className="d-flex flex-column h-100">
           <NavBar />
           <Container className="flex-grow-1 mt-5">
-
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/profile" component={Profile} />
@@ -51,7 +43,6 @@ const App = () => {
           <Footer />
         </div>
       </GardenProvider>
-
     </Router>
   );
 };
