@@ -3,24 +3,12 @@ import { Container } from "react-bootstrap";
 import { GardenContext } from "../../Providers/GardenProvider";
 import "./style.css";
 
-
 //div Wrapper is CSS Grids
-
 function CardContainer( {children} ) {
-
-    //Hard-Coded Version.. Need to DIVIDE length & WIDTH / 2 for 2 x 2 Plots
-    // const[dimensions, setDimensions] = useState({
-    //     length: 3,
-    //     width: 3,
-    // });
-
     const { garden } = useContext(GardenContext); 
 
-
     return(
-        <div>
-        <Container id ="gardenBox"> {children}
-            
+        <Container id ="gardenBox"> {children}   
             <div className = "wrapper" 
                 style={{"gridTemplateRows": "repeat("+ garden.length+", 100px)",
                 "gridTemplateColumns": "repeat("+ garden.width+", 100px)"}}>
@@ -32,12 +20,8 @@ function CardContainer( {children} ) {
                 </div>
                 ))}
             </div>
-
         </Container>
-        </div>
-
     )
-
 }
 export default CardContainer;
 
