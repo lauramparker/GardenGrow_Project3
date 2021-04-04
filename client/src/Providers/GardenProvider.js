@@ -21,7 +21,7 @@ const GardenProvider = ({ children }) => {
 
   useEffect(() => {
     if (garden && garden.id) {
-      history.push("/Garden")
+      history.push(`/Garden/${garden.id}`);
     }
   }, [garden, history])
 
