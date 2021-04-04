@@ -23,7 +23,7 @@ const GardenProvider = ({ children }) => {
     if (garden && garden.id) {
       history.push("/Garden")
     }
-  }, [garden])
+  }, [garden, history])
 
   const handleSave = (e) => {
     API.updateGarden(garden.id)
