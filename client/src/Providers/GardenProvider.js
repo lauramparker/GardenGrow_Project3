@@ -29,7 +29,7 @@ const GardenProvider = ({ children }) => {
     API.updateGarden(garden.id)
       .then(res => setGarden(res.data))
       .catch((err) => console.log(err));
-    useHistory.push("/MyGarden");  //reroute to MyGardens after garden saved
+    history.push("/MyGarden");  //reroute to MyGardens after garden saved
   };
 
   return (
