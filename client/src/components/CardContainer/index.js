@@ -4,21 +4,25 @@ import { GardenContext } from "../../Providers/GardenProvider";
 import "./style.css";
 
 //div Wrapper is CSS Grids
-function CardContainer( {children} ) {
-    const { garden } = useContext(GardenContext); 
+function CardContainer({ children }) {
+    const { garden } = useContext(GardenContext);
 
-    return(
-        <Container id ="gardenBox"> {children}   
-            <div className = "wrapper" 
-                style={{"gridTemplateRows": "repeat("+ garden.length+", 100px)",
-                "gridTemplateColumns": "repeat("+ garden.width+", 100px)"}}>
+    return (
+        <Container id="gardenBox"> {children}
+            <div className="wrapper"
+                style={{
+                    "gridTemplateRows": "repeat(" + garden.length + ", 100px)",
+                    "gridTemplateColumns": "repeat(" + garden.width + ", 100px)"
+                }}>
 
-                {garden.plots && garden.plots.map(plant => (
-                <div className= "plot" key={plant.Name}>  
-                    Plant: {plant.Name} 
-                    {/* Max #: {maxPlants} */}
-                </div>
-                ))}
+                {garden.plots && garden.plots.map(plant => {
+                    return (
+                        <div className="plot" key={plant.Name}>
+                            Plant: {plant.Name}
+                            {/* Max #: {maxPlants} */}
+                        </div>
+                    )
+                })}
             </div>
         </Container>
     )
@@ -26,4 +30,4 @@ function CardContainer( {children} ) {
 export default CardContainer;
 
 
-    
+
