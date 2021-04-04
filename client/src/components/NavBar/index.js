@@ -33,7 +33,7 @@ const NavBar = () => {
   return (
     <div className="nav-container">
       <Navbar color="light" light expand="md"
-      style={{borderRadius:"15px"}}
+        style={{ borderRadius: "15px" }}
       >
         <Container>
           <NavbarBrand className="logo" />
@@ -45,8 +45,8 @@ const NavBar = () => {
                 style={{
                   fontFamily: "'Concert One', cursive",
                   fontWeight: "400",
-                  fontSize:"30px",
-                  color:"#8C8627",
+                  fontSize: "30px",
+                  color: "#8C8627",
                 }}
               >
                 Grid Gardens
@@ -69,21 +69,21 @@ const NavBar = () => {
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                  Design
+                    Design
                   </NavLink>
-              </NavItem>
+                </NavItem>
               )}
               {isAuthenticated && (
-                  <NavItem>
-                      <NavLink
-                        tag={RouterNavLink}
-                        to="/MyGardens"
-                        exact
-                        activeClassName="router-link-exact-active"
-                      >
-                        My Gardens
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/My-Gardens"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    My Gardens
                       </NavLink>
-                  </NavItem>
+                </NavItem>
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>

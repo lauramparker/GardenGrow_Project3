@@ -8,8 +8,6 @@ import { ListGroup, Item } from "../../components/ListGroup";
 
 
 function MyGarden() {
-
-
   const [gardens, setGardens] = useState([]) //user specific gardens, not releated to overall garden state
   const { user } = useAuth0();
 
@@ -17,13 +15,12 @@ function MyGarden() {
     loadGardens()
   }, []);
 
-
   function loadGardens() {
     API.getUser(user.email)
-    .then((res) => {
-      return setGardens(res.data[0].gardens)
-    })
-    .catch(err => console.log(err))
+      .then((res) => {
+        return setGardens(res.data[0].gardens)
+      })
+      .catch(err => console.log(err))
   }
 
   function handleDelete(event) {
@@ -34,30 +31,24 @@ function MyGarden() {
   };
 
   return (
-    <div>
-      <Container>
-        <Row>
-          <Col>
-
-            <h3>My Gardens </h3>
-
-            <ListGroup>
-              {gardens.map(garden => (
-                <Item
-                  key={garden._id}
-                  garden={garden}
-                  handleDelete={handleDelete}
-                >
-                </Item>
-              ))}
-            </ListGroup>
-
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <h3>My Gardens </h3>
+          <ListGroup>
+            {gardens.map(garden => (
+              <Item
+                key={garden._id}
+                garden={garden}
+                handleDelete={handleDelete}
+              >
+              </Item>
+            ))}
+          </ListGroup>
+        </Col>
+      </Row>
+    </Container>
   );
-
 }
 
 export default withAuthenticationRequired(MyGarden, {
