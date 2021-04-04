@@ -21,38 +21,31 @@ function Landing() {
   //       return <Loading />;
   //     }
 
-    const { user } = useAuth0();
-    const loggedInUser = localStorage.getItem("user") || "";
-
-  
-    console.log("user", user);
-    if (!loggedInUser) {
-      API.createUser({
-        lastName: user.family_name,
-        firstName: user.given_name,
-        userName: user.nickname,
-        email: user.email,
-        profilePicture: user.picture,
-        sub: user.sub
-      }).then((data) => {
-        console.log("user created", data);
-        localStorage.setItem("user", data._id);
-      });
-    }
+  const { user } = useAuth0();
+  const loggedInUser = localStorage.getItem("user") || "";
 
 
+  console.log("user", user);
+  if (!loggedInUser) {
+    API.createUser({
+      lastName: user.family_name,
+      firstName: user.given_name,
+      userName: user.nickname,
+      email: user.email,
+      profilePicture: user.picture,
+      sub: user.sub
+    }).then((data) => {
+      console.log("user created", data);
+      localStorage.setItem("user", data._id);
+    });
+  }
 
   return (
-    <div>
-      <Loading />;
       <Container >
-
-          <Form></Form>
-
+        <Form />
         <Row />
         <Col />
       </ Container>
-    </div>
   );
 }
 

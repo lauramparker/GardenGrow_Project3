@@ -10,39 +10,27 @@ import "./Garden.css";
 
 
 function Garden() {  //{children}???
-
-
   const { garden, setGarden, plants, handleSave } = useContext(GardenContext)
-
-
-
-  //When user selects plant from plant list, update component state 
+  
+  // When user selects plant from plant list, update component state 
   const handleSelectChange = (e) => {
-
     const value = e.currentTarget.value;  
     const selectedPlant = plants.filter(plant => plant.Name === value);
     console.log("You selected this plant: " + selectedPlant);
     return setGarden(prevGarden => ({
-      plots: [...prevGarden.plots, selectedPlant]  ///  add plant data to garden.plots, send to 
+      plots: [...prevGarden.plots, selectedPlant]  //  add plant data to garden.plots, send to 
     }))
   };
 
-
-
-
   return (
-    <div>
       <Container fluid>
         <Row>
           <Col>
             <h3>{garden.gardenName}</h3>
-
             <CardContainer data={garden.garden_data} />
           </Col>
-
           <Col>
             <h3>Select Plants</h3>
-
             <Table
               handleSelectChange={handleSelectChange}
             ></Table>
@@ -56,7 +44,6 @@ function Garden() {  //{children}???
           </Col>
         </Row>
       </Container>
-    </div>
   );
 }
 
