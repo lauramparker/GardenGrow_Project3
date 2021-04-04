@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useParams } from "react-router-dom";
 import { Container } from "reactstrap";
 import GardenProvider from "./Providers/GardenProvider";
 
@@ -35,8 +35,9 @@ const App = () => {
               <Route exact path="/my-gardens"
                 component={MyGarden}
               />
-              <Route path="/garden/"  //not exact path because Garden ID is needed
+              <Route path="/garden/:id"  //not exact path because Garden ID is needed
                 component={Garden}
+                garden={useParams.id}
               />
             </Switch>
           </Container>
