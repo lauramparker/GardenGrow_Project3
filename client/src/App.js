@@ -32,7 +32,7 @@ const App = () => {
               <Route exact path="/landing-page"
                 component={Landing}
               />
-              <Route exact path={["/my-gardens", "/mygardens"]}
+              <Route exact path="/my-gardens"
                 component={MyGarden}
               />
               <Route path="/garden/"  //not exact path because Garden ID is needed
