@@ -49,7 +49,7 @@ const NavBar = () => {
                   color: "#8C8627",
                 }}
               >
-                Grid Gardens
+                Garden State
               </NavItem>
               <NavItem>
                 <NavLink
