@@ -3,8 +3,8 @@ import axios from "axios";
 
 const API = {
   // Create user
-  createUser: function({lastName, fistName, userName, email, profilePicture}) {
-    return axios.post("/api/users", {lastName, fistName, userName, email, profilePicture})
+  createUser: function({lastName, firstName, userName, email, profilePicture}) {
+    return axios.post("/api/users", {lastName, firstName, userName, email, profilePicture})
   },
   // Get user
   getUser: function(id) {
