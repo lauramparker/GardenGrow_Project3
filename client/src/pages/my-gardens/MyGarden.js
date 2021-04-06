@@ -16,9 +16,10 @@ function MyGarden() {
   }, []);
 
   function loadGardens() {
-    API.getUser(user.email)
-      .then((res) => {
-        return setGardens(res.data[0].gardens)
+    console.log(user);
+    API.getGardens()
+      .then((res) => {setGardens(res.data)
+      console.log(res)
       })
       .catch(err => console.log(err))
   }
