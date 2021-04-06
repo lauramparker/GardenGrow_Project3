@@ -31,7 +31,7 @@ export function Item(props) {
                             </label>
                     </div>
 
-                    <button className="btn" id="deleteBtn" value={props.garden._id} onClick={props.handleDelete}>
+                    <button style={{backgroundColor:"#F2B199", color:"white"}} className="btn" id="deleteBtn" value={props.garden._id} onClick={props.handleDelete}>
                      Delete
                     </button>
                 </li>

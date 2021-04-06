@@ -25,7 +25,7 @@ const App = () => {
       <GardenProvider>
         <div id="app" className="d-flex flex-column h-100">
           <NavBar />
-          <Container className="flex-grow-1 mt-5">
+          <Container className="flex-grow-1 mt-5" style={{minHeight:"100%"}}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/profile" component={Profile} />
@@ -40,8 +40,8 @@ const App = () => {
                 garden={useParams.id}
               />
             </Switch>
+            <Footer />
           </Container>
-          <Footer />
         </div>
       </GardenProvider>
     </Router>

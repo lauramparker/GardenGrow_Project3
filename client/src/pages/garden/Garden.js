@@ -43,7 +43,7 @@ function Garden() {
         </Row>
         <Row>
           <Col>
-            <button className="btn" id="saveBtn" onClick={handleSave}>
+            <button style={{backgroundColor:"#F2B199", color:"white"}} className="btn" id="saveBtn" onClick={handleSave}>
               Save Garden
             </button>
           </Col>
