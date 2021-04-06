@@ -7,16 +7,15 @@ import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
 import "./Garden.css";
 
-
-
 function Garden() {  //{children}???
   const { garden, setGarden, plants, handleSave } = useContext(GardenContext)
   
   // When user selects plant from plant list, update component state 
   const handleSelectChange = (e) => {
     const value = e.currentTarget.value;  
-    const selectedPlant = plants.filter(plant => plant.Name === value);
-    console.log("You selected this plant: " + selectedPlant);
+    let selectedPlant = plants.filter(plant => plant.Name === value);
+    selectedPlant = selectedPlant[0];
+    console.log("You selected this plant: " + selectedPlant.Name);
     return setGarden(prevGarden => ({
       plots: [...prevGarden.plots, selectedPlant]  //  add plant data to garden.plots, send to 
     }))
