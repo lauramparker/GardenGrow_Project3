@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 // import { useHistory } from "react-router-dom";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
@@ -9,7 +9,7 @@ import "./Garden.css";
 
 
 
-function Garden() {  //{children}???
+function Garden() { 
   const { garden, setGarden, plants, handleSave } = useContext(GardenContext)
 
   
@@ -20,7 +20,8 @@ function Garden() {  //{children}???
     selectedPlant = selectedPlant[0];
     console.log("You selected this plant: " + selectedPlant);
     return setGarden(prevGarden => ({
-      plots: [...prevGarden.plots, selectedPlant]  //  add plant data to garden.plots, send to 
+      plots: [...prevGarden.plots, selectedPlant],  //  add plant data to garden.plots, send to 
+      gardenName: [...prevGarden.gardenName]
     }))
   };
 
@@ -28,7 +29,7 @@ function Garden() {  //{children}???
       <Container fluid>
         <Row>
           <Col>
-            <h3>Design Garden</h3>
+            <h3>Design Garden: {garden.gardenName}</h3>
             <small>Each Garden Plot = 2 ft x 2 ft (4 sq.ft)</small>
             <CardContainer />
           </Col>
