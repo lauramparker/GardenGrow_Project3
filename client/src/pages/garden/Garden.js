@@ -22,8 +22,8 @@ function Garden() {
     console.log("You selected this plant: " + selectedPlant.Name);
 
     return setGarden(prevGarden => ({
+      ...prevGarden,
       plots: [...prevGarden.plots, selectedPlant],  //  add plant data to garden.plots, send to 
-      gardenName: [...prevGarden.gardenName]
     }))
   };
 
