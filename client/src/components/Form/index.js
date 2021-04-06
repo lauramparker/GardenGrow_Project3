@@ -72,14 +72,11 @@ const Form = ({ children }) => {
         <form
           onSubmit={handleSubmit}
           style={{
-            width: "750",
+            width: "450",
             border: "2px solid",
             borderColor: "#73AD21",
-            position: "absolute",
-            top: "50%",
-            left: "35%",
-            transform: "translate(-25%, -25%)",
-            borderRadius: "15px"
+            position: "relative",
+            borderRadius:"15px"
           }}
         >{children}
           <div className="mt-4" style={{ textAlign: "center" }}>
