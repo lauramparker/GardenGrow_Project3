@@ -6,10 +6,12 @@ import API from "../../utils/API";
 import Loading from "../../components/Loading";
 import { ListGroup, Item } from "../../components/ListGroup";
 import Footer from "../../components/Footer";
+import { useHistory } from "react-router-dom";
 
 function MyGarden() {
   const [gardens, setGardens] = useState([]); //user specific gardens, not releated to overall garden state
   const { user } = useAuth0();
+  const history = useHistory();
 
   useEffect(() => {
     loadGardens();
@@ -27,9 +29,16 @@ function MyGarden() {
 
   function handleDelete(event) {
     const id = event.currentTarget.value;
+    console.log(event.currentTarget)
     API.deleteGarden(id)
       .then(() => loadGardens())
       .catch((err) => console.log(err));
+  }
+
+  function handleRedirect(e) {
+    const id = e.currentTarget.dataset.id;
+    console.log(id);
+    history.push("/Garden/" + id);
   }
 
   return (
@@ -43,6 +52,7 @@ function MyGarden() {
                 key={garden._id}
                 garden={garden}
                 handleDelete={handleDelete}
+                handleRedirect={handleRedirect}
               ></Item>
             ))}
           </ListGroup>
