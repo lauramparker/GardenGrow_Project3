@@ -10,7 +10,7 @@ module.exports = {
 
 	findById: (req, res) => {
 		Garden
-			.find(req.params.id)
+			.findById(req.params.id)
 			.then(model => res.json(model))
 			.catch(err => res.status(422).json(err));
 	},
@@ -20,10 +20,10 @@ module.exports = {
 		Garden
 			.create(req.body)
 			.then(garden => {
-				User.findOneAndUpdate({email: req.body.userId}, {$push:{gardens: garden._id}}, {new: true})
-				gardenModel = garden
+				User.findOneAndUpdate({email: req.body.userId}, {$push:{gardens: garden._id}}, {new: true});
+				gardenModel = garden;
 			})
-			.then(model => {
+			.then(()  => {
 				return res.json(gardenModel);
 			})
 			.catch(err => res.status(422).json(err));
