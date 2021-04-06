@@ -7,19 +7,22 @@ import "./style.css";
 function CardContainer({ children }) {
     const { garden } = useContext(GardenContext);
 
+    const dividedLength = (garden.length)/2;
+    const dividedWidth = (garden.width)/2;
+
     return (
         <Container id="gardenBox"> {children}
             <div className="wrapper"
                 style={{
-                    "gridTemplateRows": "repeat(" + garden.length + ", 100px)",
-                    "gridTemplateColumns": "repeat(" + garden.width + ", 100px)"
+                    "gridTemplateRows": "repeat(" + dividedLength + ", 100px)",
+                    "gridTemplateColumns": "repeat(" + dividedWidth + ", 100px)"
                 }}>
 
                 {garden.plots && garden.plots.map(plant => {
                     return (
                         <div className="plot" key={plant.Name}>
-                            Plant: {plant.Name}
-                            {/* Max #: {maxPlants} */}
+                            {plant.Name}
+                            max #: {plant.minPlants}
                         </div>
                     )
                 })}
