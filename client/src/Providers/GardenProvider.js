@@ -27,7 +27,7 @@ const GardenProvider = ({ children }) => {
 
   const handleSave = (e) => {
     console.log(garden);
-    API.updateGarden(garden.id, garden)
+    API.updateGarden(garden._id, garden)
       .then(res => setGarden(res.data))
       .catch((err) => console.log(err));
     history.push("/My-Gardens");  //reroute to My-Gardens after garden saved
