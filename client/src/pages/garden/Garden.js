@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 // import { useHistory } from "react-router-dom";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
-// import API from "../../utils/API";
+import API from "../../utils/API";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
 import "./Garden.css";
