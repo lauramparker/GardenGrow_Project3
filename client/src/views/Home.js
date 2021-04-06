@@ -1,5 +1,6 @@
-import React, { Fragment, useEffect } from "react";
-import GardenImage from "../assets/GardenGrow.jpeg";
+import React, { useEffect } from "react";
+import { Container } from "react-bootstrap";
+import vegPattern from "../assets/vegPattern.png";
 import "./home.css";
 
 const Home = () => {
@@ -9,9 +10,15 @@ const Home = () => {
 	},[]);
 
 	return (
-		<Fragment>
-				<img className="hero-image" src={GardenImage} alt="hero" />
-		</Fragment>
+		<Container>
+			<div>
+
+			</div>
+			<div id="bg">
+  				<img src={vegPattern} alt=""/>
+			</div>
+				{/* <img className="hero-image" src={veggies} alt="hero" /> */}
+		</Container>
 	)
 };
 
