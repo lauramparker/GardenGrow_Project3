@@ -17,7 +17,6 @@ function CardContainer({ children }) {
                     "gridTemplateRows": "repeat(" + dividedLength + ", 100px)",
                     "gridTemplateColumns": "repeat(" + dividedWidth + ", 100px)"
                 }}>
-
                 {garden.plots && garden.plots.map(plant => {
                     return (
                         <div className="plot" key={plant.Name}>
@@ -27,6 +26,15 @@ function CardContainer({ children }) {
                             max # of plants: {plant.minPlants}
                         </div>
                     )
+                })}
+            </div>
+            <div>
+                {garden.plots && garden.plots.map(plant => {
+                        return (
+                            <li key={plant.Name}>
+                                {plant.compatiblePlants}
+                            </li>
+                        )
                 })}
             </div>
         </Container>

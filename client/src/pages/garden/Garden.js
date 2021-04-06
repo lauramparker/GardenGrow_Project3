@@ -11,6 +11,7 @@ import "./Garden.css";
 
 function Garden() {  //{children}???
   const { garden, setGarden, plants, handleSave } = useContext(GardenContext)
+
   
   // When user selects plant from plant list, update component state 
   const handleSelectChange = (e) => {
@@ -27,11 +28,13 @@ function Garden() {  //{children}???
       <Container fluid>
         <Row>
           <Col>
-            <h3>{garden.gardenName}</h3>
+            <h3>Design Garden</h3>
+            <small>Each Garden Plot = 2 ft x 2 ft (4 sq.ft)</small>
             <CardContainer />
           </Col>
           <Col>
             <h3>Select Plants</h3>
+            <small>Scroll for more...</small>
             <Table
               handleSelectChange={handleSelectChange}
             ></Table>
