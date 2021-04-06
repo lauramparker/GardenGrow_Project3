@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 // import { useHistory } from "react-router-dom";
 import { GardenContext } from "../../Providers/GardenProvider";
 import { Col, Row, Container } from "react-bootstrap";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
 import "./Garden.css";
@@ -28,7 +28,7 @@ function Garden() {  //{children}???
         <Row>
           <Col>
             <h3>{garden.gardenName}</h3>
-            <CardContainer data={garden.garden_data} />
+            <CardContainer />
           </Col>
           <Col>
             <h3>Select Plants</h3>
