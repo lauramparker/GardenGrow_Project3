@@ -22,7 +22,9 @@ function CardContainer({ children }) {
                     return (
                         <div className="plot" key={plant.Name}>
                             {plant.Name}
-                            max #: {plant.minPlants}
+                            <br></br>
+                            <br></br>
+                            max # of plants: {plant.minPlants}
                         </div>
                     )
                 })}

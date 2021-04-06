@@ -23,14 +23,6 @@ export function Item(props) {
 
                 <li className="list-group-item" >
                     <div className="form-check">
-                        <input 
-                            className="form-check-input"
-                            type="checkbox" 
-                            value={props.garden.gardenName} 
-                            // id={props.plant._id} //this doesn't work in input
-                            onChange={props.handleRenderGarden} //Render Garden info?
-                            > 
-                        </input>      
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             <span><strong>{props.garden.gardenName}</strong></span><br></br>
                             {/* <span>Plant Date: {props.garden.date}</span> */}
