@@ -6,13 +6,16 @@ import API from "../../utils/API";
 import CardContainer from "../../components/CardContainer";
 import Table from "../../components/Table";
 import "./Garden.css";
+import { useParams } from "react-router-dom";
+import Loading from "../../components/Loading"
 
 function Garden() {  //{children}???
   const { garden, setGarden, plants, handleSave } = useContext(GardenContext)
-  
+  const { id } = useParams();
+
   // When user selects plant from plant list, update component state 
   const handleSelectChange = (e) => {
-    const value = e.currentTarget.value;  
+    const value = e.currentTarget.value;
     let selectedPlant = plants.filter(plant => plant.Name === value);
     selectedPlant = selectedPlant[0];
     console.log("You selected this plant: " + selectedPlant.Name);
@@ -21,7 +24,15 @@ function Garden() {  //{children}???
     }))
   };
 
-  return (
+  useEffect(() => {
+    API.getOneGarden(id)
+      .then(res => setGarden(res.data))
+      // .then(() => console.log(garden))
+  }, [id, setGarden, garden]);
+
+  if (!garden) return <Loading />;
+  else {
+    return (
       <Container fluid>
         <Row>
           <Col>
@@ -43,7 +54,8 @@ function Garden() {  //{children}???
           </Col>
         </Row>
       </Container>
-  );
+    );
+  }
 }
 
 export default Garden;
