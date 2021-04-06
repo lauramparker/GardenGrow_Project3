@@ -27,15 +27,15 @@ const Form = ({ children }) => {
   const [name, setName] = useState("");
   const [length, setLength] = useState("");
   const [width, setWidth] = useState("");
-  const [gardenData, setGardenData] = useState(null)
+  const [gardenData, setGardenData] = useState(null);
 
   //CREATE POST A new Garden w Name, Length, Width, Date
   const handleSubmit = (e) => {
-    console.log("Handling submit")
+    console.log("Handling submit");
     e.preventDefault();
 
     if (!name || !width || !length) {
-      console.error("Whoops! something wasn't set", name, width, length)
+      console.error("Whoops! something wasn't set", name, width, length);
     }
 
     setGardenData({
@@ -44,26 +44,28 @@ const Form = ({ children }) => {
       length,
       dateRangeMinimum: null,
       dateRangeMaximum: null,
-    })
+    });
   };
 
   useEffect(() => {
     if (gardenData) {
       API.saveGarden({
         userId: user.email,
-        ...gardenData
-      }).then(res => {
-        setGarden({
-          gardenName: res.data.gardenName,
-          length: res.data.length,
-          width: res.data.width,
-          dateRangeMinimum: null,
-          dateRangeMaximum: null,
-          plots: [],
-          id: res.data._id
+        ...gardenData,
+      })
+        .then((res) => {
+          setGarden({
+            gardenName: res.data.gardenName,
+            length: res.data.length,
+            width: res.data.width,
+            dateRangeMinimum: null,
+            dateRangeMaximum: null,
+            plots: [],
+            id: res.data._id,
+          });
         })
-      }).catch((err) => console.log(err));
-    } //end if 
+        .catch((err) => console.log(err));
+    } //end if
   }, [gardenData]);
 
   return (
@@ -72,22 +74,32 @@ const Form = ({ children }) => {
         <form
           onSubmit={handleSubmit}
           style={{
-            width: "750",
+            width: "450",
             border: "2px solid",
             borderColor: "#73AD21",
-            position: "absolute",
-            top: "50%",
-            left: "35%",
-            transform: "translate(-25%, -25%)",
-            borderRadius: "15px"
+            position: "relative",
+            borderRadius: "15px",
+            backgroundColor: "rgba(255, 255, 255, 0.514)",
           }}
-        >{children}
-          <div className="mt-4" style={{ textAlign: "center" }}>
-            <h3>Garden Parameters</h3>
+        >
+          {children}
+          <div className="mt-4">
+            <h3
+              style={{
+                textAlign: "center",
+                fontFamily: "'Concert One', cursive",
+                fontWeight: "400",
+                fontSize: "60px",
+                color: "#8C8627",
+              }}
+            >
+              Garden Parameters
+            </h3>
           </div>
           <Container style={{ width: "550" }} className="mt-3 px-5">
             <Row className="form-group">
               <Col size="6">
+                Name your Garden:
                 <input
                   onChange={(event) => setName(event.target.value)}
                   className="form-control"
@@ -95,12 +107,13 @@ const Form = ({ children }) => {
                   placeholder="Add garden name..."
                   name="gardenName"
                   value={name}
-                />{children}
+                />
+                {children}
               </Col>
             </Row>
             <Row className="form-group">
               <Col size="6">
-                <label>Length</label>
+                <label>Length (ft)</label>
                 <br></br>
                 <select
                   onChange={(event) => setLength(event.target.value)}
@@ -108,7 +121,8 @@ const Form = ({ children }) => {
                   type="select-one"
                   name="length"
                   value={length}
-                >{children}
+                >
+                  {children}
                   <option value="2">2</option>
                   <option value="4">4</option>
                   <option value="6">6</option>
@@ -117,7 +131,7 @@ const Form = ({ children }) => {
                 </select>
               </Col>
               <Col size="6">
-                <label>Width</label>
+                <label>Width (ft)</label>
                 <br></br>
                 <select
                   onChange={(event) => setWidth(event.target.value)}
@@ -125,7 +139,8 @@ const Form = ({ children }) => {
                   type="text"
                   name="width"
                   value={width}
-                >{children}
+                >
+                  {children}
                   <option value="2">2</option>
                   <option value="4">4</option>
                   <option value="6">6</option>
@@ -136,18 +151,16 @@ const Form = ({ children }) => {
             </Row>
             <br></br>
             <Row className="form-group">
-              <button
-                className="btn btn-success"
-                type="submit"
-              >{children}
-                    Submit
-                  </button>
+              <button style={{backgroundColor:"#F2B199", color:"white"}} className="btn btn-success" type="submit">
+                {children}
+                Submit
+              </button>
             </Row>
           </Container>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Form;
