@@ -19,7 +19,7 @@ function CardContainer({ children }) {
                 }}>
                 {garden.plots && garden.plots.map(plant => {
                     return (
-                        <div className="plot" key={plant.Name}>
+                        <div className="plot" key={plant._id}>
                             {plant.Name}
                             <br></br>
                             <br></br>
@@ -28,14 +28,14 @@ function CardContainer({ children }) {
                     )
                 })}
             </div>
-            <div>
-                {garden.plots && garden.plots.map(plant => {
+            <div className = "fixedBox">
+                {garden.plots && garden.plots.map(plant  => {
                         return (
-                            <li key={plant.Name}>
-                                {plant.compatiblePlants}
-                            </li>
+                                <p key={plant._id}>
+                                    {plant.compatiblePlants}
+                                </p>
                         )
-                })}
+                }).reverse()}
             </div>
         </Container>
     )
