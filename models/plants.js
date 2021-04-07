@@ -45,6 +45,14 @@ const plantSchema = new Schema({
 	url: {
 		type: String,
 		trim: true,
+	},
+	minPlants: {
+		type: Number,
+		trim: true,
+	},
+	maxPlants: {
+		type: Number,
+		trim: true,
 	}
 });
 

@@ -49,4 +49,15 @@ when user enters garden dimensions */
     text-align: left;
   }
 
+.fixedBox {
+  max-height: 70px;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  /* text-align: bottom; */
+  overflow: hidden;
+}
+
+
 

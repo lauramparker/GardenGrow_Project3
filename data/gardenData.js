@@ -16,8 +16,4 @@ let gardenSeed = [{
 	dateRangeMaximum: null,
 }];
 
-
-
-// console.log(garden);
-
 module.exports = gardenSeed;

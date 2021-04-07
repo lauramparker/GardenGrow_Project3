@@ -9,28 +9,11 @@ const plotSchema = new Schema({
 		type: plantSchema,
 		required: false,
 	},
-	// plant: {
-	//     type: Schema.Types.ObjectId ,
-	//     required: false,
-	//     ref: "Plant",
-	// },
 	spaceMinimum: Number,
 	spaceMaximum: Number,
 	maxPlants: Number,
 	minPlants: Number,
 });
-
-// need to find the number of plants per square foot based on recommended spacing
-
-// function to find the minimum number of plants 
-plotSchema.methods.findMinPlants = function (cb) {
-
-};
-
-// function to find the maximum number of plants
-plotSchema.methods.findMaxPlants = function (cb) {
-
-};
 
 const Plot = model("Plot", plotSchema);
 

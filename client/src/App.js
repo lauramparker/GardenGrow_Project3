@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useParams } from "react-router-dom";
 import { Container } from "reactstrap";
 import GardenProvider from "./Providers/GardenProvider";
 
@@ -8,13 +8,8 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
-// import ExternalApi from "../src/views/ExternalApi";
-// import { useAuth0 } from "@auth0/auth0-react";
-
-
 import Landing from "./pages/landing-page/Landing.js";
 import MyGarden from "./pages/my-gardens/MyGarden.js";
-import GardenEdit from "./pages/garden-edit/GardenEdit";
 import Garden from "./pages/garden/Garden";
 
 // styles
@@ -24,41 +19,31 @@ import "./App.css";
 import initFontAwesome from "./utils/initFontAwesome";
 initFontAwesome();
 
-
-
-
 const App = () => {
-
-
   return (
-
     <Router>
       <GardenProvider>
         <div id="app" className="d-flex flex-column h-100">
           <NavBar />
-          <Container className="flex-grow-1 mt-5">
-
+          <Container className="flex-grow-1 mt-5" style={{minHeight:"100%"}}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/landing-page"
                 component={Landing}
               />
-              <Route exact path={["/my-gardens", "/mygardens"]}
+              <Route exact path="/my-gardens"
                 component={MyGarden}
               />
-              <Route exact path="/garden-edit"
-                component={GardenEdit}
-              />
-              <Route path="/garden/"  //not exact path because Garden ID is needed
+              <Route path="/garden/:id"  //not exact path because Garden ID is needed
                 component={Garden}
+                garden={useParams.id}
               />
             </Switch>
+            <Footer />
           </Container>
-          <Footer />
         </div>
       </GardenProvider>
-
     </Router>
   );
 };

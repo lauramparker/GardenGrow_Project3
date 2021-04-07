@@ -3,43 +3,44 @@ import { Container } from "react-bootstrap";
 import { GardenContext } from "../../Providers/GardenProvider";
 import "./style.css";
 
-
 //div Wrapper is CSS Grids
+function CardContainer({ children }) {
+    const { garden } = useContext(GardenContext);
 
-function CardContainer( {children} ) {
+    const dividedLength = (garden.length)/2;
+    const dividedWidth = (garden.width)/2;
 
-    //Hard-Coded Version.. Need to DIVIDE length & WIDTH / 2 for 2 x 2 Plots
-    // const[dimensions, setDimensions] = useState({
-    //     length: 3,
-    //     width: 3,
-    // });
-
-    const { garden } = useContext(GardenContext); 
-
-
-    return(
-        <div>
-        <Container id ="gardenBox"> {children}
-            
-            <div className = "wrapper" 
-                style={{"gridTemplateRows": "repeat("+ garden.length+", 100px)",
-                "gridTemplateColumns": "repeat("+ garden.width+", 100px)"}}>
-
-                {garden.plots && garden.plots.map(plot=> (
-                <div className= "plot" key={garden.plot.plant.Name}>  
-                    Plant: {garden.plots.plant.Name} 
-                    Max #: {garden.plots.plant.maxPlants}
-                </div>
-                ))}
+    return (
+        <Container id="gardenBox"> {children}
+            <div className="wrapper"
+                style={{
+                    "gridTemplateRows": "repeat(" + dividedLength + ", 100px)",
+                    "gridTemplateColumns": "repeat(" + dividedWidth + ", 100px)"
+                }}>
+                {garden.plots && garden.plots.map(plant => {
+                    return (
+                        <div className="plot" key={plant._id}>
+                            {plant.Name}
+                            <br></br>
+                            <br></br>
+                            max # of plants: {plant.minPlants}
+                        </div>
+                    )
+                })}
             </div>
-
+            <div className = "fixedBox">
+                {garden.plots && garden.plots.map(plant  => {
+                        return (
+                                <p key={plant._id}>
+                                    {plant.compatiblePlants}
+                                </p>
+                        )
+                }).reverse()}
+            </div>
         </Container>
-        </div>
-
     )
-
 }
 export default CardContainer;
 
 
-    
+

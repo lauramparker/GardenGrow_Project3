@@ -1,10 +1,9 @@
 import axios from "axios";
-// import Routes from "../../../../routes";
 
 const API = {
   // Create user
-  createUser: function({lastName, fistName, userName, email, profilePicture}) {
-    return axios.post("/api/users", {lastName, fistName, userName, email, profilePicture})
+  createUser: function({lastName, firstName, userName, email, profilePicture}) {
+    return axios.post("/api/users", {lastName, firstName, userName, email, profilePicture})
   },
   // Get user
   getUser: function(id) {
@@ -34,8 +33,8 @@ const API = {
   },
 
    // Updates a Garden with array of plots as plants are added
-   updateGarden: function(id) {
-    return axios.put("/api/gardens/" + id);
+   updateGarden: function(id, data) {
+    return axios.put("/api/gardens/" + id, data);
   },
 
   deleteGarden: function(id) {
