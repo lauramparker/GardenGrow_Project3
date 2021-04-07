@@ -8,11 +8,18 @@ export function getConfig() {
 	// If this resolves to `null`, the API page changes to show some helpful info about what to do
 	// with the audience.
 	const audience =
-    configJson.audience && configJson.audience !== "YOUR_API_IDENTIFIER" ? configJson.audience : null;
-
-	return {
-		domain: configJson.domain,
-		clientId: configJson.clientId,
-		...(audience ? { audience } : null),
-	};
+		configJson.audience && configJson.audience !== "YOUR_API_IDENTIFIER" ? configJson.audience : null;
+	if (configJson) {
+		return {
+			domain: process.env.DOMAIN || configJson.domain,
+			clientId: process.env.CLIENT_ID || configJson.clientId,
+			...(audience ? { audience } : null),
+		};
+	} else {
+		return {
+			domain: process.env.DOMAIN,
+			clientId: process.env.CLIENT_ID,
+			...(audience ? { audience } : null),
+		};
+	}
 }
