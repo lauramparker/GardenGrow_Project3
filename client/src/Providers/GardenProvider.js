@@ -7,7 +7,7 @@ import API from '../utils/API';
 export const GardenContext = createContext();
 
 const GardenProvider = ({ children }) => {
-  const { user } = useAuth0();
+//   const { user } = useAuth0(); //don't need in provider (AuthO has provider)
   const history = useHistory();
   const [garden, setGarden] = useState();
   const [plants, setPlants] = useState([]);
