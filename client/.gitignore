@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # authentication information
-# /src/authentication/auth_config.json
+/src/authentication/auth_config.json
