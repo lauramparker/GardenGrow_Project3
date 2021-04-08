@@ -22,7 +22,7 @@ const Form = ({ children }) => {
   // hooks
   const { user } = useAuth0();
 
-  const { garden, setGarden } = useContext(GardenContext);
+  const { setGarden } = useContext(GardenContext);
 
   const [name, setName] = useState("");
   const [length, setLength] = useState("");
