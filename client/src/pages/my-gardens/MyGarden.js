@@ -5,7 +5,7 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import API from "../../utils/API";
 import Loading from "../../components/Loading";
 import { ListGroup, Item } from "../../components/ListGroup";
-import Footer from "../../components/Footer";
+// import Footer from "../../components/Footer";
 import { useHistory } from "react-router-dom";
 
 function MyGarden() {
